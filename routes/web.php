@@ -23,4 +23,5 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', App\Livewire\Pages\Home::class)->name('home');
+    Route::get('/about', App\Livewire\Pages\About::class)->name('about');
 });
