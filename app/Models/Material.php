@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Material extends Model
 {
@@ -16,4 +17,9 @@ class Material extends Model
         'thumbnail',
         'tags',
     ];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->thumbnail ? Storage::url($this->thumbnail) : url('noimage.jpg');
+    }
 }

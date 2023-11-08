@@ -7,10 +7,19 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public function mount()
+    public $email;
+    public $password;
+
+    public function login()
     {
-        Auth::loginUsingId(1);
-        return redirect()->route('home');
+        $valid = $this->validate([
+            'email' => 'email|required',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($valid)) {
+            return redirect()->route('home');
+        }
     }
 
     public function render()
