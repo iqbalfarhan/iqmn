@@ -2,10 +2,10 @@
     <div class="flex flex-col lg:flex-row justify-between gap-4">
         <h3 class="text-3xl font-bold">{{ $material->title }}</h3>
         <div class="flex gap-1">
-            <button class="btn">
+            <a href="{{ $material->url }}" class="btn" target="_blank">
                 <x-tabler-external-link class="w-5 h-5" />
                 <span>Buka material</span>
-            </button>
+            </a>
         </div>
     </div>
     
@@ -13,7 +13,11 @@
     <article class="prose prose-lg mx-auto">
         <button class="btn" wire:click.prevent="attachMaterial">
             <x-tabler-heart class="w-5 h-5" />
-            <span>Add to favourite</span>
+            <span>favorite</span>
+        </button>
+        <button class="btn" wire:click.prevent="attachMaterial">
+            <x-tabler-heart-broken class="w-5 h-5" />
+            <span>unfavorite</span>
         </button>
 
         <figure>
@@ -55,6 +59,9 @@
             <span>Tambahkan komentar</span>
         </button>
 
+        @livewire('partial.chat')
+        @livewire('partial.chat')
+        @livewire('partial.chat')
         @livewire('partial.chat')
     </div>
 </div>
