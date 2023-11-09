@@ -1,51 +1,60 @@
-<ul class="menu space-y-4 p-4 w-80 min-h-full bg-base-200 text-base-content">
+<ul class="menu space-y-6 p-4 w-80 min-h-full bg-base-100">
+    <li>
+        <a class="btn btn-ghost normal-case font-black text-primary text-2xl" href="{{ route('home') }}"
+            wire:navigate>{{ config('app.name') }}</a>
+    </li>
     <li>
         <h2 class="menu-title">Dashboard</h2>
         <ul>
             <li>
-                <a href="{{ route('home') }}" class="{{ Request::route()->getName() == "home" ? "active" : "" }}" wire:navigate>
+                <a href="{{ route('home') }}" class="{{ Request::route()->getName() == 'home' ? 'active' : '' }}"
+                    wire:navigate>
                     <x-tabler-home class="w-5 h-5" />
                     <span>Beranda</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('about') }}" class="{{ Request::route()->getName() == "about" ? "active" : "" }}" wire:navigate>
-                    <x-tabler-user class="w-5 h-5" />
-                    <span>Tentang app</span>
+                <a href="{{ route('material.comot') }}"
+                    class="{{ Request::route()->getName() == 'material.comot' ? 'active' : '' }}" wire:navigate>
+                    <x-tabler-books class="w-5 h-5" />
+                    <span>Materi belajarku</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('material.index') }}" class="{{ Request::route()->getName() == "material.index" ? "active" : "" }}" wire:navigate>
-                    <x-tabler-books class="w-5 h-5" />
-                    <span>Materi belajar</span>
+                <a href="{{ route('material.cari') }}"
+                    class="{{ Request::route()->getName() == 'material.cari' ? 'active' : '' }}" wire:navigate>
+                    <x-tabler-search class="w-5 h-5" />
+                    <span>Cari materi</span>
                 </a>
             </li>
         </ul>
     </li>
     <li>
-        <h2 class="menu-title">Administration</h2>
+        <h2 class="menu-title">Managerials</h2>
         <ul>
             <li>
-                <a href="" wire:navigate>
-                    <x-tabler-tag class="w-5 h-5" />
-                    <span>Tags material</span>
-                </a>
-            </li>
-            <li>
-                <a href="" wire:navigate>
-                    <x-tabler-user class="w-5 h-5" />
-                    <span>User mangement</span>
-                </a>
-            </li>
-            <li>
-                <a href="" wire:navigate>
-                    <x-tabler-user class="w-5 h-5" />
-                    <span>Role & permissions</span>
+                <a href="{{ route('material.index') }}"
+                    class="{{ Request::route()->getName() == 'material.index' ? 'active' : '' }}" wire:navigate>
+                    <x-tabler-book class="w-5 h-5" />
+                    <span>Materials data</span>
                 </a>
             </li>
             <li>
                 <a href="" wire:navigate>
                     <x-tabler-users class="w-5 h-5" />
+                    <span>User mangement</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('permission.index') }}"
+                    class="{{ Request::route()->getName() == 'permission.index' ? 'active' : '' }}" wire:navigate>
+                    <x-tabler-user-shield class="w-5 h-5" />
+                    <span>Role & permissions</span>
+                </a>
+            </li>
+            <li>
+                <a href="" wire:navigate>
+                    <x-tabler-users-group class="w-5 h-5" />
                     <span>Group setting</span>
                 </a>
             </li>
@@ -61,7 +70,15 @@
         <h2 class="menu-title">Authentication</h2>
         <ul>
             <li>
-                <a href="{{ route('profile') }}" class="{{ Request::route()->getName() == "profile" ? "active" : "" }}" wire:navigate>
+                <a href="{{ route('about') }}" class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}"
+                    wire:navigate>
+                    <x-tabler-info-square class="w-5 h-5" />
+                    <span>Tentang app</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('profile') }}"
+                    class="{{ Request::route()->getName() == 'profile' ? 'active' : '' }}" wire:navigate>
                     <x-tabler-user class="w-5 h-5" />
                     <span>Edit profile</span>
                 </a>

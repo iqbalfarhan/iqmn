@@ -8,11 +8,10 @@ use Livewire\Component;
 class Sidebar extends Component
 {
 
-    public function logout(){
-        
-        if (Auth::logout()) {
-            return redirect()->route('login');
-        }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 
     public function render()

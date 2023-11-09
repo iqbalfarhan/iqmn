@@ -3,10 +3,12 @@
 namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Auth;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Login extends Component
 {
+    use LivewireAlert;
     public $email;
     public $password;
 
@@ -18,6 +20,7 @@ class Login extends Component
         ]);
 
         if (Auth::attempt($valid)) {
+            $this->flash('success', 'Login berhasil');
             return redirect()->route('home');
         }
     }

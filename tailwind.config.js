@@ -12,13 +12,19 @@ export default {
     require('@tailwindcss/typography'),
     require("daisyui")
   ],
-  // daisyui: {
-  //   themes: [
-  //     "light",
-  //     "dark",
-  //     "cupcake"
-  //   ],
-  // },
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          "primary": "#00ADB5",
+          "neutral": "#00ADB5",
+          "base-100": "#222831",
+          "base-200": "#393E46",
+          "base-300": "#1E2123",
+        },
+      },
+    ],
+  },
 }
   
   

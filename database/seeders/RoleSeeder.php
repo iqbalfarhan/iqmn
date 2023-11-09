@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
         ];
 
         foreach ($datas as $data) {
-            Role::create(['name' => $data]);
+            Role::updateOrCreate(['name' => $data]);
         }
     }
 }

@@ -18,8 +18,17 @@ class Material extends Model
         'tags',
     ];
 
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
     public function getImageUrlAttribute()
     {
         return $this->thumbnail ? Storage::url($this->thumbnail) : url('noimage.jpg');
+    }
+
+    public function discussions()
+    {
+        return $this->hasMany(Discussion::class);
     }
 }
