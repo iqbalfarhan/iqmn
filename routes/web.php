@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', App\Livewire\Pages\Profile::class)->name('profile');
 
     Route::get('/permission', App\Livewire\Permission\Index::class)->name('permission.index');
+    Route::get('/user', App\Livewire\User\Index::class)->name('user.index');
 
     Route::get('/material', App\Livewire\Material\Index::class)->name('material.index');
     Route::get('/material/cari', App\Livewire\Material\Cari::class)->name('material.cari');

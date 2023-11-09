@@ -40,7 +40,8 @@
                 </a>
             </li>
             <li>
-                <a href="" wire:navigate>
+                <a href="{{ route('user.index') }}"
+                    class="{{ Request::route()->getName() == 'user.index' ? 'active' : '' }}" wire:navigate>
                     <x-tabler-users class="w-5 h-5" />
                     <span>User mangement</span>
                 </a>

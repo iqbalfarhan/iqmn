@@ -31,4 +31,9 @@ class Material extends Model
     {
         return $this->hasMany(Discussion::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_has_material');
+    }
 }

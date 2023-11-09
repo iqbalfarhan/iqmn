@@ -5,20 +5,21 @@
         </div>
 
         <div>
-            <label for="createModal" class="btn">
-                <x-tabler-plus class="w-5 h-5" />
-                <span class="hidden lg:block">create permission</span>
+            <label for="createModal" class="btn btn-primary btn-sm">
+                <x-tabler-circle-plus class="w-5 h-5" />
+                <span class="hidden lg:block">permission</span>
             </label>
-            <label for="createModal" class="btn">
-                <x-tabler-plus class="w-5 h-5" />
-                <span class="hidden lg:block">create role</span>
+            <label for="createModal" class="btn btn-primary btn-sm">
+                <x-tabler-circle-plus class="w-5 h-5" />
+                <span class="hidden lg:block">role</span>
             </label>
         </div>
     </div>
 
-    <div class="overflow-x-auto bg-base-100 shadow rounded-lg">
-        <table class="table whitespace-nowrap">
-            <thead class="border-b-4 border-base-200">
+    <div class="overflow-x-auto bg-base-100 shadow-xl rounded-xl">
+        <table class="table">
+            <thead class="border-b-4 border-primary">
+                <th>Guard</th>
                 <th>Permissions</th>
                 @foreach ($roles as $role)
                     <th>{{ $role->name }}</th>
@@ -28,6 +29,7 @@
             <tbody>
                 @foreach ($permissions as $permit)
                     <tr>
+                        <td>{{ $permit->guard_name }}</td>
                         <td>{{ $permit->name }}</td>
                         @foreach ($roles as $role)
                             <td>

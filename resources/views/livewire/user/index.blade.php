@@ -10,26 +10,18 @@
         <table class="table">
             <thead class="border-b-4 border-primary">
                 <th>No</th>
-                <th>Title</th>
-                <th>Comot</th>
-                <th>Chat</th>
-                <th>tags</th>
+                <th>Name</th>
+                <th>Email</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 @foreach ($datas as $data)
                     <tr>
                         <td>{{ $data->id }}</td>
-                        <td>{{ Str::limit($data->title, 40) }}</td>
-                        <td>{{ $data->users->count() }}</td>
-                        <td>{{ $data->discussions->count() }}</td>
-                        <td>{{ count($data->tags ?? []) }}</td>
+                        <td>{{ $data->name }}</td>
+                        <td>{{ $data->email }}</td>
                         <td>
                             <div class="flex gap-1">
-                                <a href="{{ route('material.edit', $data->id) }}"
-                                    class="btn btn-xs btn-square btn-primary">
-                                    <x-tabler-external-link class="w-4 h-4" />
-                                </a>
                                 <a href="{{ route('material.edit', $data->id) }}"
                                     class="btn btn-xs btn-square btn-success">
                                     <x-tabler-edit class="w-4 h-4" />
