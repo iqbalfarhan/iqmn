@@ -2,14 +2,6 @@
     <div class="grid lg:grid-cols-2 gap-6">
         <div class="stats shadow-lg">
             <div class="stat">
-                <div class="stat-title">Total Page Views</div>
-                <div class="stat-value">89,400</div>
-                <div class="stat-desc">21% more than last month</div>
-            </div>
-        </div>
-
-        <div class="stats shadow-lg">
-            <div class="stat">
                 <div class="stat-figure">
                     <div class="avatar">
                         <div class="w-16 rounded-full">
