@@ -13,7 +13,7 @@ class Cari extends Component
     public function pencarian()
     {
         $this->validate([
-            'cari' => 'string|required|min:5'
+            'cari' => 'string|required'
         ]);
     }
 

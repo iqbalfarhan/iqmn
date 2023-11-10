@@ -4,9 +4,8 @@
             <div class="w-full max-w-xl py-6 mx-auto space-y-4">
                 <h1 class="text-5xl font-bold">Cari material</h1>
                 <p class="py-6">
-                    Silakan tulis nama materi yang ingin kamu cari. input minimial 5 karakter ya. kamu juga bisa cari
-                    dengan
-                    tag material. Tag biasanya disesuaikan dengan bahasan materi.
+                    Silakan tulis nama materi yang ingin kamu cari. kamu juga bisa cari dengan tag material. Tag
+                    biasanya disesuaikan dengan bahasan materi.
                 </p>
                 <div class="flex gap-2">
                     <input type="text" class="input w-full @error('cari') input-error @enderror"
