@@ -34,7 +34,7 @@ class Form extends Component
 
         if ($this->thumbnail) {
             $filename = $this->thumbnail->hashName('user');
-            $image = Image::make($this->thumbnail);
+            $image = Image::make($this->thumbnail)->encode('jpg', 100);
 
             Storage::put($filename, $image);
 
