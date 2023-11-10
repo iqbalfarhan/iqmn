@@ -1,9 +1,9 @@
 <div class="space-y-6">
-    <div class="text-4xl font-black text-center text-primary">{{ config('app.name') }}</div>
+    <div class="text-4xl font-black text-center w-full text-primary">{{ config('app.name') }}</div>
 
-    <div class="card w-96 bg-base-100 shadow">
+    <div class="card w-96 bg-base-100">
         <form class="card-body" wire:submit.prevent="register">
-            <h2 class="card-title">Ciee, belum punya akun</h2>
+            <h2 class="card-title">Registrasi akun</h2>
 
             <div class="py-4 space-y-4">
                 <div class="space-y-2">

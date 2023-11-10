@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Profile extends Component
 {
+    protected $listeners = ['reload' => '$refresh'];
 
     public User $user;
 

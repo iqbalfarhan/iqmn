@@ -3,6 +3,8 @@
 namespace App\Livewire\Material;
 
 use App\Models\Material;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -29,6 +31,15 @@ class Form extends Component
         ]);
 
         $valid['tags'] = array_map('trim', explode(',', $this->tags));
+
+        if ($this->thumbnail) {
+            $filename = $this->thumbnail->hashName('user');
+            $image = Image::make($this->thumbnail)->fit(500)->encode('jpg', 100);
+
+            Storage::put($filename, $image);
+
+            $valid['thumbnail'] = $filename;
+        }
 
         if ($this->material) {
             $this->material->update($valid);

@@ -13,11 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::middleware('guest')->group(function () {
+    Route::get('/', App\Livewire\Pages\Welcome::class)->name('welcome');
     Route::get('/login', App\Livewire\Auth\Login::class)->name('login');
     Route::get('/register', App\Livewire\Auth\Register::class)->name('register');
 });
@@ -27,13 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/about', App\Livewire\Pages\About::class)->name('about');
     Route::get('/profile', App\Livewire\Pages\Profile::class)->name('profile');
 
-    Route::get('/permission', App\Livewire\Permission\Index::class)->name('permission.index');
-    Route::get('/user', App\Livewire\User\Index::class)->name('user.index');
+    Route::middleware('can:permission.index')->get('/permission', App\Livewire\Permission\Index::class)->name('permission.index');
+    Route::middleware('can:user.index')->get('/user', App\Livewire\User\Index::class)->name('user.index');
 
-    Route::get('/material', App\Livewire\Material\Index::class)->name('material.index');
-    Route::get('/material/cari', App\Livewire\Material\Cari::class)->name('material.cari');
-    Route::get('/material/comot', App\Livewire\Material\Comot::class)->name('material.comot');
-    Route::get('/material/create', App\Livewire\Material\Form::class)->name('material.create');
-    Route::get('/material/{material}/edit', App\Livewire\Material\Form::class)->name('material.edit');
-    Route::get('/material/{material}', App\Livewire\Material\Show::class)->name('material.show');
+    Route::middleware('can:material.index')->get('/material', App\Livewire\Material\Index::class)->name('material.index');
+    Route::middleware('can:material.cari')->get('/material/cari', App\Livewire\Material\Cari::class)->name('material.cari');
+    Route::middleware('can:material.comot')->get('/material/comot', App\Livewire\Material\Comot::class)->name('material.comot');
+    Route::middleware('can:material.create')->get('/material/create', App\Livewire\Material\Form::class)->name('material.create');
+    Route::middleware('can:material.edit')->get('/material/{material}/edit', App\Livewire\Material\Form::class)->name('material.edit');
+    Route::middleware('can:material.show')->get('/material/{material}', App\Livewire\Material\Show::class)->name('material.show');
 });

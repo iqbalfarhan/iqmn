@@ -1,16 +1,18 @@
 <div class="space-y-8">
     <div class="flex flex-col justify-between items-center gap-4">
         <div>
-            <div class="avatar">
+            <button class="avatar" wire:click="$dispatch('editProfile', {edittype: 'photo'})">
                 <div class="w-24 rounded-full">
                     <img src="{{ $user->image_url }}" />
                 </div>
+            </button>
+        </div>
+        <button class="btn btn-ghost normal-case btn-lg" wire:click="$dispatch('editProfile', {edittype: 'info'})">
+            <div class="flex flex-col">
+                <h1 class="text-xl font-bold">{{ $user->name }}</h1>
+                <span class="text-sm">{{ $user->email }}</span>
             </div>
-        </div>
-        <div class="cursor-pointer text-center">
-            <h1 class="text-xl font-bold">{{ $user->name }}</h1>
-            <span>{{ $user->email }}</span>
-        </div>
+        </button>
     </div>
 
     <div class="w-full max-w-lg mx-auto space-y-4">
@@ -19,14 +21,14 @@
             <li>
                 <label class="justify-between">
                     <span>Stacked sidebar</span>
-                    <input type="checkbox" class="toggle">
+                    <input type="checkbox" class="toggle" disabled>
                 </label>
             </li>
             <li></li>
             <li>
                 <label class="justify-between">
                     <span>Enable dark mode</span>
-                    <input type="checkbox" class="toggle">
+                    <input type="checkbox" class="toggle" disabled>
                 </label>
             </li>
         </ul>
@@ -38,7 +40,8 @@
             <li>
                 <div class="justify-between">
                     <span>Change password</span>
-                    <button class="btn btn-xs btn-outline">Update</button>
+                    <button class="btn btn-xs btn-outline"
+                        wire:click="$dispatch('editProfile', {edittype: 'password'})">Update</button>
                 </div>
             </li>
             <li></li>
@@ -50,5 +53,7 @@
             </li>
         </ul>
     </div>
+
+    @livewire('user.profile')
 
 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -33,7 +33,8 @@
 
 
     @guest
-        <div class="bg-base-200 min-h-screen flex justify-center items-center">
+        <div class="bg-base-100 min-h-screen flex justify-center items-center">
+            @livewire('partial.guestnav')
             {{ $slot }}
         </div>
     @endguest
