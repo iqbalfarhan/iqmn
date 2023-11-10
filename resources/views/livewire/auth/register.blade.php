@@ -11,7 +11,7 @@
                         placeholder="Nama lengkap" wire:model="name">
                     <input type="email" class="input w-full input-bordered @error('email') input-error @enderror"
                         placeholder="Email address" wire:model="email">
-                    <input type="pasword" class="input w-full input-bordered @error('password') input-error @enderror"
+                    <input type="password" class="input w-full input-bordered @error('password') input-error @enderror"
                         placeholder="Password" wire:model="password">
                     <input type="text" class="input w-full input-bordered @error('code') input-error @enderror"
                         placeholder="Kode Registrasi" wire:model="code">
