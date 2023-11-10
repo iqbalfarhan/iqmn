@@ -18,11 +18,11 @@
             </a>
             <button class="btn" wire:click.prevent="attachMaterial">
                 @if ($mine)
-                    <x-tabler-heart-filled class="w-5 h-5 text-error" />
-                    <span>lepas</span>
+                    <x-tabler-pin class="w-5 h-5 text-error" />
+                    <span>lepas pin</span>
                 @else
-                    <x-tabler-heart class="w-5 h-5 text-error" />
-                    <span>comot</span>
+                    <x-tabler-pinned-off class="w-5 h-5 text-error" />
+                    <span>pin</span>
                 @endif
             </button>
             <span wire:loading>
