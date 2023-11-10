@@ -18,10 +18,10 @@
             </a>
             <button class="btn" wire:click.prevent="attachMaterial">
                 @if ($mine)
-                    <x-tabler-pin class="w-5 h-5 text-error" />
+                    <x-tabler-pinned-off class="w-5 h-5 text-error" />
                     <span>lepas pin</span>
                 @else
-                    <x-tabler-pinned-off class="w-5 h-5 text-error" />
+                    <x-tabler-pin class="w-5 h-5 text-error" />
                     <span>pin</span>
                 @endif
             </button>
