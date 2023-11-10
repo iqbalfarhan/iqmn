@@ -26,9 +26,9 @@
                         <td>{{ count($data->tags ?? []) }}</td>
                         <td>
                             <div class="flex gap-1">
-                                <a href="{{ route('material.edit', $data->id) }}"
+                                <a href="{{ route('material.show', $data->id) }}"
                                     class="btn btn-xs btn-square btn-primary">
-                                    <x-tabler-external-link class="w-4 h-4" />
+                                    <x-tabler-folder class="w-4 h-4" />
                                 </a>
                                 <a href="{{ route('material.edit', $data->id) }}"
                                     class="btn btn-xs btn-square btn-success">
