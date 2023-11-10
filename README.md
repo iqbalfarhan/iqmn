@@ -6,23 +6,13 @@ Aplikasi .IQMN adalah platform belajar yang dirancang untuk membantu Kamu memper
 
 ## Materi Belajar Gratis
 
-Kami percaya bahwa pendidikan harus dapat diakses oleh semua orang. Itulah mengapa kami menyediakan berbagai materi belajar gratis, termasuk:
-
--   Artikel informatif
--   Video tutorial
--   Buku elektronik gratis
--   Sumber daya pendidikan online
+Kami percaya bahwa pendidikan harus dapat diakses oleh semua orang. Itulah mengapa kami menyediakan berbagai materi belajar gratis, termasuk Artikel informatif, Buku elektronik gratis
 
 Materi belajar gratis kami mencakup berbagai topik, mulai dari ilmu pengetahuan, teknologi, matematika, hingga seni dan humaniora.
 
 ## Materi Belajar Berbayar
 
-Selain materi belajar gratis, kami juga menawarkan materi berbayar yang lebih mendalam dan eksklusif. Dengan berlangganan premium, Kamu akan mendapatkan akses ke:
-
--   Kursus interaktif
--   Pelatihan keterampilan khusus
--   Materi belajar terbaru dan terkini
--   Dukungan pribadi dari instruktur kami
+Selain materi belajar gratis, kami juga menawarkan materi berbayar yang lebih mendalam dan eksklusif. Dengan berlangganan premium, Kamu akan mendapatkan akses ke materi belajar yang lebih lengkap
 
 Materi berbayar kami didesain untuk membantu Kamu mencapai tingkat pengetahuan dan keterampilan yang lebih tinggi.
 
@@ -33,5 +23,3 @@ Kami mendorong Kamu untuk bergabung dalam komunitas belajar kami. Kamu dapat ber
 ### Mulai Belajar Sekarang!
 
 Tidak peduli apakah Kamu seorang pelajar, profesional, atau penasaran untuk memperluas pengetahuan Kamu, aplikasi kami adalah tempat yang tepat untuk Kamu. Dengan akses ke materi belajar gratis dan berbayar, kami menyediakan alat yang Kamu butuhkan untuk tumbuh dan berkembang.
-
-Ayo mulai belajar sekarang! Unduh aplikasi kami dan mulai petualangan belajar Kamu.
