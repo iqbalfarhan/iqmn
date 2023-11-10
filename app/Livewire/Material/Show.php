@@ -23,11 +23,11 @@ class Show extends Component
         if (!in_array($this->material->id, $this->user->materials->pluck('id')->toArray())) {
             $this->user->materials()->attach($this->material->id);
             $this->mine = true;
-            $this->alert('success', "Material ditambahkan ke daftar comot kamu");
+            $this->alert('success', "Material ditambahkan ke daftar materi belajar kamu");
         } else {
             $this->user->materials()->detach($this->material->id);
             $this->mine = false;
-            $this->alert('success', "Material dihapus ke daftar comot kamu");
+            $this->alert('success', "Material dihapus ke daftar materi belajar kamu");
         }
 
 
