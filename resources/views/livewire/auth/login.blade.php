@@ -8,8 +8,8 @@
 
             <div class="py-4 space-y-4">
                 <div class="space-y-2">
-                    <input type="text" class="input w-full input-bordered @error('email') input-error @enderror"
-                        placeholder="Email address" wire:model="email">
+                    <input type="email" class="input w-full input-bordered @error('email') input-error @enderror"
+                        placeholder="Email address" wire:model="email" autocomplete="email">
                     <input type="password" class="input w-full input-bordered @error('password') input-error @enderror"
                         placeholder="Password" wire:model="password">
                 </div>
