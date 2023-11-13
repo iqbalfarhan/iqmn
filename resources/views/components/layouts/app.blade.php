@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="{{ session('theme', 'dark') }}">
 
 <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 <body>
 
     @auth
-        <div class="drawer lg:drawer-open min-h-screen">
+        <div class="drawer {{ session('sidebar', '') }} min-h-screen">
             <input id="drawer" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 @livewire('partial.navbar')

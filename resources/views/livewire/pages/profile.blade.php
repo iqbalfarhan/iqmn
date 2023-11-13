@@ -21,14 +21,14 @@
             <li>
                 <label class="justify-between">
                     <span>Stacked sidebar</span>
-                    <input type="checkbox" class="toggle" disabled>
+                    <input type="checkbox" class="toggle" wire:model.live="sidebar">
                 </label>
             </li>
             <li></li>
             <li>
                 <label class="justify-between">
                     <span>Enable dark mode</span>
-                    <input type="checkbox" class="toggle" disabled>
+                    <input type="checkbox" class="toggle" wire:model.live="theme">
                 </label>
             </li>
         </ul>

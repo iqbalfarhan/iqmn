@@ -66,7 +66,8 @@
                 @endcan
                 @can('group.index')
                     <li>
-                        <a href="" wire:navigate>
+                        <a href="{{ route('group.index') }}"
+                            class="{{ Request::route()->getName() == 'group.index' ? 'active' : '' }}" wire:navigate>
                             <x-tabler-users-group class="w-5 h-5" />
                             <span>Group setting</span>
                         </a>
