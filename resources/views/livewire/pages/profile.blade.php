@@ -39,15 +39,16 @@
         <ul class="menu bg-base-200 rounded-xl">
             <li>
                 <div class="justify-between">
-                    <span>Change password</span>
+                    <span>Ganti password</span>
                     <button class="btn btn-xs btn-outline"
                         wire:click="$dispatch('editProfile', {edittype: 'password'})">Update</button>
                 </div>
             </li>
             <li></li>
             <li>
-                <label class="justify-between">
-                    <span>Delete account</span>
+                <label class="justify-between" wire:click="$dispatch('reload')"
+                    wire:confirm.prompt="Are you sure?\n\nType DELETE to confirm|DELETE">
+                    <span>Hapus akun</span>
                     <button class="btn btn-error btn-xs btn-outline">Delete</button>
                 </label>
             </li>
