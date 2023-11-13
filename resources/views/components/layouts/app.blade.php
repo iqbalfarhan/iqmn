@@ -15,7 +15,7 @@
 <body>
 
     @auth
-        <div class="drawer {{ session('sidebar', '') }} min-h-screen">
+        <div class="drawer {{ session('sidebar', 'lg:drawer-open') }} min-h-screen">
             <input id="drawer" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 @livewire('partial.navbar')

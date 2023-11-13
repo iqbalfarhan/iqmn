@@ -18,7 +18,7 @@ class Profile extends Component
     {
         $this->user = User::find(auth()->user()->id);
         $this->theme = session('theme') == "light" ? false : true;
-        $this->sidebar = session('sidebar') == "lg:drawer-open" ? true : false;
+        $this->sidebar = session('sidebar', 'lg:drawer-open') == "lg:drawer-open" ? true : false;
     }
 
     public function updatedTheme($theme)
