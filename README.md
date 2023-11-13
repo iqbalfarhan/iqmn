@@ -20,6 +20,10 @@ Materi berbayar kami didesain untuk membantu Kamu mencapai tingkat pengetahuan d
 
 Kami mendorong Kamu untuk bergabung dalam komunitas belajar kami. Kamu dapat berbagi pengalaman Kamu, bertanya kepada instruktur, dan berinteraksi dengan sesama pembelajar. Dalam aplikasi kami, Kamu akan menemukan forum diskusi, ruang obrolan, dan kesempatan untuk bergabung dalam kelompok belajar.
 
-### Mulai Belajar Sekarang!
+## Kontak Developer
 
-Tidak peduli apakah Kamu seorang pelajar, profesional, atau penasaran untuk memperluas pengetahuan Kamu, aplikasi kami adalah tempat yang tepat untuk Kamu. Dengan akses ke materi belajar gratis dan berbayar, kami menyediakan alat yang Kamu butuhkan untuk tumbuh dan berkembang.
+Jika anda menemukan Bug atau error ketika menggunakan aplikasi ini, materi yang salah atau sekedar ingin memberikan saran untuk aplikasi ini segera hubungi kontak developer di :
+
+- telegram (@iqbalfarhan08)
+- whatsapp (08999779527)
+- email (iqbalfarhan1996@gmail.com)
