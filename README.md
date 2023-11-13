@@ -24,6 +24,6 @@ Kami mendorong Kamu untuk bergabung dalam komunitas belajar kami. Kamu dapat ber
 
 Jika anda menemukan Bug atau error ketika menggunakan aplikasi ini, materi yang salah atau sekedar ingin memberikan saran untuk aplikasi ini segera hubungi kontak developer di :
 
-- Telegram [(@iqbalfarhan08)](https://t.me/iqbalfarhan08)
-- Whatsapp [(08999779527)](https://wa.me/08999779527)
-- Email [(iqbalfarhan1996@gmail.com)](mailto:iqbalfarhan1996@gmail.com)
+- Telegram di [@iqbalfarhan08](https://t.me/iqbalfarhan08)
+- Whatsapp di [08999779527](https://wa.me/08999779527)
+- Email di [iqbalfarhan1996@gmail.com](mailto:iqbalfarhan1996@gmail.com)
