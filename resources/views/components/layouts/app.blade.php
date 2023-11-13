@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? config('app.name') }}</title>
-    <link rel="icon" href="{{ url('favicon.jpg') }}">
+
+    @if (session('theme', 'dark') == 'dark')
+        <link rel="icon" href="{{ url('favicon.jpg') }}">
+    @else
+        <link rel="icon" href="{{ url('favicon-negative.jpg') }}">
+    @endif
+    
     @vite('resources/css/app.css')
 
     @livewireStyles
