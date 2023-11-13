@@ -1,6 +1,12 @@
 <div class="space-y-6">
-    <div>
+    <div class="flex justify-between">
         <input type="text" class="input input-bordered" placeholder="Cari group">
+        <div>
+            <label for="groupFormModal" class="btn btn-primary btn-sm">
+                <x-tabler-circle-plus class="w-4 h-4" />
+                <span>group</span>
+            </label>
+        </div>
     </div>
 
     <div>
@@ -10,4 +16,6 @@
             @endforeach
         </div>
     </div>
+
+    @livewire('group.form')
 </div>
