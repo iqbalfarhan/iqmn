@@ -69,7 +69,7 @@
                 @endif
             </div>
             <div class="modal-action justify-between">
-                <label for="editProfileModal" class="btn">Close!</label>
+                <label for="editProfileModal" class="btn btn-ghost">Close</label>
                 <button class="btn btn-primary">Simpan</button>
             </div>
         </form>
