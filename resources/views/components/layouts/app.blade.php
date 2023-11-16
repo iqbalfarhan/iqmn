@@ -27,7 +27,6 @@
                 @livewire('partial.navbar')
                 <div class="container mx-auto max-w-5xl p-6 overflow-x-auto">
                     {{ $slot }}
-
                     @livewire('partial.footer')
                 </div>
             </div>
