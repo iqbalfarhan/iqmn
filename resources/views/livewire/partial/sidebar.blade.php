@@ -83,10 +83,19 @@
                     </li>
                 @endcan
                 @can('adminer.index')
+                <li>
+                    <a href="/adminer">
+                        <x-tabler-database class="w-5 h-5" />
+                        <span>Adminer database</span>
+                    </a>
+                </li>
+                @endcan
+                @can('git.index')
                     <li>
-                        <a href="/adminer">
-                            <x-tabler-database class="w-5 h-5" />
-                            <span>Adminer database</span>
+                        <a href="{{ route('git.index') }}"
+                            class="{{ Request::route()->getName() == 'git.index' ? 'active' : '' }}" wire:navigate>
+                            <x-tabler-brand-git class="w-5 h-5" />
+                            <span>Git control</span>
                         </a>
                     </li>
                 @endcan
