@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{ $data->id }}</td>
                         <td>
-                            <div class="flex gap-3 items-center text-left">
+                            <div class="flex gap-3 items-center text-left whitespace-nowrap">
                                 <div class="avatar">
                                     <div class="w-8 rounded aspect-video">
                                         <img src="{{ $data->image_url }}" />
