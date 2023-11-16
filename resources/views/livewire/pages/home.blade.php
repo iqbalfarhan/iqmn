@@ -9,7 +9,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="stat-value text-primary">.IQMN</div>
+                <div class="stat-value text-primary">{{ config('app.name') }}</div>
                 <div class="stat-title">{{ auth()->user()->name }}</div>
                 <div class="stat-desc">{{ auth()->user()->email }}</div>
             </div>

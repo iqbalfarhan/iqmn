@@ -8,11 +8,11 @@
     <title>{{ $title ?? config('app.name') }}</title>
 
     @if (session('theme', 'dark') == 'dark')
-        <link rel="icon" href="{{ url('favicon.jpg') }}">
+        <link rel="icon" href="{{ url('darkicon.png') }}">
     @else
-        <link rel="icon" href="{{ url('favicon-negative.jpg') }}">
+        <link rel="icon" href="{{ url('lighticon.png') }}">
     @endif
-    
+
     @vite('resources/css/app.css')
 
     @livewireStyles
