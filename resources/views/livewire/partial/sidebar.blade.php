@@ -95,7 +95,7 @@
                         <a href="{{ route('git.index') }}"
                             class="{{ Request::route()->getName() == 'git.index' ? 'active' : '' }}" wire:navigate>
                             <x-tabler-brand-git class="w-5 h-5" />
-                            <span>Git control</span>
+                            <span>Git control center</span>
                         </a>
                     </li>
                 @endcan
