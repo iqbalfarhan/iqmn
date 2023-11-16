@@ -3,10 +3,13 @@
 namespace App\Livewire\Material;
 
 use App\Models\Material;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Cari extends Component
 {
+
+    #[Title('Cari materi pembelajaran')]
 
     public $cari;
 

@@ -2,12 +2,13 @@
 
 namespace App\Livewire\Group;
 
-use App\Models\Group;
 use App\Models\User;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Mine extends Component
 {
+    #[Title('Group saya')]
 
     protected $listeners = ['reload' => '$refresh'];
 

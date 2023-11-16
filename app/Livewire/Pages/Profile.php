@@ -4,10 +4,13 @@ namespace App\Livewire\Pages;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Profile extends Component
 {
+    #[Title('Edit profile saya')]
+
     protected $listeners = ['reload' => '$refresh'];
 
     public User $user;
