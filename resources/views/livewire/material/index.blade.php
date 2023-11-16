@@ -1,12 +1,12 @@
-<div class="space-y-6 overflow-x-auto">
+<div class="space-y-6">
     <div class="flex justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian">
         <a href="{{ route('material.create') }}" class="btn btn-primary btn-sm">
             <x-tabler-circle-plus class="w-5 h-5" />
-            <span>Tambah</span>
+            <span class="hidden lg:block">Tambah</span>
         </a>
     </div>
-    <div class="overflow-x-auto bg-base-100 shadow-xl rounded-xl">
+    <div class="w-full overflow-x-auto bg-base-100 shadow-xl rounded-xl">
         <table class="table text-center">
             <thead class="border-b-4 border-primary">
                 <th>No</th>
