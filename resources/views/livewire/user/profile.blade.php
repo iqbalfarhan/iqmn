@@ -1,7 +1,7 @@
 <div>
     <input type="checkbox" id="editProfileModal" class="modal-toggle" wire:model.live="show" />
     <div class="modal">
-        <form class="modal-box" wire:submit.prevent="simpan">
+        <form class="modal-box max-w-sm" wire:submit.prevent="simpan">
             <div class="flex justify-between">
                 <h3 class="font-bold text-lg">Edit Profile : {{ $edittype }}</h3>
                 <span wire:loading><span class="loading loading-xs"></span></span>
@@ -29,27 +29,31 @@
                             class="input input-bordered @error('email') input-error @enderror" wire:model="email" />
                     </div>
                 @elseif ($edittype == 'photo')
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Photo profile</span>
+                    <label class="form-control cursor-pointer">
+                        <div class="flex flex-col items-center py-5 space-y-4">
+                            <div class="avatar">
+                                <div class="w-36 rounded-full hover:shadow-lg">
+                                    @if ($photo)
+                                        <img src="{{ $photo->temporaryUrl() }}" />
+                                    @else
+                                        <img src="{{ auth()->user()->image_url }}" />
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col text-center text-xs opacity-50">
+                                <span>Klik photo dan pilih avatar baru</span>
+                            </div>
+                        </div>
+                        <div class="label">
                             @error('photo')
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             @enderror
-                        </label>
-                        <input type="file" placeholder="Type here"
-                            class="file-input file-input-bordered @error('photo') file-input-error @enderror"
-                            wire:model.live="photo" accept="image/*" />
-
-                        <div class="avatar">
-                            <div class="w-24 rounded-full">
-                                @if ($photo)
-                                    <img src="{{ $photo->temporaryUrl() }}" />
-                                @else
-                                    <img src="{{ auth()->user()->image_url }}" />
-                                @endif
-                            </div>
                         </div>
-                    </div>
+                        <input type="file" placeholder="Type here" id="photoUpdate"
+                            class="file-input file-input-bordered hidden @error('photo') file-input-error @enderror"
+                            wire:model.live="photo" accept="image/*" />
+                    </label>
                 @elseif ($edittype == 'password')
                     <div class="form-control">
                         <label class="label">
