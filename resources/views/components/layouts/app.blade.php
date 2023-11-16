@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ config('app.name') }} -- {{ $title ?? 'Iqbal material ngajar' }}</title>
+    <title>{{ config('app.name') }} 👉 {{ $title ?? 'Iqbal material ngajar' }}</title>
 
     @if (session('theme', 'dark') == 'dark')
         <link rel="icon" href="{{ url('darkicon.png') }}">
