@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('can:user.index')->get('/user', App\Livewire\User\Index::class)->name('user.index');
 
     Route::middleware('can:group.index')->get('/group', App\Livewire\Group\Index::class)->name('group.index');
+    Route::middleware('can:group.mine')->get('/group/mine', App\Livewire\Group\Mine::class)->name('group.mine');
 
     Route::middleware('can:material.index')->get('/material', App\Livewire\Material\Index::class)->name('material.index');
     Route::middleware('can:material.cari')->get('/material/cari', App\Livewire\Material\Cari::class)->name('material.cari');

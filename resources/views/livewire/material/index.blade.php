@@ -7,25 +7,39 @@
         </a>
     </div>
     <div class="overflow-x-auto bg-base-100 shadow-xl rounded-xl">
-        <table class="table">
+        <table class="table text-center">
             <thead class="border-b-4 border-primary">
                 <th>No</th>
                 <th>Title</th>
-                <th>Comot</th>
+                <th>Pinned</th>
                 <th>Chat</th>
-                <th>tags</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 @foreach ($datas as $data)
                     <tr>
                         <td>{{ $data->id }}</td>
-                        <td>{{ Str::limit($data->title, 40) }}</td>
-                        <td>{{ $data->users->count() }}</td>
-                        <td>{{ $data->discussions->count() }}</td>
-                        <td>{{ count($data->tags ?? []) }}</td>
                         <td>
-                            <div class="flex gap-1">
+                            <div class="flex gap-3 items-center text-left">
+                                <div class="avatar">
+                                    <div class="w-8 rounded aspect-video">
+                                        <img src="{{ $data->image_url }}" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-bold">{{ Str::limit($data->title, 40) }}</span>
+                                    <span class="text-xs opacity-50">{{ implode(', ', $data->tags ?? []) }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="badge">
+                                <span>{{ $data->users->count() }}</span>
+                            </div>
+                        </td>
+                        <td>{{ $data->discussions->count() }}</td>
+                        <td>
+                            <div class="flex gap-1 self-center">
                                 <a href="{{ route('material.show', $data->id) }}"
                                     class="btn btn-xs btn-square btn-primary">
                                     <x-tabler-folder class="w-4 h-4" />

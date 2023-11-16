@@ -31,6 +31,15 @@
                     </a>
                 </li>
             @endcan
+            @can('group.mine')
+                <li>
+                    <a href="{{ route('group.mine') }}"
+                        class="{{ Request::route()->getName() == 'group.mine' ? 'active' : '' }}" wire:navigate>
+                        <x-tabler-user-circle class="w-5 h-5" />
+                        <span>Group saya</span>
+                    </a>
+                </li>
+            @endcan
         </ul>
     </li>
     @can('managerial.menu')
