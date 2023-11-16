@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="space-y-6 overflow-x-auto">
     <div class="flex justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian">
         <a href="{{ route('material.create') }}" class="btn btn-primary btn-sm">
@@ -19,8 +19,8 @@
                 @foreach ($datas as $data)
                     <tr>
                         <td>{{ $data->id }}</td>
-                        <td>
-                            <div class="flex gap-3 items-center text-left whitespace-nowrap">
+                        <td class="whitespace-nowrap">
+                            <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
                                     <div class="w-8 rounded aspect-video">
                                         <img src="{{ $data->image_url }}" />
