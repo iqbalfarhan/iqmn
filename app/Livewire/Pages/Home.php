@@ -12,7 +12,7 @@ class Home extends Component
     public function render()
     {
         return view('livewire.pages.home', [
-            'materials' => auth()->user()->materials->take(3)
+            'user' => auth()->user(),
         ]);
     }
 }
