@@ -19,10 +19,14 @@
             <button class="btn normal-case" wire:click.prevent="attachMaterial">
                 @if ($mine)
                     <x-tabler-pin-filled class="w-5 h-5 text-error" />
-                    <span>sudah di pin {{ $material->users->count() }} orang</span> 
                 @else
                     <x-tabler-pin class="w-5 h-5 text-error" />
+                @endif
+
+                @if ($material->users->count == 0)
                     <span>Belum ada yang pin</span>
+                @else
+                    <span>sudah di pin {{ $material->users->count() }} orang</span>
                 @endif
             </button>
             <span wire:loading>
