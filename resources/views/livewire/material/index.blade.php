@@ -1,6 +1,6 @@
 <div class="space-y-6">
     <div class="flex justify-between">
-        <input type="search" class="input input-bordered" placeholder="Pencarian">
+        <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
         <a href="{{ route('material.create') }}" class="btn btn-primary btn-sm">
             <x-tabler-circle-plus class="w-5 h-5" />
             <span class="hidden lg:block">Tambah</span>

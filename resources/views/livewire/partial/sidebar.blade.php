@@ -19,6 +19,8 @@
                         class="{{ Request::route()->getName() == 'material.comot' ? 'active' : '' }}" wire:navigate>
                         <x-tabler-books class="w-5 h-5" />
                         <span>Materi belajarku</span>
+
+                        <span class="badge">{{ auth()->user()->materials->count() }}</span>
                     </a>
                 </li>
             @endcan
