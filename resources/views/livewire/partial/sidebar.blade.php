@@ -20,7 +20,7 @@
                         <x-tabler-books class="w-5 h-5" />
                         <span>Materi belajarku</span>
 
-                        <span class="badge">{{ auth()->user()->materials->count() }}</span>
+                        @livewire('partial.count-materiku')
                     </a>
                 </li>
             @endcan
