@@ -8,7 +8,7 @@
             <x-tabler-database class="w-5 h-5" />
             <span>Git pull</span>
         </button>
-        <button class="btn btn-primary" wire:click="gitExec('status', 0)">
+        <button class="btn btn-primary" wire:click="gitExec('status')">
             <x-tabler-database class="w-5 h-5" />
             <span>Git status</span>
         </button>

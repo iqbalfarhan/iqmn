@@ -10,7 +10,7 @@ class Index extends Component
     use LivewireAlert;
     public $output;
 
-    public function gitExec($command, $alert = true)
+    public function gitExec($command, $alert = false)
     {
         $output = shell_exec("git {$command}");
         if ($alert) {
