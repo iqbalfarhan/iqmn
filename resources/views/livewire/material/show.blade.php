@@ -23,7 +23,7 @@
                     <x-tabler-pin class="w-5 h-5 text-error" />
                 @endif
 
-                @if ($material->users->count == 0)
+                @if ($material->users->count() == 0)
                     <span>Belum ada yang pin</span>
                 @else
                     <span>sudah di pin {{ $material->users->count() }} orang</span>
