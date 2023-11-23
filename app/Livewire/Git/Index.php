@@ -10,18 +10,15 @@ class Index extends Component
     use LivewireAlert;
     public $output;
 
-    public function stash()
+    public function gitExec($command, $alert = true)
     {
-        $output = shell_exec('git stash');
-        $this->output = $output;
-        $this->alert('success', 'Git stash berhasil');
-    }
-
-    public function pull()
-    {
-        $output = shell_exec('git pull');
-        $this->output = $output;
-        $this->alert('success', 'Git pull berhasil');
+        $output = shell_exec("git {$command}");
+        if ($alert) {
+            $this->alert('success', $output);
+        }
+        else{
+            $this->output = $output;
+        }
     }
 
     public function render()
