@@ -18,7 +18,7 @@ class Index extends Component
         return view('livewire.material.index', [
             'datas' => Material::when($this->cari, function ($q) {
                 $q->where('title', 'like', '%' . $this->cari . '%')->orWhereJsonContains('tags', $this->cari);
-            })->get(),
+            })->latest()->get(),
         ]);
     }
 }
