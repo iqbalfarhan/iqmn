@@ -30,12 +30,14 @@
                 @endif
 
             </button>
-            @if ($material->quizzes->count() != 0)
-                <a href="{{ route('material.quiz', $material->id) }}" class="btn normal-case">
-                    <x-tabler-pencil-question class="w-5 h-5" />
-                    <span>Kerjakan quiz ({{ $material->quizzes->count() }})</span>
-                </a>
-            @endif
+            @can('material.quiz')
+                @if ($material->quizzes->count() != 0)
+                    <a href="{{ route('material.quiz', $material->id) }}" class="btn normal-case">
+                        <x-tabler-pencil-question class="w-5 h-5" />
+                        <span>Kerjakan quiz ({{ $material->quizzes->count() }})</span>
+                    </a>
+                @endif
+            @endcan
             <span wire:loading>
                 <div class="btn btn-ghost">
                     <div class="loading loading-xs"></div>

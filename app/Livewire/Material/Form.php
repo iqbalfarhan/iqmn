@@ -28,7 +28,7 @@ class Form extends Component
         "quizzes",
         "visibility",
     ];
-    public $active_tab = "quizzes";
+    public $active_tab = "keterangan";
 
     public function simpan()
     {

@@ -20,6 +20,8 @@ class PermissionSeeder extends Seeder
             'material.delete',
             'material.comot',
             'material.cari',
+            'material.show',
+            'material.quiz',
 
             'user.index',
             'user.create',
