@@ -13,6 +13,7 @@
                 <th>Title</th>
                 <th>Pinned</th>
                 <th>Chat</th>
+                <th>Quiz</th>
                 <th>Action</th>
             </thead>
             <tbody>
@@ -38,6 +39,7 @@
                             </div>
                         </td>
                         <td>{{ $data->discussions->count() }}</td>
+                        <td>{{ $data->quizzes->count() }}</td>
                         <td>
                             <div class="flex gap-1 self-center">
                                 <a href="{{ route('material.show', $data->id) }}"

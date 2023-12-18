@@ -39,4 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::middleware('can:material.create')->get('/material/create', App\Livewire\Material\Form::class)->name('material.create');
     Route::middleware('can:material.edit')->get('/material/{material}/edit', App\Livewire\Material\Form::class)->name('material.edit');
     Route::middleware('can:material.show')->get('/material/{material}', App\Livewire\Material\Show::class)->name('material.show');
+    Route::middleware('can:material.quiz')->get('/material/{material}/quiz', App\Livewire\Material\Quiz::class)->name('material.quiz');
 });

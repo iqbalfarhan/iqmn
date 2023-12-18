@@ -21,6 +21,15 @@ class Form extends Component
     public $thumbnail;
     public $tags;
 
+    protected $listeners = ['reload' => '$refresh'];
+
+    public $tabs = [
+        "keterangan",
+        "quizzes",
+        "visibility",
+    ];
+    public $active_tab = "quizzes";
+
     public function simpan()
     {
         $valid = $this->validate([
@@ -72,6 +81,8 @@ class Form extends Component
 
     public function render()
     {
-        return view('livewire.material.form');
+        return view('livewire.material.form', [
+            'quizzes' => $this->material ? $this->material->quizzes : [],
+        ]);
     }
 }
