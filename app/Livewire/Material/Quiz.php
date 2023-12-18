@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Quiz extends Component
 {
-    public $show = true;
+    public $show = false;
     public $no = 1;
     public $jawaban = [];
     public $datas;
