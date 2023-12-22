@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialiteController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/', App\Livewire\Pages\Welcome::class)->name('welcome');
     Route::get('/login', App\Livewire\Auth\Login::class)->name('login');
     Route::get('/register', App\Livewire\Auth\Register::class)->name('register');
+
+    Route::get('/auth/redirect', [SocialiteController::class, 'redirect'])->name('auth.redirect');
+    Route::get('/auth/callback', [SocialiteController::class, 'callback'])->name('auth.callback');
 });
 
 Route::middleware('auth')->group(function () {

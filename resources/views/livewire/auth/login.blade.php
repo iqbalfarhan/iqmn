@@ -24,10 +24,10 @@
 
             <div class="flex flex-col gap-1">
                 <div class="divider text-xs opacity-50">Cara lain</div>
-                <button class="btn btn-block normal-case" type="button">
+                <a href="{{ route('auth.redirect') }}" class="btn btn-block normal-case" type="button">
                     <x-tabler-brand-github class="w-5 h-5" />
                     <span>Login dengan github</span>
-                </button>
+                </a>
             </div>
 
         </form>

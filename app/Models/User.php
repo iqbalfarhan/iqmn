@@ -19,6 +19,8 @@ class User extends Authenticatable
         'email',
         'password',
         'photo',
+        'github_id',
+        'github_token',
     ];
 
     protected $hidden = [
@@ -31,7 +33,13 @@ class User extends Authenticatable
 
     public function getImageUrlAttribute()
     {
-        return $this->photo ? Storage::url($this->photo) : url('noimage.jpg');
+
+        if ($this->github_id) {
+            return $this->photo ?? url('noimage.jpg');
+        }
+        else{
+            return $this->photo ? Storage::url($this->photo) : url('noimage.jpg');
+        }
     }
 
     public function discussions()
