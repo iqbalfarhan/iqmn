@@ -39,6 +39,21 @@
         <ul class="menu bg-base-200 rounded-xl">
             <li>
                 <div class="justify-between">
+                    <span>Github account</span>
+                    <button class="btn btn-xs btn-ghost hover:btn-outline normal-case"
+                        wire:click="$dispatch('editProfile', {edittype: 'github'})">
+                        {{ Str::limit($user->sosmeds()->github()->first()->link ?? 'Your github link',30) }}
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w-full max-w-lg mx-auto space-y-4">
+        <h3 class="text-lg">Danger zone:</h3>
+        <ul class="menu bg-base-200 rounded-xl">
+            <li>
+                <div class="justify-between">
                     <span>Ganti password</span>
                     <button class="btn btn-xs btn-outline"
                         wire:click="$dispatch('editProfile', {edittype: 'password'})">Update</button>

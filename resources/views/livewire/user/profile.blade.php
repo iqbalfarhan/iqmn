@@ -66,6 +66,21 @@
                             class="input input-bordered @error('password') input-error @enderror"
                             wire:model="password" />
                     </div>
+                @elseif ($edittype == 'github')
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Link akun github</span>
+                            @error('github')
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            @enderror
+                        </label>
+                        <input type="url" class="input input-bordered @error('github') input-error @enderror"
+                            wire:model="github" placeholder="https://github.com/..." />
+                    </div>
+
+                    <div class="text-xs opacity-50 italic">
+                        Tuliskan link lengkap akun github anda, contohnya, "https://github.com/usernamegithub".
+                    </div>
                 @endif
             </div>
             <div class="modal-action justify-between">

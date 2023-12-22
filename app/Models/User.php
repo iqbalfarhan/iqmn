@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Material::class, 'user_has_material', 'user_id', 'material_id');
     }
+
+    public function sosmeds()
+    {
+        return $this->hasMany(Sosmed::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Models\Sosmed;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,7 @@ class Profile extends Component
     public $name;
     public $email;
     public $photo;
+    public $github;
     public $password;
 
     #[On('editProfile')]
@@ -32,6 +34,7 @@ class Profile extends Component
 
         $this->name = $user->name;
         $this->email = $user->email;
+        $this->github = $user->sosmeds()->github()->link ?? "";
     }
 
     public function simpan()
@@ -57,6 +60,17 @@ class Profile extends Component
             ]);
 
             $user->update($valid);
+        } elseif ($this->edittype == "github") {
+            $valid = $this->validate([
+                'github' => 'required',
+            ]);
+
+            Sosmed::updateOrCreate([
+                'user_id' => $user->id,
+                'name' => 'github'
+            ], [
+                'link' => $valid['github']
+            ]);
         } elseif ($this->edittype == "password") {
             $valid = $this->validate([
                 'password' => 'required'
