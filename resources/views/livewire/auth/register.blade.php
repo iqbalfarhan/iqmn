@@ -19,7 +19,10 @@
             </div>
 
             <div class="card-actions">
-                <button class="btn btn-primary">Register</button>
+                <button class="btn btn-primary">
+                    <x-tabler-login class="w-5 h-5" />
+                    <span>Register</span>
+                </button>
             </div>
         </form>
     </div>

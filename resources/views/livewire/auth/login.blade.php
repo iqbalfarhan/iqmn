@@ -16,20 +16,22 @@
             </div>
 
             <div class="card-actions">
-                <button class="btn btn-primary" type="submit">login</button>
+                <button class="btn btn-primary" type="submit">
+                    <x-tabler-login class="w-5 h-5" />
+                    <span>Sign in</span>
+                </button>
             </div>
 
-            {{-- <div class="divider">OR</div>
-
-            <div>
-                <button class="btn btn-block btn-neutral" type="button">
+            <div class="flex flex-col gap-1">
+                <div class="divider text-xs opacity-50">Cara lain</div>
+                <button class="btn btn-block normal-case" type="button">
                     <x-tabler-brand-github class="w-5 h-5" />
-                    <span>login use github</span>
+                    <span>Login dengan github</span>
                 </button>
-            </div> --}}
+            </div>
+
         </form>
     </div>
-
 
     <div class="text-center text-sm">
         @if (Route::has('register'))
