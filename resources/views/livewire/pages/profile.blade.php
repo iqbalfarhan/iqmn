@@ -42,7 +42,7 @@
                     <span>Github account</span>
                     <button class="btn btn-xs btn-ghost hover:btn-outline normal-case"
                         wire:click="$dispatch('editProfile', {edittype: 'github'})">
-                        {{ Str::limit($user->sosmeds()->github()->first()->link ?? 'Your github link',30) }}
+                        {{ Str::limit($user->sosmeds()->where('name', 'github')->first()->link ?? 'Your github link', 30) }}
                     </button>
                 </div>
             </li>

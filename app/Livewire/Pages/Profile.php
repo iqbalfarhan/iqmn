@@ -19,7 +19,7 @@ class Profile extends Component
 
     public function mount()
     {
-        $this->user = User::find(auth()->user()->id);
+        $this->user = User::find(auth()->id());
         $this->theme = session('theme') == "light" ? false : true;
         $this->sidebar = session('sidebar', 'lg:drawer-open') == "lg:drawer-open" ? true : false;
     }

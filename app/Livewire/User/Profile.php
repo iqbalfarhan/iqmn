@@ -34,7 +34,7 @@ class Profile extends Component
 
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->github = $user->sosmeds()->github()->link ?? "";
+        $this->github = $user->sosmeds()->where('name', 'github')->first()->link ?? "";
     }
 
     public function simpan()

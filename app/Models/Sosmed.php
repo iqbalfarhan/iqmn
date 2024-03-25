@@ -15,10 +15,6 @@ class Sosmed extends Model
         'link',
     ];
 
-    public function scopeGithub(){
-        return $this->where('name', 'github')->first();
-    }
-
     public function user(){
         return $this->belongsTo(User::class);
     }
