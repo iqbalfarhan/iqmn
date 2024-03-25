@@ -10,3 +10,9 @@
         @apply font-medium;
     }
 }
+
+@layer components {
+    .modal {
+        @apply backdrop-blur-sm;
+    }
+}
