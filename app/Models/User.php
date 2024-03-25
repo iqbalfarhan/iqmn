@@ -33,7 +33,6 @@ class User extends Authenticatable
 
     public function getImageUrlAttribute()
     {
-
         if ($this->github_id) {
             return $this->photo ?? url('noimage.jpg');
         }

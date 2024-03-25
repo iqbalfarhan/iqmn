@@ -7,10 +7,7 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public function delete(User $user)
-    {
-        $user->delete();
-    }
+    protected $listeners = ['reload' => '$refresh'];
 
     public function render()
     {
