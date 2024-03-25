@@ -29,6 +29,10 @@
                         <td>{{ $data->getRoleNames()->first() }}</td>
                         <td>
                             <div class="flex gap-1">
+                                <a href="{{ route('user.show', $data) }}" class="btn btn-xs btn-square btn-info"
+                                    wire:navigate>
+                                    <x-tabler-folder class="w-4 h-4" />
+                                </a>
                                 <button class="btn btn-xs btn-square btn-success"
                                     wire:click="$dispatch('editUser', {user:{{ $data->id }}})">
                                     <x-tabler-edit class="w-4 h-4" />

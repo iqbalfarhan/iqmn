@@ -28,7 +28,6 @@
                 @else
                     <span>sudah di pin {{ $material->users->count() }} orang</span>
                 @endif
-
             </button>
             @can('material.quiz')
                 @if ($material->quizzes->count() != 0)
@@ -37,6 +36,12 @@
                         <span>Kerjakan quiz ({{ $material->quizzes->count() }})</span>
                     </a>
                 @endif
+            @endcan
+            @can('material.edit')
+                <a href="{{ route('material.edit', $material->id) }}" class="btn">
+                    <x-tabler-edit class="size-5" />
+                    <span>Edit</span>
+                </a>
             @endcan
             <span wire:loading>
                 <div class="btn btn-ghost">

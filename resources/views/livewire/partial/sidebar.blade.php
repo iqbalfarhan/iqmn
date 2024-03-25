@@ -50,8 +50,9 @@
             <ul>
                 @can('material.index')
                     <li>
-                        <a href="{{ route('material.index') }}"
-                            class="{{ Request::route()->getName() == 'material.index' ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('material.index') }}" @class([
+                            'active' => Route::is(['material.index', 'material.show', 'material.edit']),
+                        ]) wire:navigate>
                             <x-tabler-book class="w-5 h-5" />
                             <span>Materials data</span>
                         </a>
@@ -59,8 +60,7 @@
                 @endcan
                 @can('user.index')
                     <li>
-                        <a href="{{ route('user.index') }}"
-                            class="{{ Request::route()->getName() == 'user.index' ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('user.index') }}" @class(['active' => Route::is(['user.index', 'user.show'])]) wire:navigate>
                             <x-tabler-users class="w-5 h-5" />
                             <span>User mangement</span>
                         </a>
@@ -68,8 +68,7 @@
                 @endcan
                 @can('permission.index')
                     <li>
-                        <a href="{{ route('permission.index') }}"
-                            class="{{ Request::route()->getName() == 'permission.index' ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('permission.index') }}" @class(['active' => Route::is('permission.index')]) wire:navigate>
                             <x-tabler-user-shield class="w-5 h-5" />
                             <span>Role & permissions</span>
                         </a>
@@ -85,12 +84,12 @@
                     </li>
                 @endcan
                 @can('adminer.index')
-                <li>
-                    <a href="/adminer">
-                        <x-tabler-database class="w-5 h-5" />
-                        <span>Adminer database</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="/adminer">
+                            <x-tabler-database class="w-5 h-5" />
+                            <span>Adminer database</span>
+                        </a>
+                    </li>
                 @endcan
                 @can('git.index')
                     <li>

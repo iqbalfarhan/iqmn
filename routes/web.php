@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('can:permission.index')->get('/permission', App\Livewire\Permission\Index::class)->name('permission.index');
     Route::middleware('can:user.index')->get('/user', App\Livewire\User\Index::class)->name('user.index');
+    Route::middleware('can:user.show')->get('/user/{user}', App\Livewire\User\Show::class)->name('user.show');
 
     Route::middleware('can:git.index')->get('/git', App\Livewire\Git\Index::class)->name('git.index');
 

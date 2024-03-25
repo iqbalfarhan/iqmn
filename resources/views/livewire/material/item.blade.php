@@ -1,6 +1,6 @@
-<div class="card w-full shadow-lg">
+<div class="card card-compact w-full shadow-lg bg-base-200">
     <figure class="bg-base-300">
-        <img src="{{ $material->image_url }}" alt="{{ $material->image_url }}" class="w-full aspect-video">
+        <img src="{{ $material->image_url }}" alt="{{ $material->image_url }}" class="w-full">
     </figure>
     <div class="card-body">
         <div class="flex justify-between gap-2">
@@ -9,7 +9,6 @@
                 <x-tabler-external-link class="w-5 h-5" />
             </a>
         </div>
-
         <small>{{ $material->created_at->diffForHumans() }}</small>
     </div>
 </div>
