@@ -7,7 +7,7 @@
             <thead>
                 <th>No</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Github link</th>
                 <th>Role</th>
                 <th>Action</th>
             </thead>
@@ -15,17 +15,25 @@
                 @foreach ($datas as $data)
                     <tr>
                         <td>{{ $data->id }}</td>
-                        <td>
-                            <div class="flex gap-2 items-center">
+                        <td class="whitespace-nowrap">
+                            <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
-                                    <div class="w-6 rounded-full">
-                                        <img src="{{ $data->image_url }}" alt="">
+                                    <div class="w-8 rounded aspect-video">
+                                        <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>
-                                <div>{{ $data->name }}</div>
+                                <div class="flex flex-col">
+                                    <span class="font-bold">{{ Str::limit($data->name, 40) }}</span>
+                                    <span class="text-xs opacity-50">{{ $data->email }}</span>
+                                </div>
                             </div>
                         </td>
-                        <td>{{ $data->email }}</td>
+                        <td>
+                            <a href="{{ $data->sosmeds()->where('name', 'github')->first()->link ?? '' }}"
+                                class="link text-xs" target="_blank">
+                                {{ $data->sosmeds()->where('name', 'github')->first()->link ?? '' }}
+                            </a>
+                        </td>
                         <td>{{ $data->getRoleNames()->first() }}</td>
                         <td>
                             <div class="flex gap-1">
