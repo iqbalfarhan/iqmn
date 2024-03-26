@@ -29,10 +29,14 @@
                             </div>
                         </td>
                         <td>
-                            <a href="{{ $data->sosmeds()->where('name', 'github')->first()->link ?? '' }}"
-                                class="link text-xs" target="_blank">
-                                {{ $data->sosmeds()->where('name', 'github')->first()->link ?? '' }}
-                            </a>
+                            <div class="flex gap-1">
+                                @foreach ($data->sosmeds as $sm)
+                                    <a href="{{ $sm->link }}" class="btn btn-xs btn-square"
+                                        wire:key="{{ $sm->id }}" target="_blank">
+                                        <x-tabler-brand-github class="size-4" />
+                                    </a>
+                                @endforeach
+                            </div>
                         </td>
                         <td>{{ $data->getRoleNames()->first() }}</td>
                         <td>
