@@ -15,7 +15,7 @@
                 <th>Chat</th>
                 <th>Quiz</th>
                 <th>Show</th>
-                <th>Action</th>
+                <th class="text-center">Action</th>
             </thead>
             <tbody>
                 @foreach ($datas as $data)

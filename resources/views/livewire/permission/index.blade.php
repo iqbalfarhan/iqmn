@@ -1,7 +1,7 @@
 <div class="page-wrapper">
     <div class="flex justify-between items-center gap-6">
         <div>
-            <input type="text" class="input input-bordered" placeholder="Cari permission" wire:model.live="cari">
+            <input type="text" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
         </div>
 
         <div class="flex gap-2">
