@@ -1,4 +1,4 @@
-<div class="page-wrapper max-w-6xl">
+<div class="page-wrapper">
     <div class="flex justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
         <a href="{{ route('material.create') }}" class="btn btn-primary">
@@ -44,7 +44,7 @@
                             <div class="badge">{{ $data->quizzes->count() }}</div>
                         </td>
                         <td>
-                            <input type="checkbox" class="toggle toggle-sm toggle-info" @checked($data->show)
+                            <input type="checkbox" class="toggle toggle-sm toggle-primary" @checked($data->show)
                                 wire:change="toggleShowMaterial({{ $data->id }})" />
                         </td>
                         <td>
