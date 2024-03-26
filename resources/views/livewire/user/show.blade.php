@@ -1,4 +1,4 @@
-<div class="space-y-10">
+<div class="page-wrapper space-y-10">
 
     <div class="grid md:grid-cols-2 gap-6">
         @livewire('user.card', ['user' => $user])

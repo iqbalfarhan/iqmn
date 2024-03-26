@@ -23,6 +23,10 @@
         @apply backdrop-blur-sm;
     }
 
+    .page-wrapper {
+        @apply container mx-auto w-full max-w-5xl p-6 overflow-x-auto space-y-6;
+    }
+
     .table-wrapper {
         @apply overflow-x-auto bg-base-200/10 shadow-xl rounded-xl;
     }

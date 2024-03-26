@@ -1,4 +1,4 @@
-<div class="">
+<div class="page-wrapper">
     <input type="checkbox" id="nilai" class="modal-toggle" wire:model.live="show" />
     <div class="modal">
         @php
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="card bg-base-200">
+    <div class="card bg-base-200/50">
         <div class="card-body">
             <div class="space-y-8">
                 <div class="flex justify-between items-center">

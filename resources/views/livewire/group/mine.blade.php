@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="flex justify-between">
         <input type="text" class="input input-bordered" placeholder="Cari group">
         <div>

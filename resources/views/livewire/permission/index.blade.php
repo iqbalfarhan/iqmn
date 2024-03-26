@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="flex justify-between items-center gap-6">
         <div>
             <input type="text" class="input input-bordered" placeholder="Cari permission" wire:model.live="cari">
@@ -33,7 +33,7 @@
                         <td>{{ $permit->name }}</td>
                         @foreach ($roles as $role)
                             <td class="text-center">
-                                <input type="checkbox" class="toggle toggle-sm"
+                                <input type="checkbox" class="toggle toggle-sm toggle-primary"
                                     {{ $permit->hasRole($role->name) ? 'checked' : '' }}
                                     wire:change.prevent="assignRole({{ $permit->id }}, '{{ $role->name }}')" />
                             </td>

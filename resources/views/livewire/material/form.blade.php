@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="flex justify-center">
         <div role="tablist" class="tabs tabs-boxed w-fit">
             @foreach ($tabs as $tab)

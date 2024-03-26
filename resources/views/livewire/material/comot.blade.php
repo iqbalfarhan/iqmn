@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div>
         <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
     </div>

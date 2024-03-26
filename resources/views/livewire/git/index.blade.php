@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="flex gap-2">
         <button class="btn btn-primary" wire:click="gitExec('stash')">
             <x-tabler-database class="w-5 h-5" />

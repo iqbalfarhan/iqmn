@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper max-w-6xl">
     <div class="flex justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
         <a href="{{ route('material.create') }}" class="btn btn-primary">

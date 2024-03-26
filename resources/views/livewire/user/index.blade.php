@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="flex justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian">
     </div>
@@ -7,9 +7,9 @@
             <thead>
                 <th>No</th>
                 <th>Name</th>
-                <th>Github link</th>
+                <th>Github</th>
                 <th>Role</th>
-                <th>Action</th>
+                <th class="text-center">Action</th>
             </thead>
             <tbody>
                 @foreach ($datas as $data)
@@ -40,7 +40,7 @@
                         </td>
                         <td>{{ $data->getRoleNames()->first() }}</td>
                         <td>
-                            <div class="flex gap-1">
+                            <div class="flex gap-1 justify-center">
                                 <a href="{{ route('user.show', $data) }}" class="btn btn-xs btn-square btn-info"
                                     wire:navigate>
                                     <x-tabler-folder class="w-4 h-4" />

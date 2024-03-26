@@ -1,4 +1,4 @@
-<div class="card bg-base-200">
+<div class="card card-compact bg-base-200">
     <div class="card-body space-y-4">
         <div class="flex items-center gap-6">
             <div class="avatar">
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="card-actions justify-end">
-            <button class="btn btn-sm btn-success" wire:click="$dispatch('editUser', {user: {{ $user->id }}})">
+            <button class="btn btn-sm btn-primary" wire:click="$dispatch('editUser', {user: {{ $user->id }}})">
                 <x-tabler-edit class="size-4" />
                 <span>Edit user</span>
             </button>

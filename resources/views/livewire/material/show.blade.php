@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="flex gap-4 justify-between">
         <div>
             <h3 class="text-3xl font-bold">{{ $material->title }}</h3>

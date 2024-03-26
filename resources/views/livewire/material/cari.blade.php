@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="card bg-base-200 rounded-xl">
         <form class="card-body text-center" wire:submit.prevent="pencarian">
             <div class="w-full max-w-xl py-6 mx-auto space-y-4">

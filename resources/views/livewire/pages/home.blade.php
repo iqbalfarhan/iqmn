@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="page-wrapper">
     <div class="grid lg:grid-cols-2 gap-6">
         <div class="stats shadow-lg">
             <div class="stat">
