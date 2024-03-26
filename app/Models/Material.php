@@ -16,6 +16,7 @@ class Material extends Model
         'url',
         'thumbnail',
         'tags',
+        'show',
     ];
 
     protected $casts = [

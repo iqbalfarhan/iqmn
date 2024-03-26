@@ -4,50 +4,76 @@
             <input type="text" class="input input-bordered" placeholder="Cari permission" wire:model.live="cari">
         </div>
 
-        <div>
-            <label for="createModal" class="btn btn-primary btn-sm">
+        <div class="flex gap-2">
+            <button class="btn btn-primary" wire:click="$dispatch('createPermission')">
                 <x-tabler-circle-plus class="w-5 h-5" />
                 <span class="hidden lg:block">permission</span>
-            </label>
-            <label for="createModal" class="btn btn-primary btn-sm">
+            </button>
+            <button class="btn btn-primary" wire:click="$dispatch('createRole')">
                 <x-tabler-circle-plus class="w-5 h-5" />
                 <span class="hidden lg:block">role</span>
-            </label>
+            </button>
         </div>
     </div>
 
-    <div class="overflow-x-auto bg-base-100 shadow-xl rounded-xl">
+    <div class="table-wrapper">
         <table class="table">
-            <thead class="border-b-4 border-primary">
-                <th>Guard</th>
+            <thead>
+                <th>No</th>
                 <th>Permissions</th>
                 @foreach ($roles as $role)
-                    <th>{{ $role->name }}</th>
+                    <th class="text-center">{{ $role->name }}</th>
                 @endforeach
-                <th>Action</th>
+                <th class="text-center">Action</th>
             </thead>
             <tbody>
                 @foreach ($permissions as $permit)
                     <tr>
-                        <td>{{ $permit->guard_name }}</td>
+                        <td>{{ $no++ }}</td>
                         <td>{{ $permit->name }}</td>
                         @foreach ($roles as $role)
-                            <td>
+                            <td class="text-center">
                                 <input type="checkbox" class="toggle toggle-sm"
                                     {{ $permit->hasRole($role->name) ? 'checked' : '' }}
                                     wire:change.prevent="assignRole({{ $permit->id }}, '{{ $role->name }}')" />
                             </td>
                         @endforeach
                         <td>
-                            <button class="btn btn-xs btn-error btn-square"
-                                wire:confirm="Anda yakin akan menhapus permission ini"
-                                wire:click="deletePermission({{ $permit->id }})">
-                                <x-tabler-trash class="w-4 h-4" />
-                            </button>
+                            <div class="flex gap-1 justify-center">
+                                <button class="btn btn-xs btn-success btn-square"
+                                    wire:click="$dispatch('editPermission', {permission: {{ $permit->id }}})">
+                                    <x-tabler-edit class="size-4" />
+                                </button>
+                                <button class="btn btn-xs btn-error btn-square"
+                                    wire:confirm="Anda yakin akan menhapus permission ini"
+                                    wire:click="deletePermission({{ $permit->id }})">
+                                    <x-tabler-trash class="size-4" />
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <th>No</th>
+                <th>Permissions</th>
+                @foreach ($roles as $role)
+                    <th>
+                        <div class="flex gap-1 justify-center">
+                            <button class="btn btn-xs btn-success btn-square"
+                                wire:click="$dispatch('editRole', {role: {{ $role->id }}})">
+                                <x-tabler-edit class="size-4" />
+                            </button>
+                            <button class="btn btn-xs btn-error btn-square"
+                                wire:confirm="Anda yakin akan menhapus role ini"
+                                wire:click="deleteRole({{ $role->id }})">
+                                <x-tabler-trash class="size-4" />
+                            </button>
+                        </div>
+                    </th>
+                @endforeach
+                <th class="text-center">Action</th>
+            </tfoot>
         </table>
     </div>
 

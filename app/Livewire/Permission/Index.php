@@ -13,6 +13,7 @@ class Index extends Component
     use LivewireAlert;
     protected $listeners = ['reload' => '$refresh'];
 
+    public $no = 1;
     public $cari;
 
     public function assignRole(Permission $permission, $role)
@@ -22,7 +23,6 @@ class Index extends Component
         } else {
             $permission->assignRole($role);
         }
-
     }
 
     public function deleteRole(Role $role)
@@ -33,7 +33,7 @@ class Index extends Component
 
     public function deletePermission(Permission $permission)
     {
-        // $permission->delete();
+        $permission->delete();
         $this->alert('success', "Permission deleted successfully");
     }
 

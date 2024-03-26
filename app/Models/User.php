@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function materials()
     {
-        return $this->belongsToMany(Material::class, 'user_has_material', 'user_id', 'material_id');
+        return $this->belongsToMany(Material::class, 'user_has_material', 'user_id', 'material_id')->where('show', true);
     }
 
     public function sosmeds()

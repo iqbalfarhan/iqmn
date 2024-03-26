@@ -23,7 +23,7 @@ class Cari extends Component
     public function render()
     {
         return view('livewire.material.cari', [
-            'datas' => Material::when($this->cari, function ($q) {
+            'datas' => Material::where('show', true)->when($this->cari, function ($q) {
                 $q->where('title', 'like', '%' . $this->cari . '%')->orWhereJsonContains('tags', $this->cari);
             })->latest()->limit(12)->get(),
         ]);

@@ -3,7 +3,7 @@
         <div role="tablist" class="tabs tabs-boxed w-fit">
             @foreach ($tabs as $tab)
                 <button wire:click="$set('active_tab', '{{ $tab }}')" role="tab"
-                    class="tab {{ $active_tab == $tab ? 'tab-active' : '' }}">{{ $tab }}</button>
+                    @class(['tab capitalize', 'tab-active' => $active_tab == $tab])>{{ $tab }}</button>
             @endforeach
         </div>
     </div>

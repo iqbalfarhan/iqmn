@@ -9,10 +9,21 @@
         font-family: "Poppins", sans-serif;
         @apply font-medium;
     }
+
+    thead {
+        @apply border-b-4 border-primary bg-base-200/30;
+    }
+    tfoot {
+        @apply border-t-4 border-base-300 bg-base-200/20;
+    }
 }
 
 @layer components {
     .modal {
         @apply backdrop-blur-sm;
+    }
+
+    .table-wrapper {
+        @apply overflow-x-auto bg-base-200/10 shadow-xl rounded-xl;
     }
 }

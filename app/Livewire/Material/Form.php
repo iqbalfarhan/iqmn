@@ -26,7 +26,6 @@ class Form extends Component
     public $tabs = [
         "keterangan",
         "quizzes",
-        "visibility",
     ];
     public $active_tab = "keterangan";
 

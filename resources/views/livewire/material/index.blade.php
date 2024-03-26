@@ -1,24 +1,25 @@
 <div class="space-y-6">
     <div class="flex justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
-        <a href="{{ route('material.create') }}" class="btn btn-primary btn-sm">
+        <a href="{{ route('material.create') }}" class="btn btn-primary">
             <x-tabler-circle-plus class="w-5 h-5" />
             <span class="hidden lg:block">Tambah</span>
         </a>
     </div>
-    <div class="w-full overflow-x-auto bg-base-100 shadow-xl rounded-xl">
-        <table class="table text-center">
+    <div class="table-wrapper">
+        <table class="table">
             <thead class="border-b-4 border-primary">
                 <th>No</th>
                 <th>Title</th>
                 <th>Pinned</th>
                 <th>Chat</th>
                 <th>Quiz</th>
+                <th>Show</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 @foreach ($datas as $data)
-                    <tr>
+                    <tr @class(['line-through opacity-30' => !$data->show]) wire:key="{{ $data->id }}">
                         <td>{{ $data->id }}</td>
                         <td class="whitespace-nowrap">
                             <div class="flex gap-3 items-center text-left">
@@ -34,14 +35,20 @@
                             </div>
                         </td>
                         <td>
-                            <div class="badge">
-                                <span>{{ $data->users->count() }}</span>
-                            </div>
+                            <div class="badge">{{ $data->users->count() }}</div>
                         </td>
-                        <td>{{ $data->discussions->count() }}</td>
-                        <td>{{ $data->quizzes->count() }}</td>
                         <td>
-                            <div class="flex gap-1 self-center">
+                            <div class="badge">{{ $data->discussions->count() }}</div>
+                        </td>
+                        <td>
+                            <div class="badge">{{ $data->quizzes->count() }}</div>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="toggle toggle-sm toggle-info" @checked($data->show)
+                                wire:change="toggleShowMaterial({{ $data->id }})" />
+                        </td>
+                        <td>
+                            <div class="flex gap-1 self-center justify-center">
                                 <a href="{{ route('material.show', $data->id) }}"
                                     class="btn btn-xs btn-square btn-primary">
                                     <x-tabler-folder class="w-4 h-4" />
