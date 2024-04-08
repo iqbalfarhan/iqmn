@@ -1,4 +1,4 @@
-<div class="navbar bg-transparent top-0 absolute w-full left-0">
+<div class="navbar bg-transparent top-0 absolute w-full left-0 print:hidden">
     <div class="flex-1">
     </div>
     <div class="flex-none">
