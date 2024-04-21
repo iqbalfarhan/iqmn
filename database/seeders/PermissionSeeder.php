@@ -14,30 +14,32 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         $datas = [
-            'material.index',
-            'material.create',
-            'material.edit',
-            'material.delete',
-            'material.comot',
-            'material.cari',
-            'material.show',
-            'material.quiz',
-
-            'user.index',
-            'user.create',
-            'user.edit',
-            'user.delete',
-
-            'group.index',
-            'group.create',
-            'group.edit',
-            'group.delete',
+            'material.index' => [],
+            'material.create' => [],
+            'material.edit' => [],
+            'material.delete' => [],
+            'material.comot' => ['user'],
+            'material.cari' => ['user'],
+            'material.show' => [],
+            'material.quiz' => [],
+            'user.index' => [],
+            'user.create' => [],
+            'user.edit' => [],
+            'user.delete' => [],
+            'group.index' => [],
+            'group.create' => [],
+            'group.edit' => [],
+            'group.delete' => [],
+            'group.mine' => ['user'],
+            'group.show' => ['user'],
         ];
 
-        foreach ($datas as $data) {
-            Permission::updateOrCreate([
-                'name' => $data
+        foreach ($datas as $permit => $roles) {
+            $permission = Permission::updateOrCreate([
+                'name' => $permit
             ]);
+
+            $permission->assignRole($roles);
         }
     }
 }

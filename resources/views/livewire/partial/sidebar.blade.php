@@ -7,16 +7,14 @@
         <h2 class="menu-title">Dashboard</h2>
         <ul>
             <li>
-                <a href="{{ route('home') }}" class="{{ Request::route()->getName() == 'home' ? 'active' : '' }}"
-                    wire:navigate>
+                <a href="{{ route('home') }}" @class(['active' => Route::is('home')]) wire:navigate>
                     <x-tabler-home class="w-5 h-5" />
                     <span>Beranda</span>
                 </a>
             </li>
             @can('material.comot')
                 <li>
-                    <a href="{{ route('material.comot') }}"
-                        class="{{ Request::route()->getName() == 'material.comot' ? 'active' : '' }}" wire:navigate>
+                    <a href="{{ route('material.comot') }}" @class(['active' => Route::is('material.comot')]) wire:navigate>
                         <x-tabler-books class="w-5 h-5" />
                         <span>Materi belajarku</span>
 
@@ -26,8 +24,7 @@
             @endcan
             @can('material.cari')
                 <li>
-                    <a href="{{ route('material.cari') }}"
-                        class="{{ Request::route()->getName() == 'material.cari' ? 'active' : '' }}" wire:navigate>
+                    <a href="{{ route('material.cari') }}" @class(['active' => Route::is('material.cari')]) wire:navigate>
                         <x-tabler-search class="w-5 h-5" />
                         <span>Cari materi</span>
                     </a>
@@ -35,8 +32,7 @@
             @endcan
             @can('group.mine')
                 <li>
-                    <a href="{{ route('group.mine') }}"
-                        class="{{ Request::route()->getName() == 'group.mine' ? 'active' : '' }}" wire:navigate>
+                    <a href="{{ route('group.mine') }}" @class(['active' => Route::is(['group.mine', 'group.show'])]) wire:navigate>
                         <x-tabler-user-circle class="w-5 h-5" />
                         <span>Group saya</span>
                     </a>
@@ -76,8 +72,7 @@
                 @endcan
                 @can('group.index')
                     <li>
-                        <a href="{{ route('group.index') }}"
-                            class="{{ Request::route()->getName() == 'group.index' ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('group.index') }}" @class(['active' => Route::is(['group.index', 'group.show'])]) wire:navigate>
                             <x-tabler-users-group class="w-5 h-5" />
                             <span>Group setting</span>
                         </a>
@@ -93,8 +88,7 @@
                 @endcan
                 @can('git.index')
                     <li>
-                        <a href="{{ route('git.index') }}"
-                            class="{{ Request::route()->getName() == 'git.index' ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('git.index') }}" @class(['active' => Route::is('git.index')]) wire:navigate>
                             <x-tabler-brand-git class="w-5 h-5" />
                             <span>Git control center</span>
                         </a>
@@ -107,15 +101,13 @@
         <h2 class="menu-title">Authentication</h2>
         <ul>
             <li>
-                <a href="{{ route('about') }}" class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}"
-                    wire:navigate>
+                <a href="{{ route('about') }}" @class(['active' => Route::is('about')]) wire:navigate>
                     <x-tabler-info-square class="w-5 h-5" />
                     <span>Tentang app</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('profile') }}"
-                    class="{{ Request::route()->getName() == 'profile' ? 'active' : '' }}" wire:navigate>
+                <a href="{{ route('profile') }}" @class(['active' => Route::is('profile')]) wire:navigate>
                     <x-tabler-user class="w-5 h-5" />
                     <span>Edit profile</span>
                 </a>
