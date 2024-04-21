@@ -9,6 +9,8 @@ class Show extends Component
 {
     public Group $group;
 
+    protected $listeners = ['reload' => '$refresh'];
+
     public function mount(Group $group){
         $this->group = $group;
     }

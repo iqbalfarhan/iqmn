@@ -10,6 +10,8 @@ class Item extends Component
 {
     public Group $group;
 
+    protected $listeners = ['reload' => '$refresh'];
+
     public function joinGroup()
     {
         $user = User::find(auth()->id());

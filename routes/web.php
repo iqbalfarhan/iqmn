@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('can:git.index')->get('/git', App\Livewire\Git\Index::class)->name('git.index');
 
+    Route::middleware('can:auth.bypass')->get('/auth/bypass', App\Livewire\Auth\Bypass::class)->name('auth.bypass');
+
     Route::middleware('can:group.index')->get('/group', App\Livewire\Group\Index::class)->name('group.index');
     Route::middleware('can:group.mine')->get('/group/mine', App\Livewire\Group\Mine::class)->name('group.mine');
     Route::middleware('can:group.show')->get('/group/{group}', App\Livewire\Group\Show::class)->name('group.show');
