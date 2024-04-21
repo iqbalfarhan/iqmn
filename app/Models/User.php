@@ -37,7 +37,7 @@ class User extends Authenticatable
             return $this->photo ?? url('noimage.jpg');
         }
         else{
-            return $this->photo ? Storage::url($this->photo) : url('noimage.jpg');
+            return $this->photo ? Storage::url('storage/'. $this->photo) : url('noimage.jpg');
         }
     }
 
