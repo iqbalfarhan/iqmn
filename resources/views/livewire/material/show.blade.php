@@ -11,7 +11,7 @@
 
     <article class="prose prose-lg mx-auto">
 
-        <div class="flex gap-2">
+        <div class="flex flex-col md:flex-row gap-2">
             <a href="{{ $material->url }}" class="btn" target="_blank">
                 <x-tabler-external-link class="w-5 h-5" />
                 <span>Buka materi</span>
