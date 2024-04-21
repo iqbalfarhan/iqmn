@@ -1,6 +1,6 @@
 <div class="page-wrapper">
     <div class="grid lg:grid-cols-2 gap-6">
-        <div class="stats shadow-lg">
+        {{-- <div class="stats shadow-lg">
             <div class="stat">
                 <div class="stat-figure">
                     <div class="avatar">
@@ -13,7 +13,9 @@
                 <div class="stat-title">{{ $user->name }}</div>
                 <div class="stat-desc">{{ $user->email }}</div>
             </div>
-        </div>
+        </div> --}}
+
+        @livewire('user.item', ['user' => $user])
     </div>
     <div class="space-y-4">
         <h1 class="text-xl">Material belajarku <small>({{ $user->materials->count() }} materi)</small></h1>
