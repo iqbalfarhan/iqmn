@@ -11,6 +11,12 @@ class Login extends Component
     use LivewireAlert;
     public $email;
     public $password;
+    public $showPassword = false;
+
+    public function toggleShowPassword()
+    {
+        $this->showPassword = !$this->showPassword;
+    }
 
     public function login()
     {

@@ -15,6 +15,13 @@ class Register extends Component
     public $email;
     public $password;
 
+    public $showPassword = false;
+
+    public function toggleShowPassword()
+    {
+        $this->showPassword = !$this->showPassword;
+    }
+
     public function register()
     {
         $valid = $this->validate([

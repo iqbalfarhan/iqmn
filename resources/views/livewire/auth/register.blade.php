@@ -1,5 +1,5 @@
 <div class="space-y-6">
-    <div class="text-4xl font-black text-center w-full text-primary">{{ config('app.name') }}</div>
+    @livewire('partial.logo')
 
     <div class="card w-96 bg-base-100">
         <form class="card-body" wire:submit.prevent="register">
@@ -7,14 +7,51 @@
 
             <div class="py-4 space-y-4">
                 <div class="space-y-2">
-                    <input type="text" class="input w-full input-bordered @error('name') input-error @enderror"
-                        placeholder="Nama lengkap" wire:model="name">
-                    <input type="email" class="input w-full input-bordered @error('email') input-error @enderror"
-                        placeholder="Email address" wire:model="email">
-                    <input type="password" class="input w-full input-bordered @error('password') input-error @enderror"
-                        placeholder="Password" wire:model="password">
-                    <input type="text" class="input w-full input-bordered @error('code') input-error @enderror"
-                        placeholder="Kode Registrasi" wire:model="code">
+                    <label @class([
+                        'input input-bordered flex items-center gap-2',
+                        'input-error' => $errors->first('name'),
+                    ])>
+                        <div class="size-5">
+                            <x-tabler-user class="size-5" />
+                        </div>
+                        <input type="text" class="grow" placeholder="Nama lengkap" wire:model="name" />
+                    </label>
+                    <label @class([
+                        'input input-bordered flex items-center gap-2',
+                        'input-error' => $errors->first('email'),
+                    ])>
+                        <div class="size-5">
+                            <x-tabler-at class="size-5" />
+                        </div>
+                        <input type="text" class="grow" placeholder="Email address" wire:model="email"
+                            autocomplete="email" />
+                    </label>
+                    <label @class([
+                        'input input-bordered flex items-center gap-2',
+                        'input-error' => $errors->first('password'),
+                    ])>
+                        <div class="size-5">
+                            <x-tabler-key class="size-5" />
+                        </div>
+                        <input type="{{ $showPassword ? 'text' : 'password' }}" class="grow" placeholder="Password"
+                            wire:model="password" />
+                        <button type="button" class="size-5 cursor-pointer" wire:click="toggleShowPassword">
+                            @if ($showPassword)
+                                <x-tabler-eye-off class="size-5" />
+                            @else
+                                <x-tabler-eye class="size-5" />
+                            @endif
+                        </button>
+                    </label>
+                    <label @class([
+                        'input input-bordered flex items-center gap-2',
+                        'input-error' => $errors->first('code'),
+                    ])>
+                        <div class="size-5">
+                            <x-tabler-asterisk class="size-5" />
+                        </div>
+                        <input type="text" class="grow" placeholder="Kode registrasi" wire:model="code" />
+                    </label>
                 </div>
             </div>
 

@@ -38,7 +38,7 @@
 
         @guest
             <div class="bg-base-100 min-h-screen flex justify-center items-center">
-                @livewire('partial.guestnav')
+                {{-- @livewire('partial.guestnav') --}}
                 {{ $slot }}
             </div>
         @endguest
