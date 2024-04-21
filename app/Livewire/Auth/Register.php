@@ -27,13 +27,13 @@ class Register extends Component
         $valid == Arr::pull($valid, 'code');
 
         $user = User::create($valid);
-        $user->assignRole('user');
+        $user->assignRole('reader');
 
         if (Auth::loginUsingId($user->id)) {
             return redirect()->route('home');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.auth.register');
