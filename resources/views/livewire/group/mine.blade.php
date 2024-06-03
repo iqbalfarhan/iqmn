@@ -10,7 +10,7 @@
     <div>
         <div class="grid gap-2">
             @forelse ($datas as $data)
-                @livewire('group.item', ['group' => $data], key($data->id))
+                @livewire('group.item', ['group' => $data, 'showToggleJoin' => false], key($data->id))
             @empty
                 <div class="col-span-full">
                     @livewire('partial.nocontent')

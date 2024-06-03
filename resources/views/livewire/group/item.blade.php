@@ -15,19 +15,21 @@
                 </div>
             </div>
 
-            <div class="flex-none">
-                @if ($join)
-                    <button class="btn btn-error btn-sm" wire:click="unJoinGroup">
-                        <x-tabler-logout class="size-4" />
-                        <span class="hidden md:flex">Leave</span>
-                    </button>
-                @else
-                    <button class="btn btn-primary btn-sm" wire:click="joinGroup">
-                        <x-tabler-login class="size-4" />
-                        <span class="hidden md:flex">Join</span>
-                    </button>
-                @endif
-            </div>
+            @if ($showToggleJoin)
+                <div class="flex-none">
+                    @if ($join)
+                        <button class="btn btn-error btn-sm" wire:click="unJoinGroup">
+                            <x-tabler-logout class="size-4" />
+                            <span class="hidden md:flex">Leave</span>
+                        </button>
+                    @else
+                        <button class="btn btn-primary btn-sm" wire:click="joinGroup">
+                            <x-tabler-login class="size-4" />
+                            <span class="hidden md:flex">Join</span>
+                        </button>
+                    @endif
+                </div>
+            @endif
         </div>
     </div>
 </div>

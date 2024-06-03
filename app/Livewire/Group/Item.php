@@ -10,6 +10,8 @@ class Item extends Component
 {
     public Group $group;
 
+    public $showToggleJoin = true;
+
     protected $listeners = ['reload' => '$refresh'];
 
     public function joinGroup()
