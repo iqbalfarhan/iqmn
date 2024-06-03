@@ -27,7 +27,7 @@
                             class="input input-lg input-bordered @error('title') input-error @enderror"
                             wire:model.live="title" placeholder="Tuliskan judul materi yang akan anda upload" />
                     </div>
-                    <div class="grid grid-cols-3 gap-6">
+                    <div class="grid md:grid-cols-3 gap-6">
                         <div class="form-control">
                             <label for="" class="label">
                                 <span class="label-text">URL file</span>
@@ -98,8 +98,6 @@
                     <button class="btn btn-primary">Simpan</button>
                 </div>
             </form>
-
-
         </div>
     @elseif ($active_tab == 'quizzes')
         @if ($material && $material->quizzes)
@@ -148,7 +146,4 @@
             </div>
         @endif
     @endif
-
-
-
 </div>
