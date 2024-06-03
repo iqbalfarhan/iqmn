@@ -6,10 +6,10 @@
         <h1 class="text-xl">Groupku <small>({{ $user->groups->count() }} group)</small></h1>
         <div class="flex gap-2 overflow-scroll">
             @foreach ($user->groups as $group)
-                <button class="btn capitalize">
+                <a href="{{ route('group.show', $group) }}" class="btn capitalize" wire:navigate>
                     <x-tabler-users-group class="size-5" />
                     {{ $group->name }}
-                </button>
+                </a>
             @endforeach
         </div>
     </div>

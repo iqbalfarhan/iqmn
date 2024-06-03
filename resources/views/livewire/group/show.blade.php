@@ -1,8 +1,21 @@
-<div class="page-wrapper space-y-8">
+<div class="page-wrapper space-y-10">
     <div class="space-y-4">
         <h2 class="text-xl font-bold capitalize">{{ $group->name }}</h2>
         @livewire('group.item', ['group' => $group])
     </div>
+
+    @if ($group->materials->count() != 0)
+        <div class="space-y-4">
+            <div class="flex justify-between items-end">
+                <h2 class="text-xl font-bold">Material group</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                @foreach ($group->materials as $material)
+                    @livewire('material.item', ['material' => $material], key($material->id))
+                @endforeach
+            </div>
+        </div>
+    @endif
 
     <div class="space-y-4">
         <div class="flex justify-between">
@@ -22,18 +35,6 @@
             @endforeach
         </div>
     </div>
-
-    <div class="space-y-4">
-        <div class="flex justify-between items-end">
-            <h2 class="text-xl font-bold">Material group</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-            @foreach ($group->materials as $material)
-                @livewire('material.item', ['material' => $material], key($material->id))
-            @endforeach
-        </div>
-    </div>
-
 
     @livewire('group.add-user')
 </div>
