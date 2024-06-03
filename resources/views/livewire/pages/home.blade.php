@@ -4,7 +4,7 @@
     </div>
     <div class="space-y-4">
         <h1 class="text-xl">Groupku <small>({{ $user->groups->count() }} group)</small></h1>
-        <div class="flex gap-2 overflow-scroll">
+        <div class="flex gap-2 overflow-y-auto scrollbar-hide">
             @foreach ($user->groups as $group)
                 <a href="{{ route('group.show', $group) }}" class="btn capitalize" wire:navigate>
                     <x-tabler-users-group class="size-5" />
