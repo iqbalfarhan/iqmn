@@ -84,43 +84,45 @@
             </ul>
         </li>
     @endcan
-    <li>
-        <h2 class="menu-title">Administrator</h2>
-        <ul>
-            @can('permission.index')
-                <li>
-                    <a href="{{ route('permission.index') }}" @class(['active' => Route::is('permission.index')]) wire:navigate>
-                        <x-tabler-user-shield class="w-5 h-5" />
-                        <span>Role & permissions</span>
-                    </a>
-                </li>
-            @endcan
-            @can('adminer.index')
-                <li>
-                    <a href="/adminer">
-                        <x-tabler-database class="w-5 h-5" />
-                        <span>Adminer database</span>
-                    </a>
-                </li>
-            @endcan
-            @can('git.index')
-                <li>
-                    <a href="{{ route('git.index') }}" @class(['active' => Route::is('git.index')]) wire:navigate>
-                        <x-tabler-brand-git class="w-5 h-5" />
-                        <span>Git control center</span>
-                    </a>
-                </li>
-            @endcan
-            @can('auth.bypass')
-                <li>
-                    <a href="{{ route('auth.bypass') }}" @class(['active' => Route::is('auth.bypass')]) wire:navigate>
-                        <x-tabler-login class="w-5 h-5" />
-                        <span>Bypass login</span>
-                    </a>
-                </li>
-            @endcan
-        </ul>
-    </li>
+    @can('managerial.menu')
+        <li>
+            <h2 class="menu-title">Administrator</h2>
+            <ul>
+                @can('permission.index')
+                    <li>
+                        <a href="{{ route('permission.index') }}" @class(['active' => Route::is('permission.index')]) wire:navigate>
+                            <x-tabler-user-shield class="w-5 h-5" />
+                            <span>Role & permissions</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('adminer.index')
+                    <li>
+                        <a href="/adminer">
+                            <x-tabler-database class="w-5 h-5" />
+                            <span>Adminer database</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('git.index')
+                    <li>
+                        <a href="{{ route('git.index') }}" @class(['active' => Route::is('git.index')]) wire:navigate>
+                            <x-tabler-brand-git class="w-5 h-5" />
+                            <span>Git control center</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('auth.bypass')
+                    <li>
+                        <a href="{{ route('auth.bypass') }}" @class(['active' => Route::is('auth.bypass')]) wire:navigate>
+                            <x-tabler-login class="w-5 h-5" />
+                            <span>Bypass login</span>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
     <li>
         <h2 class="menu-title">Authentication</h2>
         <ul>
