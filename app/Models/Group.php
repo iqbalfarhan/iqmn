@@ -20,6 +20,11 @@ class Group extends Model
         return $this->belongsToMany(User::class, 'user_has_group', 'group_id', 'user_id');
     }
 
+    public function materials()
+    {
+        return $this->hasMany(Material::class);
+    }
+
     public function getImageUrlAttribute()
     {
         return $this->logo ? Storage::url($this->logo) : url('noimage.jpg');

@@ -20,6 +20,7 @@ class Form extends Component
     public $url;
     public $thumbnail;
     public $tags;
+    public $group_id;
 
     protected $listeners = ['reload' => '$refresh'];
 
@@ -39,6 +40,7 @@ class Form extends Component
         ]);
 
         $valid['tags'] = array_map('trim', explode(',', $this->tags));
+        $valid['group_id'] = $this->group_id ?? null;
 
         if ($this->thumbnail) {
             $filename = $this->thumbnail->hashName('user');
@@ -80,8 +82,10 @@ class Form extends Component
 
     public function render()
     {
+        $user = auth()->user();
         return view('livewire.material.form', [
             'quizzes' => $this->material ? $this->material->quizzes : [],
+            'groups' => $user->groups->pluck('name', 'id')
         ]);
     }
 }

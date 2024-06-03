@@ -2,15 +2,15 @@
 
 namespace App\Livewire\Pages;
 
-use App\Models\Material;
+use App\Models\Post;
 use Livewire\Component;
 
 class Article extends Component
 {
-    public Material $material;
+    public Post $post;
 
-    public function mount(Material $material){
-        $this->material = $material;
+    public function mount($slug){
+        $this->post = Post::where('slug', $slug)->first();
     }
 
     public function render()

@@ -17,6 +17,7 @@ class Material extends Model
         'thumbnail',
         'tags',
         'show',
+        'group_id'
     ];
 
     protected $casts = [
@@ -40,5 +41,9 @@ class Material extends Model
 
     public function quizzes() {
         return $this->hasMany(Quiz::class);
+    }
+
+    public function group() {
+        return $this->belongsTo(Group::class);
     }
 }

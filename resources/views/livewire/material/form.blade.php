@@ -27,7 +27,7 @@
                             class="input input-lg input-bordered @error('title') input-error @enderror"
                             wire:model.live="title" placeholder="Tuliskan judul materi yang akan anda upload" />
                     </div>
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-3 gap-6">
                         <div class="form-control">
                             <label for="" class="label">
                                 <span class="label-text">URL file</span>
@@ -40,6 +40,21 @@
                         </div>
                         <div class="form-control">
                             <label for="" class="label">
+                                <span class="label-text">Material Group</span>
+                                @error('group_id')
+                                    <span class="label-text-alt text-error">{{ $message }}</span>
+                                @enderror
+                            </label>
+                            <select class="select select-bordered @error('group_id') select-error @enderror"
+                                wire:model.live="group_id">
+                                <option value="">Pilih group untuk material ini</option>
+                                @foreach ($groups as $groupid => $groupname)
+                                    <option value="{{ $groupid }}">{{ $groupname }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label for="" class="label">
                                 <span class="label-text">Thumbnail</span>
                                 @error('thumbnail')
                                     <span class="label-text-alt text-error">{{ $message }}</span>
@@ -48,6 +63,11 @@
                             <input type="file"
                                 class="file-input file-input-bordered @error('thumbnail') file-input-error @enderror"
                                 wire:model.live="thumbnail" />
+
+                            @if ($thumbnail)
+                                <img src="{{ $thumbnail->temporaryUrl() }}" alt=""
+                                    class="pt-2 rounded-lg w-full">
+                            @endif
                         </div>
                     </div>
                     <div class="form-control">
