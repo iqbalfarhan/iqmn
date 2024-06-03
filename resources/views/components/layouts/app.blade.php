@@ -16,6 +16,7 @@
         @vite('resources/css/app.css')
 
         @livewireStyles
+        @laravelPWA
     </head>
 
     <body>
