@@ -20,6 +20,7 @@ class MaterialFactory extends Factory
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'url' => fake()->url(),
+            'tags' => fake()->words()
         ];
     }
 }

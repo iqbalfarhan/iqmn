@@ -9,13 +9,14 @@
     </div>
 
     @if ($active_tab == 'keterangan')
-        <div class="card shadow-lg mx-auto bg-base-200">
-            <form class="card-body space-y-6" wire:submit="simpan">
-                <h3 class="card-title">
+        <div class="card card-compact md:card-normal bg-base-200 card-divider">
+            <div class="card-body">
+                <h3 class="font-bold text-xl">
                     {{ $this->material ? 'Edit keterangan material' : 'Buat material baru' }}
                 </h3>
-                <div class="divider"></div>
-                <div class="space-y-4">
+            </div>
+            <form class="card-body space-y-8" wire:submit="simpan">
+                <div class="space-y-2 md:space-y-4">
                     <div class="form-control">
                         <label for="" class="label">
                             <span class="label-text">Judul material</span>
@@ -23,8 +24,7 @@
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             @enderror
                         </label>
-                        <input type="text"
-                            class="input input-lg input-bordered @error('title') input-error @enderror"
+                        <input type="text" class="input input-bordered @error('title') input-error @enderror"
                             wire:model.live="title" placeholder="Tuliskan judul materi yang akan anda upload" />
                     </div>
                     <div class="grid md:grid-cols-3 gap-6">
