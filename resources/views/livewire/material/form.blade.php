@@ -77,7 +77,7 @@
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             @enderror
                         </label>
-                        <textarea type="text" rows="6"
+                        <textarea type="text" rows="15"
                             class="textarea textarea-bordered @error('description') textarea-error @enderror" wire:model.live="description"
                             placeholder="Tuliskan keterangan tentang materi ini. harap gunakan format markdown dalam penulisan"></textarea>
                     </div>
