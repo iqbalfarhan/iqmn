@@ -8,25 +8,25 @@
             <a href="{{ route('material.cari') }}" class="btn btn-lg btn-circle">
                 <x-tabler-search class="size-7" />
             </a>
-            <span class="text-sm">Cari</span>
+            <span class="text-xs">Cari</span>
         </div>
         <div class="flex flex-col items-center justify-center gap-2">
             <a href="{{ route('material.comot') }}" class="btn btn-lg btn-circle">
                 <x-tabler-book class="size-7" />
             </a>
-            <span class="text-sm">Materiku</span>
+            <span class="text-xs">Materiku</span>
         </div>
         <div class="flex flex-col items-center justify-center gap-2">
             <a href="{{ route('group.mine') }}" class="btn btn-lg btn-circle">
                 <x-tabler-users class="size-7" />
             </a>
-            <span class="text-sm">Groupku</span>
+            <span class="text-xs">Groupku</span>
         </div>
         <div class="flex flex-col items-center justify-center gap-2">
             <a href="{{ route('profile') }}" class="btn btn-lg btn-circle">
                 <x-tabler-user-hexagon class="size-7" />
             </a>
-            <span class="text-sm">Profile</span>
+            <span class="text-xs">Profile</span>
         </div>
     </div>
     <div class="space-y-4">
