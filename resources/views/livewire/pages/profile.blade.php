@@ -70,6 +70,15 @@
         </ul>
     </div>
 
+    <div class="w-full max-w-lg mx-auto space-y-4">
+        <h3 class="text-lg">Keluar aplikasi:</h3>
+
+        <button class="btn btn-block btn-error" wire:click="$dispatch('logout')">
+            <x-tabler-logout class="size-5" />
+            <span>Logout</span>
+        </button>
+    </div>
+
     @livewire('user.profile')
 
 </div>
