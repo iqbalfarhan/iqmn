@@ -38,10 +38,20 @@
 
 
         @guest
-            <div class="bg-base-100 min-h-screen flex justify-center items-center">
-                {{-- @livewire('partial.guestnav') --}}
-                {{ $slot }}
-            </div>
+            @if (Route::is(['login', 'register']))
+                <div class="bg-base-100 min-h-screen flex justify-center items-center">
+                    {{ $slot }}
+                </div>
+            @else
+                <div class="flex flex-col h-screen">
+                    <div class="flex-none">
+                        @livewire('partial.guestnav')
+                    </div>
+                    <div class="flex-1 overflow-y-scroll scrollbar-hide">
+                        {{ $slot }}
+                    </div>
+                </div>
+            @endif
         @endguest
 
         @livewireScripts

@@ -1,6 +1,6 @@
-<div class="page-wrapper py-20">
+<div class="page-wrapper">
     <article class="prose prose-lg mx-auto">
-        <div class="text-4xl font-black text-center w-full text-primary">{{ config('app.name') }}</div>
+        <h3 class="text-3xl font-bold">{{ $post->title }}</h3>
         <figure>
             <img src="{{ $post->image_url }}" alt="" class="w-full rounded-xl">
         </figure>

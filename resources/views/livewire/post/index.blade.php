@@ -1,7 +1,7 @@
 <div class="page-wrapper">
-    <div class="flex gap-1 justify-between">
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian">
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" wire:click="$dispatch('createPost')">
             <x-tabler-plus class="size-5" />
             <span>Buat postingan</span>
         </button>
@@ -44,10 +44,9 @@
                                 <a href="{{ route('post.show', $data->id) }}" class="btn btn-xs btn-square btn-primary">
                                     <x-tabler-folder class="w-4 h-4" />
                                 </a>
-                                <button class="btn btn-xs btn-square btn-success"
-                                    wire:click="edit({{ $data->id }})">
+                                <a href="{{ route('post.edit', $data->id) }}" class="btn btn-xs btn-square btn-success">
                                     <x-tabler-edit class="w-4 h-4" />
-                                </button>
+                                </a>
                                 <button class="btn btn-xs btn-square btn-error"
                                     wire:click="delete({{ $data->id }})">
                                     <x-tabler-trash class="w-4 h-4" />

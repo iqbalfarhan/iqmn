@@ -47,10 +47,10 @@
                 @can('post.index')
                     <li>
                         <a href="{{ route('post.index') }}" @class([
-                            'active' => Route::is(['post.index', 'post.show']),
+                            'active' => Route::is(['post.index', 'post.show', 'post.edit']),
                         ]) wire:navigate>
                             <x-tabler-bookmark class="w-5 h-5" />
-                            <span>Postingan</span>
+                            <span>Post Article</span>
                         </a>
                     </li>
                 @endcan
@@ -60,7 +60,7 @@
                             'active' => Route::is(['material.index', 'material.show', 'material.edit']),
                         ]) wire:navigate>
                             <x-tabler-book class="w-5 h-5" />
-                            <span>Pengaturan Materials</span>
+                            <span>Data Materials</span>
                         </a>
                     </li>
                 @endcan
@@ -68,7 +68,7 @@
                     <li>
                         <a href="{{ route('user.index') }}" @class(['active' => Route::is(['user.index', 'user.show'])]) wire:navigate>
                             <x-tabler-users class="w-5 h-5" />
-                            <span>Pengaturan User</span>
+                            <span>Management User</span>
                         </a>
                     </li>
                 @endcan

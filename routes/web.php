@@ -16,13 +16,13 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 
+
 Route::middleware('guest')->group(function () {
     Route::get('/', App\Livewire\Pages\Welcome::class)->name('welcome');
+    Route::get('/article/{slug}', App\Livewire\Pages\Article::class)->name('article.show');
+
     Route::get('/login', App\Livewire\Auth\Login::class)->name('login');
     Route::get('/register', App\Livewire\Auth\Register::class)->name('register');
-
-    // Route::get('/article/{material}', App\Livewire\Pages\Article::class)->name('article.show');
-    Route::get('/article/{slug}', App\Livewire\Pages\Article::class)->name('article.show');
 
     Route::get('/auth/redirect', [SocialiteController::class, 'redirect'])->name('auth.redirect');
     Route::get('/auth/callback', [SocialiteController::class, 'callback'])->name('auth.callback');
@@ -55,4 +55,5 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('can:post.index')->get('/post', App\Livewire\Post\Index::class)->name('post.index');
     Route::middleware('can:post.show')->get('/post/{post}', App\Livewire\Post\Show::class)->name('post.show');
+    Route::middleware('can:post.edit')->get('/post/{post}/edit', App\Livewire\Post\Edit::class)->name('post.edit');
 });
