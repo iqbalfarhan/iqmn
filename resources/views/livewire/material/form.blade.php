@@ -106,7 +106,7 @@
                 <span>{{ $quizzes->count() }} Pertanyaan</span>
                 <label for="addQuiz" class="btn btn-primary">
                     <x-tabler-circle-plus class="w-5 h-5" />
-                    <span>Tambah pertanyaan</span>
+                    <span>Tambah</span>
                 </label>
             </div>
             <div class="flex flex-col gap-2">

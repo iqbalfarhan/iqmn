@@ -1,9 +1,9 @@
 <div class="page-wrapper">
-    <div class="flex justify-between">
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
         <a href="{{ route('material.create') }}" class="btn btn-primary">
             <x-tabler-circle-plus class="w-5 h-5" />
-            <span class="hidden lg:block">Tambah</span>
+            <span>Tambah Material</span>
         </a>
     </div>
     <div class="table-wrapper">

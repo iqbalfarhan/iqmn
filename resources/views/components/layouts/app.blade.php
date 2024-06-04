@@ -28,6 +28,7 @@
                     @livewire('partial.navbar')
                     {{ $slot }}
                     @livewire('partial.footer')
+                    @livewire('partial.bottomnav')
                 </div>
                 <div class="drawer-side scrollbar-hide">
                     <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>

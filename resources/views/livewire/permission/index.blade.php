@@ -1,17 +1,14 @@
 <div class="page-wrapper">
-    <div class="flex justify-between items-center gap-6">
-        <div>
-            <input type="text" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
-        </div>
-
-        <div class="flex gap-2">
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
+        <input type="text" class="input input-bordered w-full md:w-fit" placeholder="Pencarian" wire:model.live="cari">
+        <div class="flex flex-row gap-2">
             <button class="btn btn-primary" wire:click="$dispatch('createPermission')">
                 <x-tabler-circle-plus class="w-5 h-5" />
-                <span class="hidden lg:block">permission</span>
+                <span>Permission</span>
             </button>
             <button class="btn btn-primary" wire:click="$dispatch('createRole')">
                 <x-tabler-circle-plus class="w-5 h-5" />
-                <span class="hidden lg:block">role</span>
+                <span>Role</span>
             </button>
         </div>
     </div>

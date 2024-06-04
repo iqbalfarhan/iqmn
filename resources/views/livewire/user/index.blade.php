@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-    <div class="flex justify-between">
+    <div class="flex flex-col md:flex-row justify-between">
         <input type="search" class="input input-bordered" placeholder="Pencarian">
     </div>
     <div class="table-wrapper">

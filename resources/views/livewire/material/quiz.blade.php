@@ -42,7 +42,8 @@
         <div class="card-body">
             <div class="space-y-8">
                 <div class="flex justify-between items-center">
-                    <div class="btn btn-ghost normal-case">{{ count($jawaban) }}/{{ count($answers) }} soal telah diisi.
+                    <div class="btn btn-ghost normal-case">
+                        {{ count($jawaban) }}/{{ count($answers) }} soal telah diisi.
                     </div>
 
                     <button class="btn btn-ghost">Tentang quiz</button>
@@ -114,7 +115,7 @@
             <div class="divider">Selesai</div>
 
             <div class="card-actions">
-                <button wire:click="periksa" class="btn btn-primary">Selesai dan periksa hasil jawaban anda</button>
+                <button wire:click="periksa" class="btn btn-primary">Selesai dan periksa jawaban</button>
             </div>
         </div>
     </div>
