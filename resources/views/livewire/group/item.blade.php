@@ -1,9 +1,9 @@
 <div class="card card-compact bg-base-200 shadow">
     <div class="card-body">
         <div class="flex gap-3 items-center">
-            <div class="avatar size-12 flex-none">
-                <div class="w-12 rounded-full bg-neutral text-neutral-content text-xl">
-                    <img src="{{ $group->image_url }}" alt="">
+            <div class="avatar size-12 flex-none placeholder">
+                <div class="w-12 rounded-full bg-base-100 text-lg">
+                    <span class="capitalize">{{ $group->name[0] }}</span>
                 </div>
             </div>
 

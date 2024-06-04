@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-    <div>
+    <div class="flex flex-col md:flex-row">
         <input type="search" class="input input-bordered" placeholder="Pencarian" wire:model.live="cari">
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -31,9 +31,10 @@
     </div>
     <div class="space-y-4">
         <h1 class="text-xl">Groupku <small>({{ $user->groups->count() }} group)</small></h1>
-        <div class="flex gap-3 overflow-x-scroll scrollbar-hide">
+        <div class="flex flex-col gap-2">
             @foreach ($user->groups as $group)
-                <a href="{{ route('group.show', $group) }}"
+                @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))
+                {{-- <a href="{{ route('group.show', $group) }}"
                     class="flex w-fit gap-3 bg-base-200 p-4 rounded-xl items-center" wire:navigate>
                     <div class="flex-none flex items-center justify-center">
                         <div class="avatar w-12 placeholder">
@@ -46,7 +47,7 @@
                         <h2 class="text-lg font-bold truncate capitalize">{{ $group->name }}</h2>
                         <span class="text-xs">{{ $group->users->count() }} member</span>
                     </div>
-                </a>
+                </a> --}}
             @endforeach
         </div>
     </div>
