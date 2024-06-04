@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar border-b-2 border-base-300">
     <div class="navbar-start">
         <label for="drawer" class="btn btn-ghost btn-circle">
             <x-tabler-menu class="w-5 h-5" />
