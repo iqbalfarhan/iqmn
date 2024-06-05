@@ -29,9 +29,8 @@
                 @endcan
             </div>
         </div>
-        <div class="flex overflow-x-auto scrollbar-hide -space-x-4 rtl:space-x-reverse">
+        <div class="flex overflow-x-auto scrollbar-hide">
             @foreach ($group->users as $user)
-                {{-- @livewire('user.item', ['user' => $user], key($user->id)) --}}
                 <div class="avatar">
                     <div class="w-12 rounded-full bg-base-300">
                         <img src="{{ $user->image_url }}" alt="">
