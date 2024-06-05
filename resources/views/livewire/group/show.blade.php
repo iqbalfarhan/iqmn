@@ -9,7 +9,7 @@
             <div class="flex justify-between items-end">
                 <h2 class="text-xl font-bold">Material group</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-2 md:gap-6">
                 @foreach ($group->materials as $material)
                     @livewire('material.item', ['material' => $material], key($material->id))
                 @endforeach
@@ -33,7 +33,7 @@
             @foreach ($group->users as $user)
                 {{-- @livewire('user.item', ['user' => $user], key($user->id)) --}}
                 <div class="avatar">
-                    <div class="w-16 rounded-full bg-base-300">
+                    <div class="w-12 rounded-full bg-base-300">
                         <img src="{{ $user->image_url }}" alt="">
                     </div>
                 </div>
