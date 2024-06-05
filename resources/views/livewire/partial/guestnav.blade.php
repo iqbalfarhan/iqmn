@@ -11,7 +11,7 @@
             @endauth
             @guest
                 <li>
-                    <a href="{{ route('home') }}" wire:navigate>
+                    <a href="{{ route('welcome') }}" wire:navigate>
                         <x-tabler-book class="size-4" />
                         <span>Artikel</span>
                     </a>
