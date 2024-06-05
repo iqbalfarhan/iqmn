@@ -8,25 +8,18 @@ use Livewire\Form;
 
 class PostForm extends Form
 {
-    #[Validate('required')]
     public $user_id;
 
-    #[Validate('required')]
     public $title;
 
-    #[Validate('required')]
     public $slug;
 
-    #[Validate('')]
-    public $body;
+    public $body = "";
 
-    #[Validate('')]
     public $tags;
 
-    #[Validate('')]
     public $photo;
 
-    #[Validate('required')]
     public $show = false;
 
 
@@ -45,15 +38,17 @@ class PostForm extends Form
         $this->show = $post->show;
     }
 
-    public function store()
-    {
-        $this->validate();
-        Post::create($this->all());
-    }
-
     public function update()
     {
-        $this->validate();
+        $this->validate([
+            'user_id' => 'required',
+            'title' => 'required',
+            'slug' => 'required',
+            'body' => 'required',
+            'tags' => '',
+            'photo' => '',
+            'show' => '',
+        ]);
         $this->post->update($this->all());
     }
 }

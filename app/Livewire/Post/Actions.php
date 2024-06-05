@@ -23,7 +23,14 @@ class Actions extends Component
     {
         $this->form->user_id = auth()->id();
         $this->form->slug = Str::slug($this->form->title);
-        $this->form->body = fake()->sentence();
+        $this->form->body = $this->form->title;
+
+        $this->form->validate([
+            'user_id' =>'required',
+            'title' =>'required',
+            'slug' =>'required',
+            'body' =>'required'
+        ]);
 
         $post = Post::create($this->form->all());
         $this->redirect(route('post.edit', $post), true);

@@ -23,7 +23,9 @@
         @apply shadow-xl rounded-xl bg-base-100 overflow-x-auto whitespace-nowrap;
     }
 
-    .input {
+    .input,
+    .textarea,
+    .select {
         @apply bg-base-200;
     }
 

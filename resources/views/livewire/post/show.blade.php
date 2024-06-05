@@ -1,3 +1,7 @@
 <div class="page-wrapper">
-    <pre>@json($post, JSON_PRETTY_PRINT)</pre>
+    <article class="prose mx-auto">
+        <h1>{{ $post->title }}</h1>
+        <img src="{{ $post->image_url }}" alt="">
+        {!! Str::markdown($post->body) !!}
+    </article>
 </div>
