@@ -3,11 +3,12 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             @foreach ($posts as $post)
                 <a href="{{ route('article.show', $post->slug) }}" wire:navigate class="flex flex-col space-y-3">
-                    <div class="text-xl font-bold line-clamp-3">{{ $post->title }}</div>
 
                     <div class="aspect-auto">
                         <img src="{{ $post->image_url }}" class="rounded-xl">
                     </div>
+
+                    <div class="text-xl font-bold line-clamp-3">{{ $post->title }}</div>
 
                     <div class="flex items-center opacity-75">
                         <div class="flex gap-2 flex-1">
