@@ -1,6 +1,6 @@
 @if ($posts->count() > 0)
     <div class="page-wrapper">
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             @foreach ($posts as $post)
                 <a href="{{ route('article.show', $post->slug) }}" wire:navigate class="flex flex-col space-y-3">
                     <div class="aspect-auto">
