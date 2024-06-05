@@ -5,8 +5,9 @@
             @livewire('widget.tanggal')
         </div>
     </div>
-    <div class="page-wrapper">
-        <div class="grid md:hidden grid-cols-4 md:grid-cols-8 gap-4">
+
+    <div class="page-wrapper md:hidden">
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-4">
             <div class="flex flex-col items-center justify-center gap-2">
                 <a href="{{ route('material.cari') }}" class="btn btn-lg btn-circle">
                     <x-tabler-search class="size-7" />
@@ -33,18 +34,22 @@
             </div>
         </div>
     </div>
+
     @if ($user->groups->count() > 0)
-        <div class="space-y-4 py-6">
-            <h1 class="text-xl px-6">Groupku <small>({{ $user->groups->count() }} group)</small></h1>
-            <div class="flex flex-col gap-2 px-6">
-                @foreach ($user->groups as $group)
-                    @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))
-                @endforeach
+        <div class="page-wrapper">
+            <div class="space-y-4">
+                <h1 class="text-xl">Groupku <small>({{ $user->groups->count() }} group)</small></h1>
+                <div class="flex flex-col gap-2">
+                    @foreach ($user->groups as $group)
+                        @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))
+                    @endforeach
+                </div>
             </div>
         </div>
     @endif
+
     @if ($user->materials->count() > 0)
-        <div class="space-y-4 py-6">
+        <div class="space-y-4 py-6 mx-auto max-w-5xl">
             <h1 class="text-xl px-6">Material belajarku <small>({{ $user->materials->count() }} materi)</small></h1>
             <div class="flex overflow-x-auto scrollbar-hide gap-4 px-6">
                 @foreach ($user->materials as $material)
