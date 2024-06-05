@@ -29,9 +29,14 @@
                 @endcan
             </div>
         </div>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex overflow-x-auto scrollbar-hide -space-x-4 rtl:space-x-reverse">
             @foreach ($group->users as $user)
-                @livewire('user.item', ['user' => $user], key($user->id))
+                {{-- @livewire('user.item', ['user' => $user], key($user->id)) --}}
+                <div class="avatar">
+                    <div class="w-16 rounded-full bg-base-300">
+                        <img src="{{ $user->image_url }}" alt="">
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>
