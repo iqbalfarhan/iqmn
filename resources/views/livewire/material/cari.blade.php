@@ -15,7 +15,10 @@
 
     @if ($cari)
         <div>Hasil pencarian dengan keyword : {{ $cari }}</div>
+    @else
+        <div>Material yang baru diupload :</div>
     @endif
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         @forelse ($datas as $data)
             @livewire('material.item', ['material' => $data], key($data->id))
