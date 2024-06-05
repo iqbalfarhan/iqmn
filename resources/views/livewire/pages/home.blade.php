@@ -44,17 +44,8 @@
             <h1 class="text-xl">Material belajarku <small>({{ $user->materials->count() }} materi)</small></h1>
             <div class="flex overflow-x-auto scrollbar-hide gap-4">
                 @foreach ($user->materials as $material)
-                    <div class="card card-side card-compact min-w-80 max-w-80 bg-base-200 overflow-hidden items-center">
-                        <a href="{{ route('material.show', $material) }}" class="avatar size-24">
-                            <div class="size-24">
-                                <img src="{{ $material->image_url }}" alt="">
-                            </div>
-                        </a>
-                        <div class="card-body">
-                            <div class="line-clamp-3">
-                                {{ $material->group?->name }} {{ $material->title }}
-                            </div>
-                        </div>
+                    <div class="min-w-80 max-w-80">
+                        @livewire('material.item', ['material' => $material], key($material->id))
                     </div>
                 @endforeach
             </div>

@@ -23,6 +23,10 @@
         @apply shadow-xl rounded-xl bg-base-100 overflow-x-auto whitespace-nowrap;
     }
 
+    .input {
+        @apply bg-base-200;
+    }
+
     .input-bordered,
     .textarea-bordered,
     .select-bordered,
