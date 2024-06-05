@@ -5,7 +5,7 @@
         </label>
     </div>
     <div class="navbar-center">
-        <a class="btn btn-ghost normal-case font-black text-primary text-xl lg:hidden" href="{{ route('home') }}"
+        <a class="btn btn-ghost normal-case font-black text-primary text-2xl lg:hidden" href="{{ route('home') }}"
             wire:navigate>{{ config('app.name') }}</a>
     </div>
     <div class="navbar-end">

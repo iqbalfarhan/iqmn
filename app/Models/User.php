@@ -34,10 +34,10 @@ class User extends Authenticatable
     public function getImageUrlAttribute()
     {
         if ($this->github_id) {
-            return $this->photo ?? url('noimage.jpg');
+            return $this->photo ?? url('nouser.png');
         }
         else{
-            return $this->photo ? Storage::url($this->photo) : url('noimage.jpg');
+            return $this->photo ? Storage::url($this->photo) : url('nouser.png');
         }
     }
 

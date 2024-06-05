@@ -1,4 +1,4 @@
-<div class="card bg-base-200 opacity-30">
+<div class="card opacity-10">
     <div class="card-body text-center space-y-6">
         <x-tabler-error-404 class="w-24 h-24 self-center" />
         <h1 class="text-3xl font-bold">Kontent tidak ditemukan</h1>

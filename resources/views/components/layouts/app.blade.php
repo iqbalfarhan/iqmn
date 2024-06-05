@@ -25,10 +25,15 @@
             <div class="drawer {{ session('sidebar', 'lg:drawer-open') }} min-h-screen">
                 <input id="drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content">
-                    @livewire('partial.navbar')
-                    {{ $slot }}
-                    @livewire('partial.footer')
-                    @livewire('partial.bottomnav')
+                    <div class="flex flex-col h-screen">
+                        <div class="flex-none">
+                            @livewire('partial.navbar')
+                        </div>
+                        <div class="flex-1 overflow-y-scroll scrollbar-hide pb-16">
+                            {{ $slot }}
+                            @livewire('partial.bottomnav')
+                        </div>
+                    </div>
                 </div>
                 <div class="drawer-side scrollbar-hide">
                     <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>

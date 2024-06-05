@@ -26,7 +26,7 @@ class Material extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->thumbnail ? Storage::url($this->thumbnail) : url('noimage.jpg');
+        return $this->thumbnail ? Storage::url($this->thumbnail) : url('nocontent.png');
     }
 
     public function discussions()

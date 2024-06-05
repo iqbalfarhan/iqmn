@@ -32,6 +32,6 @@ class Post extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->photo ? Storage::url($this->photo) : url('noimage.jpg');
+        return $this->photo ? Storage::url($this->photo) : url('nocontent.png');
     }
 }
