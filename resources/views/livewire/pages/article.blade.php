@@ -1,13 +1,9 @@
 <div class="page-wrapper">
     <article class="prose prose-lg mx-auto">
         <h3 class="text-3xl font-bold">{{ $post->title }}</h3>
-        <div class="flex items-center opacity-75">
-            <div class="flex gap-2 flex-1">
-                <div class="avatar size-5">
-                    <div class="w-5 rounded-full bg-base-300">
-                        <img src="{{ $post->user->image_url }}" alt="A">
-                    </div>
-                </div>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 flex-1">
+                <img src="{{ $post->user->image_url }}" alt="A" class="size-6 rounded-full m-0">
                 <div class="text-sm">{{ $post->user->name }}</div>
             </div>
             <div class="text-xs">{{ $post->created_at->format('d M Y') }}</div>
