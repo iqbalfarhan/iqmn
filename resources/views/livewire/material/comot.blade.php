@@ -4,7 +4,9 @@
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6">
         @forelse ($datas as $data)
-            @livewire('material.item', ['material' => $data], key($data->id))
+            <a href="{{ route('material.show', $data) }}">
+                @livewire('material.item', ['material' => $data], key($data->id))
+            </a>
         @empty
             <div class="col-span-full">
                 @livewire('partial.nocontent')

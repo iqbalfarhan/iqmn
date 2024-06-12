@@ -53,9 +53,9 @@
             <h1 class="text-xl px-6">Material belajarku <small>({{ $user->materials->count() }} materi)</small></h1>
             <div class="flex overflow-x-auto scrollbar-hide gap-4 px-6">
                 @foreach ($user->materials as $material)
-                    <div class="min-w-80 max-w-80">
+                    <a href="{{ route('material.show', $material) }}" class="min-w-80 max-w-80">
                         @livewire('material.item', ['material' => $material], key($material->id))
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
