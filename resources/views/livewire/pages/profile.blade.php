@@ -39,7 +39,7 @@
         <ul class="menu bg-base-200 rounded-xl">
             <li>
                 <div class="justify-between">
-                    <span>Github account</span>
+                    <span>Github</span>
                     <button class="btn btn-xs btn-ghost hover:btn-outline normal-case"
                         wire:click="$dispatch('editProfile', {edittype: 'github'})">
                         {{ Str::limit($user->sosmeds()->where('name', 'github')->first()->link ?? 'Your github link', 30) }}
