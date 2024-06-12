@@ -4,6 +4,17 @@
         <figure>
             <img src="{{ $post->image_url }}" alt="" class="w-full rounded-xl">
         </figure>
+        <div class="flex items-center opacity-75">
+            <div class="flex gap-2 flex-1">
+                <div class="avatar size-5">
+                    <div class="w-5 rounded-full">
+                        <img src="{{ $post->user->image_url }}" alt="">
+                    </div>
+                </div>
+                <div class="text-sm">{{ $post->user->name }}</div>
+            </div>
+            <div class="text-xs">{{ $post->created_at->format('d M Y') }}</div>
+        </div>
         <div class="flex mb-6">
             @if ($post->tags)
                 <div class="flex flex-wrap gap-1">
