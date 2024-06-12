@@ -22,13 +22,13 @@
             </div>
             <div class="flex flex-col items-center justify-center gap-2">
                 <a href="{{ route('group.mine') }}" class="btn btn-lg btn-circle">
-                    <x-tabler-users class="size-7" />
+                    <x-tabler-user-circle class="size-7" />
                 </a>
-                <span class="text-xs">Groupku</span>
+                <span class="text-xs">Kelasku</span>
             </div>
             <div class="flex flex-col items-center justify-center gap-2">
                 <a href="{{ route('profile') }}" class="btn btn-lg btn-circle">
-                    <x-tabler-user-hexagon class="size-7" />
+                    <x-tabler-user class="size-7" />
                 </a>
                 <span class="text-xs">Profile</span>
             </div>
@@ -38,7 +38,7 @@
     @if ($user->groups->count() > 0)
         <div class="page-wrapper">
             <div class="space-y-4">
-                <h1 class="text-xl">Groupku <small>({{ $user->groups->count() }} group)</small></h1>
+                <h1 class="text-xl">Kelasku <small>({{ $user->groups->count() }} kelas)</small></h1>
                 <div class="flex flex-col gap-2">
                     @foreach ($user->groups as $group)
                         @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))

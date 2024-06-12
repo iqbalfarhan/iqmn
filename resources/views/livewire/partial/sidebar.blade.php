@@ -1,4 +1,4 @@
-<ul class="menu space-y-6 p-4 w-80 min-h-full bg-base-100">
+<ul class="menu space-y-6 p-4 w-80 min-h-full bg-base-100 border-r-2 border-base-300">
     <li>
         <a class="btn btn-ghost normal-case font-black text-primary text-2xl" href="{{ route('home') }}"
             wire:navigate>{{ config('app.name') }}</a>
@@ -34,7 +34,7 @@
                 <li>
                     <a href="{{ route('group.mine') }}" @class(['active' => Route::is(['group.mine', 'group.show'])]) wire:navigate>
                         <x-tabler-user-circle class="w-5 h-5" />
-                        <span>Group saya</span>
+                        <span>Kelas saya</span>
                     </a>
                 </li>
             @endcan

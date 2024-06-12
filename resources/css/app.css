@@ -63,4 +63,8 @@
     .card-divider {
         @apply divide-y-2 divide-base-300;
     }
+
+    .prose pre {
+        @apply bg-base-200 text-base-content;
+    }
 }

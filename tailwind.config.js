@@ -21,7 +21,7 @@ export default {
                     primary: "#00ADB5",
                     neutral: "#00ADB5",
                     "base-100": "#222831",
-                    "base-200": "#393E46",
+                    "base-200": "#2e3239",
                     "base-300": "#1E2123",
                 },
             },

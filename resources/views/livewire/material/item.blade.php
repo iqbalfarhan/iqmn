@@ -1,9 +1,9 @@
 <div class="card card-side card-compact w-full bg-base-200 overflow-hidden items-center">
-    <a href="{{ route('material.show', $material) }}" class="avatar size-24">
+    <div class="avatar size-24">
         <div class="size-24">
             <img src="{{ $material->image_url }}" alt="">
         </div>
-    </a>
+    </div>
     <div class="card-body">
         <div class="line-clamp-2">
             {{ $material->title }}

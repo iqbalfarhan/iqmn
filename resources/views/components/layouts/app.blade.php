@@ -26,7 +26,7 @@
                 <input id="drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content">
                     <div class="flex flex-col h-screen">
-                        <div class="flex-none">
+                        <div class="flex-none p-6 py-4">
                             @livewire('partial.navbar')
                         </div>
                         <div class="flex-1 overflow-y-scroll scrollbar-hide pb-16">

@@ -15,7 +15,7 @@
                 @endforeach
             </div>
             <div class="modal-action justify-between">
-                <button type="button" wire:click="closeModal" class="btn">Close!</button>
+                <button type="button" wire:click="closeModal" class="btn btn-ghost">Close</button>
                 <button class="btn">Simpan</button>
             </div>
         </form>

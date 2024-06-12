@@ -72,6 +72,7 @@ class Form extends Component
             $this->title = $this->material->title;
             $this->description = $this->material->description;
             $this->url = $this->material->url;
+            $this->group_id = $this->material->group_id;
 
             if ($this->material->tags) {
                 $this->tags = implode(', ', $this->material->tags);

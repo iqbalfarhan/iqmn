@@ -11,7 +11,11 @@
                 <div class="flex flex-col flex-1">
                     <a href="{{ route('group.show', $group) }}"
                         class="text-lg font-bold line-clamp-1">{{ $group->name }}</a>
-                    <span>{{ $group->users->count() }} members</span>
+                    <div>
+                        {{ $group->materials->count() }} Materi
+                        dan
+                        {{ $group->users->count() }} Member
+                    </div>
                 </div>
             </div>
 

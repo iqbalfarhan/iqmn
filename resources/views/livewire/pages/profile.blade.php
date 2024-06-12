@@ -70,7 +70,7 @@
         </ul>
     </div>
 
-    <div class="">
+    <div class="w-full max-w-lg mx-auto space-y-4">
         <div class="divider"></div>
         <button class="btn btn-error btn-block" wire:click="$dispatch('logout')">
             <x-tabler-logout class="size-5" />

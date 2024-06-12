@@ -1,15 +1,6 @@
 <div class="page-wrapper">
-    <div class="flex gap-4 justify-between">
-        <div>
-            <h3 class="text-3xl font-bold">{{ $material->title }}</h3>
-        </div>
-        <div class="flex gap-1">
-
-        </div>
-    </div>
-
-
     <article class="prose prose-lg mx-auto">
+        <h3 class="text-4xl font-bold">{{ $material->title }}</h3>
 
         <div class="flex flex-col md:flex-row gap-2">
             <a href="{{ $material->url }}" class="btn" target="_blank">

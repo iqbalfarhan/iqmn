@@ -9,96 +9,88 @@
     </div>
 
     @if ($active_tab == 'keterangan')
-        <div class="card card-compact md:card-normal bg-base-200 card-divider">
-            <div class="card-body">
-                <h3 class="font-bold text-xl">
-                    {{ $this->material ? 'Edit keterangan material' : 'Buat material baru' }}
-                </h3>
+        <form class="space-y-8" wire:submit="simpan">
+            <div class="space-y-2 md:space-y-4">
+                <div class="form-control">
+                    <label for="" class="label">
+                        <span class="label-text text-lg">Judul material</span>
+                        @error('title')
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        @enderror
+                    </label>
+                    <input type="text" class="input input-bordered @error('title') input-error @enderror"
+                        wire:model.live="title" placeholder="Tuliskan judul materi yang akan anda upload" />
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="form-control">
+                        <label for="" class="label">
+                            <span class="label-text text-lg">URL file</span>
+                            @error('url')
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            @enderror
+                        </label>
+                        <input type="url" class="input input-bordered @error('url') input-error @enderror"
+                            wire:model.live="url" placeholder="Link dari google docs pastikan sudah di share" />
+                    </div>
+                    <div class="form-control">
+                        <label for="" class="label">
+                            <span class="label-text text-lg">Material Group</span>
+                            @error('group_id')
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            @enderror
+                        </label>
+                        <select class="select select-bordered @error('group_id') select-error @enderror"
+                            wire:model.live="group_id">
+                            <option value="">Pilih group untuk material ini</option>
+                            @foreach ($groups as $groupid => $groupname)
+                                <option value="{{ $groupid }}">{{ $groupname }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="" class="label">
+                            <span class="label-text text-lg">Thumbnail</span>
+                            @error('thumbnail')
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            @enderror
+                        </label>
+                        <input type="file"
+                            class="file-input file-input-bordered @error('thumbnail') file-input-error @enderror"
+                            wire:model.live="thumbnail" />
+
+                        @if ($thumbnail)
+                            <img src="{{ $thumbnail->temporaryUrl() }}" alt="" class="pt-2 rounded-lg w-full">
+                        @endif
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="" class="label">
+                        <span class="label-text text-lg">Deskripsi material</span>
+                        @error('description')
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        @enderror
+                    </label>
+                    <textarea type="text" rows="15"
+                        class="textarea textarea-bordered @error('description') textarea-error @enderror" wire:model.live="description"
+                        placeholder="Tuliskan keterangan tentang materi ini. harap gunakan format markdown dalam penulisan"></textarea>
+                </div>
+
+                <div class="form-control">
+                    <label for="" class="label">
+                        <span class="label-text text-lg">Tags material</span>
+                        @error('tags')
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        @enderror
+                    </label>
+                    <input type="text" class="input input-bordered @error('tags') input-error @enderror"
+                        wire:model.live="tags" placeholder="tulis tag dan pisahkan dengan comma" />
+                </div>
             </div>
-            <form class="card-body space-y-8" wire:submit="simpan">
-                <div class="space-y-2 md:space-y-4">
-                    <div class="form-control">
-                        <label for="" class="label">
-                            <span class="label-text">Judul material</span>
-                            @error('title')
-                                <span class="label-text-alt text-error">{{ $message }}</span>
-                            @enderror
-                        </label>
-                        <input type="text" class="input input-bordered @error('title') input-error @enderror"
-                            wire:model.live="title" placeholder="Tuliskan judul materi yang akan anda upload" />
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="form-control">
-                            <label for="" class="label">
-                                <span class="label-text">URL file</span>
-                                @error('url')
-                                    <span class="label-text-alt text-error">{{ $message }}</span>
-                                @enderror
-                            </label>
-                            <input type="url" class="input input-bordered @error('url') input-error @enderror"
-                                wire:model.live="url" placeholder="Link dari google docs pastikan sudah di share" />
-                        </div>
-                        <div class="form-control">
-                            <label for="" class="label">
-                                <span class="label-text">Material Group</span>
-                                @error('group_id')
-                                    <span class="label-text-alt text-error">{{ $message }}</span>
-                                @enderror
-                            </label>
-                            <select class="select select-bordered @error('group_id') select-error @enderror"
-                                wire:model.live="group_id">
-                                <option value="">Pilih group untuk material ini</option>
-                                @foreach ($groups as $groupid => $groupname)
-                                    <option value="{{ $groupid }}">{{ $groupname }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-control">
-                            <label for="" class="label">
-                                <span class="label-text">Thumbnail</span>
-                                @error('thumbnail')
-                                    <span class="label-text-alt text-error">{{ $message }}</span>
-                                @enderror
-                            </label>
-                            <input type="file"
-                                class="file-input file-input-bordered @error('thumbnail') file-input-error @enderror"
-                                wire:model.live="thumbnail" />
 
-                            @if ($thumbnail)
-                                <img src="{{ $thumbnail->temporaryUrl() }}" alt=""
-                                    class="pt-2 rounded-lg w-full">
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="" class="label">
-                            <span class="label-text">Deskripsi material</span>
-                            @error('description')
-                                <span class="label-text-alt text-error">{{ $message }}</span>
-                            @enderror
-                        </label>
-                        <textarea type="text" rows="15"
-                            class="textarea textarea-bordered @error('description') textarea-error @enderror" wire:model.live="description"
-                            placeholder="Tuliskan keterangan tentang materi ini. harap gunakan format markdown dalam penulisan"></textarea>
-                    </div>
-
-                    <div class="form-control">
-                        <label for="" class="label">
-                            <span class="label-text">Tags material</span>
-                            @error('tags')
-                                <span class="label-text-alt text-error">{{ $message }}</span>
-                            @enderror
-                        </label>
-                        <input type="text" class="input input-bordered @error('tags') input-error @enderror"
-                            wire:model.live="tags" placeholder="tulis tag dan pisahkan dengan comma" />
-                    </div>
-                </div>
-
-                <div class="card-actions">
-                    <button class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
-        </div>
+            <div class="card-actions">
+                <button class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
     @elseif ($active_tab == 'quizzes')
         @if ($material && $material->quizzes)
             @livewire('quiz.form', ['material_id' => $material->id])
