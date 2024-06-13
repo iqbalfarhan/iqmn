@@ -19,6 +19,10 @@
         @apply container w-full max-w-5xl mx-auto p-6 space-y-6;
     }
 
+    .page-wrapper-xl {
+        @apply container w-full max-w-7xl mx-auto p-10 space-y-14;
+    }
+
     .table-wrapper {
         @apply shadow-xl rounded-xl bg-base-100 overflow-x-auto whitespace-nowrap;
     }
@@ -66,5 +70,13 @@
 
     .prose pre {
         @apply bg-base-200 text-base-content;
+    }
+
+    .divider {
+        @apply border-base-300;
+    }
+
+    .bgradialprimary {
+        @apply bg-gradient-radial from-primary/30 via-base-100 to-base-100;
     }
 }

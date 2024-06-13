@@ -1,6 +1,33 @@
-@if ($posts->count() > 0)
-    <div class="page-wrapper">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="">
+    <div class="page-wrapper-xl ">
+        <div class="flex flex-col md:flex-row-reverse py-10 md:py-20 items-center gap-10 md:gap-0 bgradialprimary">
+            <div class="flex-1 flex justify-center items-center">
+                <img src="{{ url('illustration3.svg') }}" alt="" class="max-w-full">
+            </div>
+            <div class="flex-1 flex flex-col space-y-10 text-center md:text-left">
+                <h1 class="font-bold text-6xl">Yuk, Belajar Lebih banyak</h1>
+                <p class="text-lg">IQMN adalah alat bantu belajar Lorem ipsum dolor sit amet consectetur, adipisicing
+                    elit. Aspernatur eos tempore in adipisci! Rerum, voluptatum.</p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <button class="btn btn-primary btn-lg">
+                        <span>Baca article </span>
+                        <x-tabler-book size="5" />
+                    </button>
+                    <button class="btn btn-primary btn-lg btn-outline">
+                        <span>Masuk member</span>
+                        <x-tabler-login size="5" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="page-wrapper-xl">
+        <h1 class="text-4xl font-extrabold text-center">Artikel terbaru</h1>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             @foreach ($posts as $post)
                 <a href="{{ route('article.show', $post->slug) }}" wire:navigate class="flex flex-col space-y-3">
 
@@ -25,9 +52,25 @@
             @endforeach
         </div>
     </div>
-@else
-    <div class="min-h-full flex flex-col items-center justify-center">
-        <h2>Selamat datang di</h2>
-        @livewire('partial.logo')
+
+    <div class="divider"></div>
+    <div class="page-wrapper-xl">
+        <h1 class="text-4xl font-extrabold text-center">Pricing</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis rerum suscipit neque quam minus ullam,
+            iste aliquid veritatis laborum odit sed, earum quos repellendus nisi molestiae dolore delectus quasi
+            maiores.</p>
     </div>
-@endif
+    <div class="divider"></div>
+
+    <div class="page-wrapper-xl">
+        <h1 class="text-4xl font-extrabold text-center">Testimony</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis rerum suscipit neque quam minus ullam,
+            iste aliquid veritatis laborum odit sed, earum quos repellendus nisi molestiae dolore delectus quasi
+            maiores.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="page-wrapper-xl">
+        @livewire('partial.footer')
+    </div>
+
+</div>

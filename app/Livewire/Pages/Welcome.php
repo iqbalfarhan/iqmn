@@ -10,7 +10,7 @@ class Welcome extends Component
     public function render()
     {
         return view('livewire.pages.welcome', [
-            'posts' => Post::where('show', true)->latest()->get()
+            'posts' => Post::where('show', true)->latest()->limit(4)->get()
         ]);
     }
 }

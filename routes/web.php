@@ -19,7 +19,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', App\Livewire\Pages\Welcome::class)->name('welcome');
-    Route::get('/article/{slug}', App\Livewire\Pages\Article::class)->name('article.show');
+    Route::get('/article', App\Livewire\Article\Index::class)->name('article.index');
+    Route::get('/article/{slug}', App\Livewire\Article\Read::class)->name('article.show');
 
     Route::get('/login', App\Livewire\Auth\Login::class)->name('login');
     Route::get('/register', App\Livewire\Auth\Register::class)->name('register');
