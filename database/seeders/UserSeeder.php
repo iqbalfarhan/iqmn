@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         $user->assignRole('superadmin');
 
         User::factory(10)->create()->each(function ($baru) {
-            $baru->assignRole('user');
+            $baru->assignRole('reader');
         });
     }
 }
