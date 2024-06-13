@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="flex-1 space-y-2">
-                        <p>{{ $group->desc }}</p>
+                        <p>{{ $group->desc }}. link join kelas {{ route('group.join', $group->code) }}</p>
                     </div>
                 </div>
             </div>
