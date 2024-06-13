@@ -20,9 +20,20 @@ class Welcome extends Component
             'article' => Post::count(),
         ];
 
+        $reviews = [];
+
+        for ($i=0; $i < 3; $i++) {
+            $reviews[] = [
+                "name" => fake()->name(),
+                "text" => fake()->sentence(30),
+                "star" => fake()->numberBetween(4, 5),
+            ];
+        }
+
         return view('livewire.pages.welcome', [
-            'posts' => Post::where('show', true)->latest()->limit(4)->get(),
-            'status' => $status
+            'posts' => Post::where('show', true)->latest()->limit(8)->get(),
+            'status' => $status,
+            'reviews' => $reviews
         ]);
     }
 }

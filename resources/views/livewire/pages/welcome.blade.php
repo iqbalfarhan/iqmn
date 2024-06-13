@@ -33,7 +33,8 @@
         <div class="flex justify-evenly">
             @foreach ($status as $key => $value)
                 <div class="flex-1 flex flex-col justify-center items-center gap-2">
-                    <div class="font-mono font-extrabold text-7xl text-primary">{{ $value }}</div>
+                    <div class="font-mono font-extrabold text-7xl text-primary bgradialprimary">{{ $value }}
+                    </div>
                     <div class="text-xl capitalize">{{ $key }}</div>
                 </div>
             @endforeach
@@ -42,7 +43,12 @@
 
     <div class="divider"></div>
     <div class="page-wrapper-xl">
-        <h1 class="text-4xl font-extrabold text-center">Artikel terbaru</h1>
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-center">Artikel terbaru</h1>
+            <p class="opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit optio hic qui
+                officiis, et beatae quo
+                minima a vel! Blanditiis.</p>
+        </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             @foreach ($posts as $post)
@@ -73,11 +79,35 @@
 
     <div class="divider"></div>
     <div class="page-wrapper-xl">
-        <h1 class="text-4xl font-extrabold text-center">Testimony</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis rerum suscipit neque quam minus ullam,
-            iste aliquid veritatis laborum odit sed, earum quos repellendus nisi molestiae dolore delectus quasi
-            maiores.</p>
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-center">Review dari anggota kelas</h1>
+            <p class="opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit optio hic qui
+                officiis, et beatae quo
+                minima a vel! Blanditiis.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-14">
+            @foreach ($reviews as $key => $review)
+                <div class="text-center px-10 space-y-4">
+                    <div class="avatar">
+                        <div class="w-32 rounded-full bg-primary">
+                            <img src="https://robohash.org/{{ $key }}.png?size=200x200" class="rounded-xl">
+                        </div>
+                    </div>
+                    <div class="text-xl font-bold line-clamp-1">{{ $review['name'] }}</div>
+                    <div class="line-clamp-3">{{ $review['text'] }}</div>
+                    <div class="rating">
+                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
+                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
+                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
+                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
+                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
     </div>
+
     <div class="divider"></div>
     <div class="page-wrapper-xl">
         @livewire('partial.footer')
