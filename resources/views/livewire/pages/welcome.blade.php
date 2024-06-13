@@ -2,7 +2,8 @@
     <div class="page-wrapper-xl ">
         <div class="flex flex-col md:flex-row-reverse py-10 md:py-20 items-center gap-10 md:gap-0 bgradialprimary">
             <div class="flex-1 flex justify-center items-center">
-                <img src="{{ url('illustration3.svg') }}" alt="" class="max-w-full">
+                <img src="{{ url(session('theme') == 'light' ? 'illustration5.svg' : 'illustration3.svg') }}"
+                    alt="" class="max-w-full">
             </div>
             <div class="flex-1 flex flex-col space-y-10 text-center md:text-left">
                 <h1 class="font-bold text-6xl">Yuk, Belajar Lebih banyak</h1>
