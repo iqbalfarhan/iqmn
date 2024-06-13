@@ -34,6 +34,12 @@
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal">
+            <li class="md:hidden">
+                <a href="{{ route('article.index') }}" wire:navigate class="gap-1">
+                    <x-tabler-book class="size-4" />
+                    <span>Artikel</span>
+                </a>
+            </li>
             @auth
                 <li><a href="{{ route('home') }}" wire:navigate>Home</a></li>
             @endauth

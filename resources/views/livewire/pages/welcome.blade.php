@@ -9,14 +9,14 @@
                 <p class="text-lg">IQMN adalah alat bantu belajar Lorem ipsum dolor sit amet consectetur, adipisicing
                     elit. Aspernatur eos tempore in adipisci! Rerum, voluptatum.</p>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <button class="btn btn-primary btn-lg">
+                    <a href="{{ route('article.index') }}" class="btn btn-primary btn-lg" wire:navigate>
                         <span>Baca article </span>
                         <x-tabler-book size="5" />
-                    </button>
-                    <button class="btn btn-primary btn-lg btn-outline">
+                    </a>
+                    <a href="{{ route('login') }}" class="btn btn-primary btn-lg btn-outline">
                         <span>Masuk member</span>
                         <x-tabler-login size="5" />
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 officiis, et beatae quo
                 minima a vel! Blanditiis.</p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-x-10">
             @foreach ($status as $key => $value)
                 <div class="flex-1 flex flex-col justify-center items-center gap-2">
                     <div class="font-mono font-extrabold text-7xl text-primary bgradialprimary">{{ $value }}
@@ -73,6 +73,14 @@
                     </div>
                 </a>
             @endforeach
+
+        </div>
+
+        <div class="flex justify-center items-center">
+            <a href="{{ route('article.index') }}" class="btn btn-primary btn-lg" wire:navigate>
+                <span>Baca article lainnya</span>
+                <x-tabler-book size="5" />
+            </a>
         </div>
     </div>
 
