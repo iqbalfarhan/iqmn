@@ -45,7 +45,7 @@
 
         @guest
             @if (Route::is(['login', 'register']))
-                <div class="bg-base-100 min-h-screen flex justify-center items-center">
+                <div class="bg-base-100 min-h-screen flex justify-center items-center bgradialprimary">
                     {{ $slot }}
                 </div>
             @else
