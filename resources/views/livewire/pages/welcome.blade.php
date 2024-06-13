@@ -30,7 +30,7 @@
                 officiis, et beatae quo
                 minima a vel! Blanditiis.</p>
         </div>
-        <div class="flex justify-evenly">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-10">
             @foreach ($status as $key => $value)
                 <div class="flex-1 flex flex-col justify-center items-center gap-2">
                     <div class="font-mono font-extrabold text-7xl text-primary bgradialprimary">{{ $value }}
