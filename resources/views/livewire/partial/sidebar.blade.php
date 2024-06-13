@@ -77,7 +77,7 @@
                     <li>
                         <a href="{{ route('group.index') }}" @class(['active' => Route::is(['group.index', 'group.show'])]) wire:navigate>
                             <x-tabler-users-group class="w-5 h-5" />
-                            <span>Pengaturan Group</span>
+                            <span>Pengaturan Kelas</span>
                         </a>
                     </li>
                 @endcan

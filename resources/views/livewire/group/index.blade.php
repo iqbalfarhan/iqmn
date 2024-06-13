@@ -1,18 +1,20 @@
 <div class="page-wrapper">
 
     <div class="flex flex-col md:flex-row justify-between gap-2">
-        <input type="text" class="input input-bordered" placeholder="Cari group">
-        <label for="groupFormModal" class="btn btn-primary">
+        <input type="text" class="input input-bordered" placeholder="Cari kelas">
+        <button wire:click="$dispatch('createGroup')" class="btn btn-primary">
             <x-tabler-circle-plus class="w-4 h-4" />
-            <span>Buat Group</span>
-        </label>
+            <span>Buat Kelas</span>
+        </button>
     </div>
 
     <div class="table-wrapper">
         <table class="table">
             <thead>
                 <th>No</th>
-                <th>Nama group</th>
+                <th>Kode</th>
+                <th>Nama kelas</th>
+                <th>Materi</th>
                 <th>Anggota</th>
                 <th class="text-center">Actions</th>
             </thead>
@@ -20,7 +22,21 @@
                 @foreach ($datas as $data)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $data->name }}</td>
+                        <td class="font-mono">{{ $data->code }}</td>
+                        <td class="whitespace-nowrap">
+                            <div class="flex gap-3 items-center text-left">
+                                <div class="avatar">
+                                    <div class="w-8 rounded aspect-video">
+                                        <img src="{{ $data->image_url }}" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-bold">{{ Str::limit($data->name, 40) }}</span>
+                                    <span class="text-xs opacity-50">{{ Str::limit($data->desc, 40) }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ $data->materials()->count() }}</td>
                         <td>{{ $data->users()->count() }}</td>
                         <td>
                             <div class="flex gap-1 justify-center">

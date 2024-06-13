@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Group;
 
+use App\Helpers\UtilsHelper;
+use App\Livewire\Forms\GroupForm;
 use App\Models\Group;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\On;
@@ -11,33 +13,45 @@ use Livewire\WithFileUploads;
 class Form extends Component
 {
     use LivewireAlert, WithFileUploads;
-    public $name;
+    public $photo;
     public $show = false;
-    public $logo;
-    public ?Group $group;
+    public GroupForm $form;
 
     public function simpan()
     {
-        $valid = $this->validate([
-            "name" => "required|unique:groups,name",
-        ]);
+        if ($this->photo) {
+            $this->form->logo = $this->photo->store('group');
+        }
 
-        if (isset($this->group)) {
-            $this->group->update($valid);
+        if (isset($this->form->group)) {
+            $this->form->update();
         }
         else{
-            Group::create($valid);
+            $this->form->store();
         }
 
         $this->alert('success', 'berhasil menambahkan group baru');
 
         $this->dispatch('reload');
-        $this->reset();
+        $this->closeModal();
+    }
+
+    #[On('createGroup')]
+    public function createGroup()
+    {
+        $this->form->generateCode();
+        $this->form->user_id = auth()->id();
+        $this->show = true;
+    }
+
+    public function regenerateCode(){
+        $this->form->generateCode();
     }
 
     #[On('deleteGroup')]
     public function deleteGroup(Group $group)
     {
+        $group->users()->detach();
         $group->delete();
         $this->dispatch('reload');
     }
@@ -45,9 +59,21 @@ class Form extends Component
     #[On('editGroup')]
     public function editGroup(Group $group)
     {
-        $this->group = $group;
-        $this->name = $group->name;
+        $this->form->setGroup($group);
+
+        if (!isset($group->user_id)) {
+            $this->form->user_id = auth()->id();
+        }
+
         $this->show = true;
+    }
+
+    public function closeModal()
+    {
+        $this->form->reset();
+
+        $this->show = false;
+        $this->photo = null;
     }
 
 

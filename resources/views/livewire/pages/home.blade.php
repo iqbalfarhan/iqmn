@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <div class="page-wrapper md:hidden">
+    <div class="page-wrapper md:hidden py-0">
         <div class="grid grid-cols-4 md:grid-cols-8 gap-4">
             <div class="flex flex-col items-center justify-center gap-2">
                 <a href="{{ route('material.cari') }}" class="btn btn-lg btn-circle">
@@ -36,12 +36,14 @@
     </div>
 
     @if ($user->groups->count() > 0)
-        <div class="page-wrapper">
+        <div class="page-wrapper md:pt-0">
             <div class="space-y-4">
                 <h1 class="text-xl">Kelasku <small>({{ $user->groups->count() }} kelas)</small></h1>
                 <div class="flex flex-col gap-2">
                     @foreach ($user->groups as $group)
-                        @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))
+                        <a href="{{ route('group.show', $group) }}" wire:navigate>
+                            @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))
+                        </a>
                     @endforeach
                 </div>
             </div>

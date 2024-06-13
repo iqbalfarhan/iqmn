@@ -86,7 +86,7 @@ class Form extends Component
         $user = auth()->user();
         return view('livewire.material.form', [
             'quizzes' => $this->material ? $this->material->quizzes : [],
-            'groups' => $user->groups->pluck('name', 'id')
+            'groups' => $user->owngroups->pluck('name', 'id')
         ]);
     }
 }

@@ -68,10 +68,11 @@
                 </label>
             </li>
         </ul>
+
     </div>
 
     <div class="w-full max-w-lg mx-auto space-y-4">
-        <div class="divider"></div>
+        <h3 class="text-lg">Keluar aplikasi:</h3>
         <button class="btn btn-error btn-block" wire:click="$dispatch('logout')">
             <x-tabler-logout class="size-5" />
             <span>Logout</span>

@@ -1,7 +1,22 @@
 <div class="page-wrapper space-y-10">
     <div class="space-y-4">
-        <h2 class="text-xl font-bold capitalize">{{ $group->name }}</h2>
-        @livewire('group.item', ['group' => $group, 'showToggleJoin' => false])
+        <h2 class="text-3xl font-bold capitalize">{{ $group->name }}</h2>
+        <div class="card card-compact bg-base-200">
+            <div class="card-body">
+                <div class="flex flex-col md:flex-row gap-3">
+                    <div>
+                        <div class="avatar">
+                            <div class="w-16 rounded-lg">
+                                <img src="{{ $group->image_url }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 space-y-2">
+                        <p>{{ $group->desc }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     @if ($group->materials->count() != 0)
@@ -23,23 +38,14 @@
         <div class="flex justify-between">
             <h2 class="text-xl font-bold">Anggota kelas</h2>
         </div>
-        {{-- <div class="flex overflow-x-auto scrollbar-hide gap-4 px-6"> --}}
         <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
             @foreach ($group->users as $user)
-                <div class="avatar">
+                <div @class(['avatar', 'online' => $user->id == $group->user_id])>
                     <div class="w-full rounded-full bg-base-300">
                         <img src="{{ $user->image_url }}" alt="">
                     </div>
                 </div>
             @endforeach
-            @can('group.addUserToGroup')
-                <button class="avatar placeholder" wire:click="$dispatch('addToGroup', {group: {{ $group->id }}})"
-                    class="btn btn-sm btn-link">
-                    <div class="w-full bg-base-200 text-base-200-content rounded-full">
-                        <x-tabler-plus class="size-7" />
-                    </div>
-                </button>
-            @endcan
         </div>
     </div>
 

@@ -18,7 +18,8 @@ class Mine extends Component
         $user = User::find(auth()->id());
 
         return view('livewire.group.mine', [
-            'datas' => $user->groups
+            'datas' => $user->groups,
+            'owngroups' => $user->owngroups,
         ]);
     }
 }

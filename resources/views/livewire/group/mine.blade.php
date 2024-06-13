@@ -3,13 +3,21 @@
         <input type="text" class="input input-bordered" placeholder="Pencarian">
     </div>
 
-    <div>
-        <div class="grid gap-2">
-            @foreach ($datas as $data)
-                @livewire('group.item', ['group' => $data, 'showToggleJoin' => false], key($data->id))
-            @endforeach
+    @if ($datas)
+        <div class="space-y-2">
+            <div class="grid gap-2 md:gap-4">
+                @forelse ($datas as $data)
+                    <a href="{{ route('group.show', $data) }}" wire:navigate>
+                        @livewire('group.item', ['group' => $data, 'showToggleJoin' => false], key($data->id))
+                    </a>
+                @empty
+                    <div class="col-span-full">
+                        @livewire('partial.nocontent')
+                    </div>
+                @endforelse
+            </div>
         </div>
-    </div>
+    @endif
 
     @livewire('group.cari')
 </div>

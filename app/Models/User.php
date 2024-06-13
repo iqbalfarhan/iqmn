@@ -46,6 +46,11 @@ class User extends Authenticatable
         return $this->hasMany(Discussion::class);
     }
 
+    public function owngroups()
+    {
+        return $this->hasMany(Group::class, 'user_id');
+    }
+
     public function groups()
     {
         return $this->belongsToMany(Group::class, 'user_has_group', 'user_id', 'group_id');

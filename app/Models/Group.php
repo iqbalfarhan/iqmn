@@ -13,7 +13,15 @@ class Group extends Model
     protected $fillable = [
         'name',
         'logo',
+        'user_id',
+        'desc',
+        'code',
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public function users()
     {
@@ -27,6 +35,6 @@ class Group extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->logo ? Storage::url($this->logo) : url('noimage.jpg');
+        return $this->logo ? Storage::url($this->logo) : url('nouser.png');
     }
 }
