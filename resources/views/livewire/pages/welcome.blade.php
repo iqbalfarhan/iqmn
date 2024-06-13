@@ -23,7 +23,24 @@
     </div>
 
     <div class="divider"></div>
+    <div class="page-wrapper-xl">
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-center">Status pencapaian</h1>
+            <p class="opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit optio hic qui
+                officiis, et beatae quo
+                minima a vel! Blanditiis.</p>
+        </div>
+        <div class="flex justify-evenly">
+            @foreach ($status as $key => $value)
+                <div class="flex-1 flex flex-col justify-center items-center gap-2">
+                    <div class="font-mono font-extrabold text-7xl text-primary">{{ $value }}</div>
+                    <div class="text-xl capitalize">{{ $key }}</div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
+    <div class="divider"></div>
     <div class="page-wrapper-xl">
         <h1 class="text-4xl font-extrabold text-center">Artikel terbaru</h1>
 
@@ -53,15 +70,8 @@
         </div>
     </div>
 
-    <div class="divider"></div>
-    <div class="page-wrapper-xl">
-        <h1 class="text-4xl font-extrabold text-center">Pricing</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis rerum suscipit neque quam minus ullam,
-            iste aliquid veritatis laborum odit sed, earum quos repellendus nisi molestiae dolore delectus quasi
-            maiores.</p>
-    </div>
-    <div class="divider"></div>
 
+    <div class="divider"></div>
     <div class="page-wrapper-xl">
         <h1 class="text-4xl font-extrabold text-center">Testimony</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis rerum suscipit neque quam minus ullam,

@@ -20,7 +20,7 @@
     }
 
     .page-wrapper-xl {
-        @apply container w-full max-w-7xl mx-auto p-10 space-y-14;
+        @apply container w-full max-w-7xl mx-auto p-6 py-14 space-y-14;
     }
 
     .table-wrapper {
