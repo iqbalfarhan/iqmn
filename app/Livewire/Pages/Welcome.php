@@ -31,7 +31,7 @@ class Welcome extends Component
         }
 
         return view('livewire.pages.welcome', [
-            'posts' => Post::where('show', true)->latest()->limit(8)->get(),
+            'posts' => Post::where('show', true)->latest()->limit(4)->get(),
             'status' => $status,
             'reviews' => $reviews
         ]);
