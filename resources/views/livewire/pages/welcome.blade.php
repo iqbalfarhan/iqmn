@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="text-xl font-bold line-clamp-1">{{ $review['name'] }}</div>
-                    <div class="line-clamp-3 opacity-50">{{ $review['text'] }}</div>
+                    <div class="line-clamp-3 opacity-75">{{ $review['text'] }}</div>
                     <div class="rating">
                         <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
                         <input type="radio" name="rating-4" class="mask mask-star-2 bg-warning" />
