@@ -1,6 +1,6 @@
-<div class="page-wrapper">
+<div class="page-wrapper py-10">
     <article class="prose prose-lg mx-auto">
-        <h1 class="text-5xl font-bold">{{ $post->title }}</h1>
+        <h1 class="text-3xl md:text-5xl font-bold">{{ $post->title }}</h1>
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-2 flex-1">
                 <img src="{{ $post->user->image_url }}" alt="A" class="size-6 rounded-full m-0">
