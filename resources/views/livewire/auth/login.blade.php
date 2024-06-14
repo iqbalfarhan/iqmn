@@ -1,4 +1,4 @@
-<div class="space-y-6">
+<div class="space-y-10">
 
     @livewire('partial.logo')
 

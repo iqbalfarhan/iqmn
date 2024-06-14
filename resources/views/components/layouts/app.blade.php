@@ -45,7 +45,10 @@
 
         @guest
             @if (Route::is(['login', 'register']))
-                <div class="bg-base-100 min-h-screen flex justify-center items-center bgradialprimary">
+                <div class="bg-base-100 min-h-screen flex justify-center items-center bg-radial-primary">
+                    <a href="{{ route('welcome') }}" wire:navigate class="btn btn-ghost btn-circle absolute top-8 left-8">
+                        <x-tabler-chevron-left class="size-5 stroker-base-content" />
+                    </a>
                     {{ $slot }}
                 </div>
             @else

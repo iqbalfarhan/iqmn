@@ -1,9 +1,9 @@
 <div class="">
-    <div class="page-wrapper-xl ">
-        <div class="flex flex-col md:flex-row-reverse py-10 md:py-20 items-center gap-10 md:gap-0 bgradialprimary">
+    <div class="page-wrapper-xl" style="min-height: calc(100vh - 4rem)">
+        <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 md:gap-0 bg-radial-primary">
             <div class="flex-1 flex justify-center items-center">
                 <img src="{{ url(session('theme') == 'light' ? 'illustration5.svg' : 'illustration3.svg') }}"
-                    alt="" class="max-w-full">
+                    alt="" class="max-w-full mb-20">
             </div>
             <div class="flex-1 flex flex-col space-y-10 text-center md:text-left">
                 <h1 class="font-bold text-6xl">Yuk, Belajar Lebih banyak</h1>
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="border-b-2 border-base-300"></div>
     <div class="page-wrapper-xl">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Status pencapaian</h1>
@@ -34,7 +34,7 @@
         <div class="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-x-10">
             @foreach ($status as $key => $value)
                 <div class="flex-1 flex flex-col justify-center items-center gap-2">
-                    <div class="font-mono font-extrabold text-7xl text-primary bgradialprimary">{{ $value }}
+                    <div class="font-mono font-extrabold text-7xl text-primary bg-radial-primary">{{ $value }}
                     </div>
                     <div class="text-xl capitalize">{{ $key }}</div>
                 </div>
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="border-b-2 border-base-300"></div>
     <div class="page-wrapper-xl">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Artikel terbaru</h1>
@@ -86,7 +86,7 @@
     </div>
 
 
-    <div class="divider"></div>
+    <div class="border-b-2 border-base-300"></div>
     <div class="page-wrapper-xl">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Review dari anggota kelas</h1>
@@ -117,9 +117,7 @@
 
     </div>
 
-    <div class="divider"></div>
-    <div class="page-wrapper-xl">
-        @livewire('partial.footer')
-    </div>
+    <div class="border-b-2 border-base-300"></div>
+    @livewire('partial.footer')
 
 </div>

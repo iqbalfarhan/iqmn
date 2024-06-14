@@ -20,7 +20,7 @@
     }
 
     .page-wrapper-xl {
-        @apply container w-full max-w-7xl mx-auto p-6 py-14 space-y-14;
+        @apply container w-full max-w-7xl mx-auto p-6 py-20 space-y-20;
     }
 
     .table-wrapper {
@@ -76,7 +76,7 @@
         @apply border-base-300;
     }
 
-    .bgradialprimary {
+    .bg-radial-primary {
         @apply bg-gradient-radial from-primary/30 via-base-100 to-base-100;
     }
 }

@@ -1,3 +1,3 @@
-<div class="text-center p-4 opacity-30 lg:drawer-open">
+<div class="text-center p-14 opacity-30">
     {!! $content !!}
 </div>
