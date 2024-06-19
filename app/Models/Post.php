@@ -37,9 +37,11 @@ class Post extends Model
 
     public function scopeJsonContainsIn($query, $column, array $values)
     {
-        foreach ($values as $value) {
-            $query->whereJsonContains($column, $value);
-        }
+        $query->where(function ($query) use ($column, $values) {
+            foreach ($values as $value) {
+                $query->orWhereRaw("JSON_CONTAINS($column, '\"$value\"')");
+            }
+        });
 
         return $query;
     }
