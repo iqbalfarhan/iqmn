@@ -1,64 +1,81 @@
 <div class="page-wrapper">
-    <form class="space-y-6" wire:submit="simpan">
-        <label class="form-control">
-            <div class="label">
-                <span class="label-text text-lg">Judul article</span>
+    <form class="flex flex-col gap-6" wire:submit="simpan">
+        <div class="flex flex-row gap-6">
+            <div class="w-8/12 space-y-6">
+                <label class="form-control">
+                    <div class="label">
+                        <span class="label-text text-lg">Judul article</span>
+                    </div>
+                    <input type="text" placeholder="Type here" class="input input-bordered"
+                        wire:model.live="form.title" />
+                </label>
+                <label class="form-control">
+                    <div class="label">
+                        <span class="label-text text-lg">Tulisan</span>
+                    </div>
+                    <textarea type="text" rows="15" placeholder="Type here"
+                        class="textarea min-h-fit textarea-bordered scrollbar-hide" wire:model.live="form.body"></textarea>
+                </label>
+                <div class="form-control">
+                    <label for="" class="label">
+                        <span class="label-text text-lg">Tag post</span>
+                        @error('tags')
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        @enderror
+                    </label>
+                    <input type="text" class="input input-bordered @error('tags') input-error @enderror"
+                        wire:model.live="tags" placeholder="tulis tag dan pisahkan dengan comma" />
+                </div>
             </div>
-            <input type="text" placeholder="Type here" class="input input-bordered" wire:model.live="form.title" />
-        </label>
-        <div class="grid md:grid-cols-1 gap-6">
-            <label class="form-control">
-                <div class="label">
-                    <span class="label-text text-lg">Tulisan</span>
-                </div>
-                <textarea type="text" rows="15" placeholder="Type here"
-                    class="textarea min-h-fit textarea-bordered scrollbar-hide" wire:model.live="form.body"></textarea>
-            </label>
-            {{-- <label class="form-control hidden md:flex">
-                <div class="label">
-                    <span class="label-text text-lg">Preview</span>
-                </div>
-                <div class="card bg-base-300">
+
+            <div class="flex flex-col gap-6 flex-1">
+                <div class="card card-compact bg-base-200">
                     <div class="card-body">
-                        <article class="prose">{!! Str::markdown($form->body) !!}</article>
+                        <div class="form-control">
+                            <label for="" class="label">
+                                <span class="label-text text-lg">Thumbnail post</span>
+                            </label>
+                            <img src="{{ $photo ? $photo->temporaryUrl() : $post->image_url }}"
+                                class="rounded-xl w-full" onclick="document.getElementById('pickphoto').click()">
+                            <input type="file" wire:model="photo" class="hidden" id="pickphoto">
+                        </div>
                     </div>
                 </div>
-            </label> --}}
-        </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="form-control">
-                <label for="" class="label">
-                    <span class="label-text text-lg">Thumbnail post</span>
-                </label>
-                <img src="{{ $photo ? $photo->temporaryUrl() : $post->image_url }}" class="rounded-xl w-full"
-                    onclick="document.getElementById('pickphoto').click()">
-                <input type="file" wire:model="photo" class="hidden" id="pickphoto">
-            </div>
-            <div class="form-control">
-                <label for="" class="label">
-                    <span class="label-text text-lg">Media post</span>
-                </label>
-                <div class="grid grid-cols-4 gap-2">
-                    @foreach ($medias as $item)
-                        <div class="avatar">
-                            <div class="w-full rounded-md">
-                                <img src="{{ Storage::url($item) }}" alt="">
+                <div class="card card-compact bg-base-200">
+                    <div class="card-body">
+                        <h3 class="card-title">Media post</h3>
+                        <div class="form-control">
+                            <div class="grid grid-cols-4 gap-1">
+                                @foreach ($medias as $item)
+                                    <div class="avatar">
+                                        <div class="w-full rounded-md">
+                                            <img src="{{ Storage::url($item) }}" alt="">
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <label for="uploadmedia" class="avatar placeholder">
+                                    <div class="w-full rounded-md bg-base-300">
+                                        <x-tabler-plus />
+                                    </div>
+                                </label>
                             </div>
                         </div>
-                    @endforeach
-                    <label for="uploadmedia" class="avatar placeholder">
-                        <div class="w-full rounded-md bg-base-200">
-                            <x-tabler-plus />
-                        </div>
-                    </label>
+                    </div>
                 </div>
-            </div>
-            <div class="form-control">
-                <label class="label cursor-pointer">
-                    <span class="label-text text-lg">Publish post</span>
-                    <input type="checkbox" class="toggle" wire:model="form.show" />
-                </label>
+
+                <div class="card card-compact bg-base-200">
+                    <div class="card-body">
+                        <div class="card-title">Publish</div>
+                        <div class="form-control">
+                            <label class="label cursor-pointer justify-start gap-3">
+                                <input type="checkbox" class="toggle toggle-sm toggle-primary"
+                                    wire:model.live="form.show" />
+                                <span class="label-text">{{ $form->show ? 'Published' : 'Unpublish' }}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -68,10 +85,11 @@
                 <x-tabler-check class="size-5" />
                 <span>Simpan perubahan</span>
             </button>
-            <a href="{{ route('post.show', $post) }}" class="btn btn-info">
+            <button type="button" wire:click="$dispatch('previewPost', {post: {{ $post->id }}})"
+                class="btn btn-info">
                 <x-tabler-eye class="size-5" />
                 <span>Preview post</span>
-            </a>
+            </button>
         </div>
     </form>
 
@@ -88,5 +106,7 @@
             </div>
         </form>
     </div>
+
+    @livewire('post.preview')
 
 </div>

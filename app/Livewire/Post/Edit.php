@@ -18,6 +18,7 @@ class Edit extends Component
     public Post $post;
     public $photo;
     public $media;
+    public $tags;
     public PostForm $form;
 
     public function simpan()
@@ -33,6 +34,9 @@ class Edit extends Component
             'slug' =>'required',
         ]);
 
+        if ($this->tags) {
+            $this->form->tags = array_map('trim', explode(',', $this->tags));
+        }
 
         $this->form->slug = Str::slug($this->form->title);
         $this->form->update();
@@ -61,6 +65,7 @@ class Edit extends Component
     {
         $this->post = $post;
         $this->form->setPost($post);
+        $this->tags = $this->form->tags;
     }
 
     public function render()

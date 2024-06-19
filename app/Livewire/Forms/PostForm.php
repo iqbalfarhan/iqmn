@@ -33,7 +33,7 @@ class PostForm extends Form
         $this->title = $post->title;
         $this->slug = $post->slug;
         $this->body = $post->body;
-        $this->tags = $post->tags;
+        $this->tags = implode(', ', $post->tags ?? []);
         $this->photo = $post->photo;
         $this->show = $post->show;
     }
@@ -49,6 +49,7 @@ class PostForm extends Form
             'photo' => '',
             'show' => '',
         ]);
+
         $this->post->update($this->all());
     }
 }

@@ -79,4 +79,8 @@
     .bg-radial-primary {
         @apply bg-gradient-radial from-primary/30 via-base-100 to-base-100;
     }
+
+    .modal-box {
+        @apply scrollbar-hide;
+    }
 }

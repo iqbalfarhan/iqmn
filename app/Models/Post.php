@@ -34,4 +34,13 @@ class Post extends Model
     {
         return $this->photo ? Storage::url($this->photo) : url('nocontent.png');
     }
+
+    public function scopeJsonContainsIn($query, $column, array $values)
+    {
+        foreach ($values as $value) {
+            $query->whereJsonContains($column, $value);
+        }
+
+        return $query;
+    }
 }
