@@ -1,11 +1,11 @@
 <div class="">
-    <div class="page-wrapper-xl" style="min-height: calc(100vh - 4rem)">
+    <div class="page-wrapper-xl">
         <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 md:gap-0 bg-radial-primary">
-            <div class="flex-1 flex justify-center items-center">
+            <div class="flex-1 hidden md:flex justify-center items-center">
                 <img src="{{ url(session('theme') == 'light' ? 'illustration5.svg' : 'illustration3.svg') }}"
                     alt="" class="max-w-full mb-20">
             </div>
-            <div class="flex-1 flex flex-col space-y-10 text-center md:text-left">
+            <div class="flex-1 flex flex-col space-y-16 md:space-y-10 text-center md:text-left">
                 <h1 class="font-bold text-6xl">Yuk, Belajar Lebih banyak</h1>
                 <p class="text-lg">IQMN adalah alat bantu belajar Lorem ipsum dolor sit amet consectetur, adipisicing
                     elit. Aspernatur eos tempore in adipisci! Rerum, voluptatum.</p>
