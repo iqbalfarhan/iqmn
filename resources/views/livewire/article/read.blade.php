@@ -16,10 +16,10 @@
                 @if ($post->tags)
                     <div class="flex flex-wrap gap-1">
                         @foreach ($post->tags as $tag)
-                            <button class="btn btn-xs">
+                            <a href="{{ route('article.index', ['q' => $tag]) }}" class="btn btn-xs" wire:navigate>
                                 <x-tabler-tag class="w-4 h-4" />
                                 <span>{{ $tag }}</span>
-                            </button>
+                            </a>
                         @endforeach
                     </div>
                 @endif
