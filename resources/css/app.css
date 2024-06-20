@@ -71,6 +71,9 @@
     .prose pre {
         @apply bg-base-200 text-base-content;
     }
+    .prose table {
+        @apply text-sm;
+    }
 
     .divider {
         @apply border-base-300;
