@@ -41,6 +41,10 @@
                         <td>{{ $data->getRoleNames()->first() }}</td>
                         <td>
                             <div class="flex gap-1 justify-center">
+                                <button class="btn btn-xs btn-square btn-primary"
+                                    wire:click="$dispatch('bypassLogin', {user:{{ $data->id }}})">
+                                    <x-tabler-login class="w-4 h-4" />
+                                </button>
                                 <a href="{{ route('user.show', $data) }}" class="btn btn-xs btn-square btn-info"
                                     wire:navigate>
                                     <x-tabler-folder class="w-4 h-4" />

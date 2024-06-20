@@ -112,14 +112,14 @@
                         </a>
                     </li>
                 @endcan
-                @can('auth.bypass')
+                {{-- @can('auth.bypass')
                     <li>
                         <a href="{{ route('auth.bypass') }}" @class(['active' => Route::is('auth.bypass')]) wire:navigate>
                             <x-tabler-login class="w-5 h-5" />
                             <span>Bypass login</span>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
             </ul>
         </li>
     @endcan

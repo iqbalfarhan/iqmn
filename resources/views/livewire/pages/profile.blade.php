@@ -1,4 +1,4 @@
-<div class="page-wrapper space-y-8">
+<div class="page-wrapper space-y-10">
     <div class="flex flex-col justify-between items-center gap-4">
         <div>
             <button class="avatar" wire:click="$dispatch('editProfile', {edittype: 'photo'})">
@@ -68,7 +68,6 @@
                 </label>
             </li>
         </ul>
-
     </div>
 
     <div class="w-full max-w-lg mx-auto space-y-4">

@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-base-200">
+    <div class="bg-base-200 py-6">
         <div class="page-wrapper">
             <form class="w-full text-sm mx-auto" wire:submit.prevent="pencarian">
                 <h1 class="text-xl font-bold">Pencarian material</h1>

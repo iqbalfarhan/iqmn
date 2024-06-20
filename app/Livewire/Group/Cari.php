@@ -23,9 +23,9 @@ class Cari extends Component
 
     public function render()
     {
-        $included = auth()->user()->groups->pluck('id');
+        // $minegroupid = auth()->user()->groups->pluck('id');
         return view('livewire.group.cari', [
-            'datas' => $this->cari ? Group::whereNotIn('id', $included)->where('name', 'like', "%{$this->cari}%")->get() : null
+            'datas' => $this->cari ? Group::where('code', $this->cari)->get() : null
         ]);
     }
 }

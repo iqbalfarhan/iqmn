@@ -14,7 +14,9 @@ class Join extends Component
 
         $user = Auth::user();
         if ($user) {
-            $user->groups()->attach($group->id);
+            if (!in_array($group->id, $user->groups->pluck('id')->toArray())) {
+                $user->groups()->attach($group->id);
+            }
             $this->redirect(route('group.mine'), true);
         }
         else{

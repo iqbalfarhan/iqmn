@@ -4,6 +4,7 @@ namespace App\Livewire\User;
 
 use App\Livewire\Forms\UserForm;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
@@ -24,6 +25,12 @@ class Actions extends Component
     {
         $user->delete();
         $this->dispatch('reload');
+    }
+
+    #[On('bypassLogin')]
+    public function login(User $user){
+        Auth::login($user);
+        $this->redirect(route('home'), navigate: true);
     }
 
     public function resetUser(){
