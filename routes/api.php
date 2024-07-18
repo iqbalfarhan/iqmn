@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("post", function(){
     return Post::with('user')->where('show', true)->get();
 });
+
+Route::get("post/{slug}", function($slug) {
+    return Post::with('user')->where('slug', $slug)->first();
+});
