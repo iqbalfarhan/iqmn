@@ -32,7 +32,9 @@
             @endcan
             @can('group.mine')
                 <li>
-                    <a href="{{ route('group.mine') }}" @class(['active' => Route::is(['group.mine', 'group.show'])]) wire:navigate>
+                    <a href="{{ route('group.mine') }}" @class([
+                        'active' => Route::is(['group.mine', 'group.show', 'ujian.user']),
+                    ]) wire:navigate>
                         <x-tabler-user-circle class="w-5 h-5" />
                         <span>Kelas saya</span>
                     </a>
@@ -78,6 +80,15 @@
                         <a href="{{ route('group.index') }}" @class(['active' => Route::is(['group.index', 'group.show'])]) wire:navigate>
                             <x-tabler-users-group class="w-5 h-5" />
                             <span>Pengaturan Kelas</span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('ujian.index')
+                    <li>
+                        <a href="{{ route('ujian.index') }}" @class(['active' => Route::is(['ujian.index', 'ujian.show'])]) wire:navigate>
+                            <x-tabler-file-pencil class="w-5 h-5" />
+                            <span>Sesi Ujian Kelas</span>
                         </a>
                     </li>
                 @endcan

@@ -6,9 +6,9 @@ use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Material>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ujian>
  */
-class MaterialFactory extends Factory
+class UjianFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,10 +19,9 @@ class MaterialFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
+            'description' => fake()->sentence(),
             'group_id' => fake()->randomElement(Group::pluck('id')),
-            'description' => fake()->paragraph(),
-            'url' => fake()->url(),
-            'tags' => fake()->words()
+            'start' => fake()->boolean(),
         ];
     }
 }

@@ -14,7 +14,7 @@
             </div>
 
             <div class="flex flex-col h-full flex-1 justify-between">
-                <div class="text-lg">{{ $group->name }}</div>
+                <div class="text-lg line-clamp-1">{{ $group->name }}</div>
                 <div class="text-xs opacity-75 line-clamp-2">
                     {{ $group->materials->count() }} material
                     {{ $group->desc }}

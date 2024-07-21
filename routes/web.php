@@ -59,4 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware('can:post.index')->get('/post', App\Livewire\Post\Index::class)->name('post.index');
     Route::middleware('can:post.show')->get('/post/{post}', App\Livewire\Post\Show::class)->name('post.show');
     Route::middleware('can:post.edit')->get('/post/{post}/edit', App\Livewire\Post\Edit::class)->name('post.edit');
+
+    Route::middleware('can:ujian.index')->get('/ujian', App\Livewire\Ujian\Index::class)->name('ujian.index');
+    Route::middleware('can:ujian.show')->get('/ujian/{ujian}', App\Livewire\Ujian\Show::class)->name('ujian.show');
+    Route::middleware('can:ujian.edit')->get('/ujian/{ujian}/edit', App\Livewire\Ujian\Edit::class)->name('ujian.edit');
+    Route::middleware('can:ujian.user')->get('/ujian/{ujian}/user', App\Livewire\Ujian\User::class)->name('ujian.user');
 });

@@ -33,6 +33,11 @@ class Group extends Model
         return $this->hasMany(Material::class);
     }
 
+    public function ujians()
+    {
+        return $this->hasMany(Ujian::class);
+    }
+
     public function getImageUrlAttribute()
     {
         return $this->logo ? Storage::url($this->logo) : url('nouser.png');

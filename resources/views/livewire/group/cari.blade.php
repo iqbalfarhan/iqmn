@@ -1,7 +1,7 @@
 <div>
     <input type="checkbox" class="modal-toggle" @checked($show) />
     <div class="modal" role="dialog">
-        <div class="modal-box max-w-sm">
+        <div class="modal-box max-w-md">
             <h3 class="font-bold text-lg">Gabung dengan kelas</h3>
             <div class="w-full pt-6 mx-auto space-y-3">
                 <p>Gabung dengan kelas sekarang, tuliskan kode kelas yang anda miliki dibawah ini kemudian klik pada

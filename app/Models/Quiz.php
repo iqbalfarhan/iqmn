@@ -11,6 +11,8 @@ class Quiz extends Model
 
     protected $fillable = [
         'material_id',
+        'ujian_id',
+        'media',
         'question',
         'a',
         'b',

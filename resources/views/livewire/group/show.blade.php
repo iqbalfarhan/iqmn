@@ -11,8 +11,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-1 space-y-2">
-                        <p>{{ $group->desc }}. link join kelas {{ route('group.join', $group->code) }}</p>
+                    <div class="flex-1 space-y-4">
+                        <h3 class="card-title">{{ $group->name }}</h3>
+                        <p>{{ $group->desc }} | {{ $group->code }} | Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Corporis minima nesciunt provident nemo reiciendis alias dolorem sed,
+                            laborum consequuntur, sunt libero aut ab. Excepturi aliquam totam eos perferendis repellat
+                            asperiores!</p>
+                        <p>link join kelas <a class="badge">{{ route('group.join', $group->code) }}</a></p>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-error btn-sm" wire:click="keluargroup">
+                            <x-tabler-logout class="size-5" />
+                            <span>Keluar group</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -28,6 +40,21 @@
                 @foreach ($group->materials as $material)
                     <a href="{{ route('material.show', $material) }}">
                         @livewire('material.item', ['material' => $material], key($material->id))
+                    </a>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if ($group->ujians->count() != 0)
+        <div class="space-y-4">
+            <div class="flex justify-between items-end">
+                <h2 class="text-xl font-bold">Ujian kelas</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-2 md:gap-6">
+                @foreach ($group->ujians as $ujian)
+                    <a href="{{ route('ujian.user', $ujian) }}">
+                        @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
                     </a>
                 @endforeach
             </div>

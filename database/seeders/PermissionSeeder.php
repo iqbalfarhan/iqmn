@@ -18,8 +18,8 @@ class PermissionSeeder extends Seeder
             'material.create' => [],
             'material.edit' => [],
             'material.delete' => [],
-            'material.comot' => ['user'],
-            'material.cari' => ['user'],
+            'material.comot' => ['reader'],
+            'material.cari' => ['reader'],
             'material.show' => [],
             'material.quiz' => [],
             'user.index' => [],
@@ -30,8 +30,8 @@ class PermissionSeeder extends Seeder
             'group.create' => [],
             'group.edit' => [],
             'group.delete' => [],
-            'group.mine' => ['user'],
-            'group.show' => ['user'],
+            'group.mine' => ['reader'],
+            'group.show' => ['reader'],
         ];
 
         foreach ($datas as $permit => $roles) {
