@@ -25,6 +25,10 @@ class Ujian extends Model
         return $this->hasMany(Quiz::class);
     }
 
+    public function exams() {
+        return $this->hasMany(Exam::class);
+    }
+
     public function getStatusLabelAttribute(){
         return $this->start ? [
             'label' => 'Ujian sedang berlangsung',

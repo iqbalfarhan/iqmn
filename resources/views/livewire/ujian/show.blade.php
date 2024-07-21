@@ -30,9 +30,6 @@
                     step="1" class="range range-primary" @disabled(true) />
             </div>
         </div>
-        <div class="card bg-base-200">
-            <div class="card-body"></div>
-        </div>
         <div @class([
             'card',
             'text-base-content bg-base-200' => !$ujian->start,
@@ -63,7 +60,11 @@
                     <th class="text-center">Status</th>
                 </thead>
                 <tbody>
-                    @foreach ($ujian->group->users as $user)
+                    @foreach ($ujian->exams as $exam)
+                        @php
+                            $user = $exam->user;
+                            $totalQuis = $ujian->quizzes->count();
+                        @endphp
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td class="whitespace-nowrap">
@@ -80,7 +81,7 @@
                                 </div>
                             </td>
                             <td>
-                                <input type="range" min="0" max="40"
+                                <input type="range" min="0" max="{{ $totalQuis }}"
                                     value="{{ fake()->numberBetween(0, 40) }}" step="1"
                                     class="range range-primary range-xs" @disabled(true) />
                             </td>

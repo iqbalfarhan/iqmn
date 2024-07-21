@@ -1,3 +1,3 @@
-<div>
-    {{-- The best athlete wants his opponent at his best. --}}
+<div class="page-wrapper">
+    <pre>@json($quizzes, JSON_PRETTY_PRINT)</pre>
 </div>
