@@ -35,9 +35,10 @@ class PermissionSeeder extends Seeder
 
             'ujian.user' => ['reader'],
             'ujian.index' => ['pengawas'],
-            'ujian.edit' => ['pengawas'],
+            'ujian.create' => [],
+            'ujian.edit' => [],
             'ujian.show' => ['pengawas'],
-            'ujian.delete' => ['pengawas'],
+            'ujian.delete' => [],
             'ujian.start' => ['pengawas'],
         ];
 
