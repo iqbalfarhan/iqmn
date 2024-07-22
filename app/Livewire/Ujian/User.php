@@ -31,6 +31,10 @@ class User extends Component
         $this->exam = $this->ujian->exams->where('user_id', $this->user_id)->first();
         $this->bobot = 100 / $ujian->quizzes->count();
         $this->answers = $ujian->quizzes->pluck('answer', 'id')->toArray();
+
+        if ($this->exam) {
+            $this->jawaban = $this->exam->data['jawaban'];
+        }
     }
 
     public function unsetJawaban($key)
@@ -87,9 +91,16 @@ class User extends Component
     }
 
     public function selesai(){
-        $this->exam->update([
-            'selesai' => true
-        ]);
+        $quizCount = $this->ujian->quizzes->count();
+        $jawabanCount = count($this->jawaban);
+        if ($quizCount == $jawabanCount) {
+            $this->exam->update([
+                'selesai' => true
+            ]);
+        }
+        else{
+            $this->alert('error', 'Anda belum selesai mengerjakan ujian');
+        }
     }
 
     public function render()
