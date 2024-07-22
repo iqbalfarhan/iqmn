@@ -24,6 +24,16 @@ class QuizForm extends Form
 
     public function setQuiz(Quiz $quiz){
         $this->quiz = $quiz;
+
+        $this->material_id = $quiz->material_id;
+        $this->ujian_id = $quiz->ujian_id;
+        $this->media = $quiz->media;
+        $this->question = $quiz->question;
+        $this->a = $quiz->a;
+        $this->b = $quiz->b;
+        $this->c = $quiz->c;
+        $this->d = $quiz->d;
+        $this->answer = $quiz->answer;
     }
 
     public function store(){

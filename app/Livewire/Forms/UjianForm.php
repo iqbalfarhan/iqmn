@@ -41,8 +41,13 @@ class UjianForm extends Form
     }
 
     public function update(){
-        $this->validate();
-        $this->ujian->update($this->all());
+        $valid = $this->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'group_id' => 'required',
+            'start' => 'required',
+        ]);
+        $this->ujian->update($valid);
         $this->reset();
     }
 }

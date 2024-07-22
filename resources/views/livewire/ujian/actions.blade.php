@@ -1,8 +1,8 @@
 <div>
     <input type="checkbox" class="modal-toggle" @checked($show) />
     <div class="modal" role="dialog">
-        <form wire:submit="submit" class="modal-box">
-            <h3 class="text-lg font-bold">Ujian actions</h3>
+        <form wire:submit="simpan" class="modal-box w-full max-w-xl">
+            <h3 class="text-lg font-bold">{{ isset($this->form->ujian) ? 'Update' : 'Buat' }} data ujian</h3>
             <div class="py-4 space-y-2">
                 <div class="form-control">
                     <label for="" class="label">
@@ -34,7 +34,7 @@
                     <textarea @class([
                         'textarea textarea-bordered',
                         'textarea-error' => $errors->first('form.description'),
-                    ]) wire:model="form.description"></textarea>
+                    ]) rows="7" wire:model="form.description"></textarea>
                 </div>
             </div>
             <div class="modal-action justify-between">

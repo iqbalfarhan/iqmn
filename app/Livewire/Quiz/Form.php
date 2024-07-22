@@ -3,6 +3,8 @@
 namespace App\Livewire\Quiz;
 
 use App\Livewire\Forms\QuizForm;
+use App\Models\Quiz;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Form extends Component
@@ -11,20 +13,51 @@ class Form extends Component
 
     public QuizForm $form;
 
-    public function mount($material_id, $model = "material")
+
+    #[On('createQuiz')]
+    public function createQuiz($material_id, $model = "material")
     {
-        if($model == "material") {
-            $this->form->material_id = $material_id;
-        }
-        else{
-            $this->form->ujian_id = $material_id;
+        $this->show = true;
+        switch ($model) {
+            case 'material':
+                $this->form->material_id = $material_id;
+                break;
+
+            case 'ujian':
+                $this->form->ujian_id = $material_id;
+                break;
         }
     }
 
+    #[On('updateQuiz')]
+    public function updateQuiz(Quiz $quiz){
+        $this->show = true;
+        $this->form->setQuiz($quiz);
+    }
+
+    #[On('deleteQuiz')]
+    public function deleteQuiz(Quiz $quiz){
+        $quiz->delete();
+        $this->dispatch('reload');
+    }
+
     public function simpan(){
-        $this->form->store();
+        if (isset($this->form->quiz)) {
+            $this->form->update();
+        }
+        else{
+            $this->form->store();
+        }
+
         $this->dispatch('reload');
         $this->reset('show');
+    }
+
+    public function closeModal(){
+        $this->form->reset();
+        $this->reset('show');
+
+        $this->dispatch('reload');
     }
 
     public function render()

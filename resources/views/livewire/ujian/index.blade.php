@@ -31,9 +31,13 @@
                                     class="btn btn-xs btn-square btn-primary">
                                     <x-tabler-folder class="size-4" />
                                 </a>
-                                <a href="{{ route('ujian.edit', $data->id) }}"
-                                    class="btn btn-xs btn-square btn-success">
+                                <button class="btn btn-xs btn-square btn-info"
+                                    wire:click="dispatch('editUjian', [{{ $data->id }}])">
                                     <x-tabler-edit class="size-4" />
+                                </button>
+                                <a href="{{ route('ujian.edit', $data->id) }}" class="btn btn-xs btn-square btn-success"
+                                    wire:navigate>
+                                    <x-tabler-book class="size-4" />
                                 </a>
                                 <button class="btn btn-xs btn-square btn-error"
                                     wire:click="delete({{ $data->id }})">

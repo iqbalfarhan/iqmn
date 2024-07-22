@@ -93,13 +93,14 @@
         </form>
     @elseif ($active_tab == 'quizzes')
         @if ($material && $material->quizzes)
-            @livewire('quiz.form', ['material_id' => $material->id])
+
             <div class="flex justify-between items-center">
                 <span>{{ $quizzes->count() }} Pertanyaan</span>
-                <label for="addQuiz" class="btn btn-primary">
+                <button wire:click="dispatch('createQuiz', {'material_id': {{ $material->id }}, 'model':'material'})"
+                    class="btn btn-primary">
                     <x-tabler-circle-plus class="w-5 h-5" />
                     <span>Tambah</span>
-                </label>
+                </button>
             </div>
             <div class="flex flex-col gap-2">
 
@@ -113,11 +114,11 @@
                                     </h3>
                                 </div>
                                 <div class="flex opacity-0 group-hover:opacity-100 space-x-1">
-                                    <button wire:click="edit({{ $quiz->id }})"
+                                    <button wire:click="dispatch('updateQuiz', [{{ $quiz->id }}])"
                                         class="btn btn-sm btn-square btn-ghost">
                                         <x-tabler-edit class="w-5 h-5" />
                                     </button>
-                                    <button wire:click="edit({{ $quiz->id }})"
+                                    <button wire:click="dispatch('deleteQuiz', [{{ $quiz->id }}])"
                                         class="btn btn-sm btn-square btn-ghost">
                                         <x-tabler-trash class="w-5 h-5" />
                                     </button>
@@ -136,6 +137,8 @@
                 @endforelse
 
             </div>
+
+            @livewire('quiz.form')
         @endif
     @endif
 </div>

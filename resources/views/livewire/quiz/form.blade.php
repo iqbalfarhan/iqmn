@@ -1,5 +1,5 @@
 <div>
-    <input type="checkbox" id="addQuiz" class="modal-toggle" wire:model.live="show" />
+    <input type="checkbox" class="modal-toggle" @checked($show) />
     <div class="modal" role="dialog">
         <form wire:submit="simpan" class="modal-box">
             <h3 class="font-bold text-lg">Buat pertanyaan quiz baru</h3>
@@ -30,7 +30,7 @@
 
             </div>
             <div class="modal-action justify-between">
-                <label for="addQuiz" class="btn btn-ghost">Close!</label>
+                <button type="button" wire:click="closeModal" class="btn btn-ghost">Close</button>
                 <button class="btn btn-primary">Submit</button>
             </div>
         </form>

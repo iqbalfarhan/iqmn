@@ -86,7 +86,9 @@
 
                 @can('ujian.index')
                     <li>
-                        <a href="{{ route('ujian.index') }}" @class(['active' => Route::is(['ujian.index', 'ujian.show'])]) wire:navigate>
+                        <a href="{{ route('ujian.index') }}" @class([
+                            'active' => Route::is(['ujian.index', 'ujian.show', 'ujian.edit']),
+                        ]) wire:navigate>
                             <x-tabler-file-pencil class="w-5 h-5" />
                             <span>Sesi Ujian Kelas</span>
                         </a>

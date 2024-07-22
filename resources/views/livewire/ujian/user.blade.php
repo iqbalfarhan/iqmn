@@ -61,7 +61,14 @@
                                                 {{ $no++ }}.</button>
                                         </div>
                                     </div>
+
                                     <div class="flex flex-col gap-4">
+                                        @if ($data->media)
+                                            <figure>
+                                                <img src="{{ $data->media_url }}" alt=""
+                                                    class="rounded-lg w-full max-w-80">
+                                            </figure>
+                                        @endif
                                         <div class="text-xl font-semibold">{{ $data->question }}</div>
                                         <div class="flex flex-col gap-2">
                                             <div class="form-control">
@@ -113,7 +120,7 @@
             </div>
         </div>
     @else
-        <div class="card bg-base-200 card-divider">
+        <div class="card bg-base-200 card-divider max-w-lg mx-auto">
             <div class="card-body">
                 <div class="space-y-10">
                     <div class="div">
@@ -121,11 +128,11 @@
                         <small class="opacity-50">{{ $ujian->group->name }}</small>
                     </div>
 
-                    <p></p>
+                    <article class="prose">{{ $ujian->description }}</article>
 
-                    <div class="grid grid-cols-2 gap-2">
+                    <div class="grid gap-2">
                         <div class="col-span-full">
-                            <h3 class="card-title">Peserta</h3>
+                            <h3 class="card-title">Info peserta</h3>
                         </div>
                         <div class="border rounded-xl border-base-300">
                             @livewire('user.item', ['user' => auth()->user()])

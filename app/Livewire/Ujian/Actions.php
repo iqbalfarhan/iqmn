@@ -20,6 +20,13 @@ class Actions extends Component
         $this->show = true;
     }
 
+    #[On('editUjian')]
+    public function editUjian(Ujian $ujian)
+    {
+        $this->show = true;
+        $this->form->setUjian($ujian);
+    }
+
     #[On('toggleStart')]
     public function toggleStart(Ujian $ujian)
     {
@@ -29,7 +36,7 @@ class Actions extends Component
         $this->dispatch('reload');
     }
 
-    public function submit()
+    public function simpan()
     {
         if (isset($this->form->ujian)) {
             $this->form->update();
