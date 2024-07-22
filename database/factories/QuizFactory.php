@@ -22,10 +22,10 @@ class QuizFactory extends Factory
             'material_id' => fake()->randomElement(Material::pluck('id')),
             'ujian_id' => fake()->randomElement(Ujian::pluck('id')),
             'question' => fake()->sentence(10),
-            'a' => fake()->word(3),
-            'b' => fake()->word(3),
-            'c' => fake()->word(3),
-            'd' => fake()->word(3),
+            'a' => fake()->word(),
+            'b' => fake()->word(),
+            'c' => fake()->word(),
+            'd' => fake()->word(),
             'answer' => fake()->randomElement(['a', 'b', 'c', 'd']),
         ];
     }
