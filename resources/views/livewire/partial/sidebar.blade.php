@@ -97,7 +97,7 @@
             </ul>
         </li>
     @endcan
-    @can('managerial.menu')
+    @can('administrator.menu')
         <li>
             <h2 class="menu-title">Administrator</h2>
             <ul>
