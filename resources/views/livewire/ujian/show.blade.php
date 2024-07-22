@@ -4,14 +4,12 @@
         <span>Kembali</span>
     </a>
 
-    <div class="collapse collapse-arrow bg-base-200">
-        <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">{{ $ujian->title }}</div>
-        <div class="collapse-content">
-            <p>{{ $ujian->description }} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos obcaecati eaque
-                repudiandae aut tenetur ea rerum, ex at quam inventore ipsum deserunt delectus laudantium laborum cum
-                voluptas! Cumque, earum debitis.</p>
+    <div class="flex flex-col gap-4">
+        <div class="flex flex-col">
+            <h3 class="card-title">{{ $ujian->title }}</h3>
+            <small class="opacity-50">{{ $ujian->group->name }}</small>
         </div>
+        <p>{{ $ujian->description }}</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-4">

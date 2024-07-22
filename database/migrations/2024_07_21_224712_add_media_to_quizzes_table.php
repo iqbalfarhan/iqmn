@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('quizzes', function (Blueprint $table) {
+            $table->foreignId('material_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('ujian_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('media')->nullable();
         });
@@ -23,7 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('quizzes', function (Blueprint $table) {
-            $table->dropForeignId('ujian_id');
+            $table->foreignId('material_id')->constrained()->onDelete('cascade');
+            $table->dropForeign(['ujian_id']);
+            $table->dropColumn('ujian_id');
             $table->dropColumn('media');
         });
     }

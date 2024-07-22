@@ -7,9 +7,9 @@
     <div class="hidden md:flex flex-1">
         <ul class="menu menu-horizontal">
             <li>
-                <a href="" class="gap-1">
+                <a href="{{ route('welcome') }}" class="gap-1" wire:navigate>
                     <x-tabler-dashboard class="size-4" />
-                    <span>Dashboard</span>
+                    <span>Home</span>
                 </a>
             </li>
             <li>
@@ -19,13 +19,13 @@
                 </a>
             </li>
             <li>
-                <a href="" class="gap-1">
+                <a href="https://iqbalfarhan.github.io" class="gap-1">
                     <x-tabler-paper-bag class="size-4" />
                     <span>Portfolio</span>
                 </a>
             </li>
             <li>
-                <a href="" class="gap-1">
+                <a href="{{ route('welcome', ['#review']) }}" class="gap-1">
                     <x-tabler-message class="size-4" />
                     <span>Testimoni</span>
                 </a>

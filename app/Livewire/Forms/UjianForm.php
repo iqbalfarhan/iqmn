@@ -8,14 +8,10 @@ use Livewire\Form;
 
 class UjianForm extends Form
 {
-    #[Validate('required')]
     public $title;
-    #[Validate('required')]
     public $description;
-    #[Validate('required')]
     public $group_id;
-    #[Validate('required')]
-    public $start;
+    public $start = false;
 
     public ?Ujian $ujian;
 
@@ -29,8 +25,13 @@ class UjianForm extends Form
     }
 
     public function store(){
-        $this->validate();
-        Ujian::create($this->all());
+        $valid = $this->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'group_id' => 'required',
+            'start' => 'required',
+        ]);
+        Ujian::create($valid);
         $this->reset([
             'title',
             'description',

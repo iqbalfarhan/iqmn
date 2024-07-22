@@ -10,6 +10,8 @@ class Edit extends Component
 {
     public Ujian $ujian;
 
+    public $active_tab = 'keterangan';
+
     public function mount(Ujian $ujian){
         $this->ujian = $ujian;
     }
@@ -17,7 +19,8 @@ class Edit extends Component
     public function render()
     {
         return view('livewire.ujian.edit', [
-            'quizzes' => Quiz::where('ujian_id', $this->ujian->id)->get()
+            'quizzes' => Quiz::where('ujian_id', $this->ujian->id)->get(),
+            'tabs' => ['keterangan', 'quiz']
         ]);
     }
 }

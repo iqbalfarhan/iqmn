@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    protected $listeners = [
+        'reload' => '$refresh'
+    ];
+
     public function delete(Ujian $ujian) {
         $ujian->delete();
     }

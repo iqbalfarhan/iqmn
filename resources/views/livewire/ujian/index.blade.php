@@ -1,7 +1,7 @@
 <div class="page-wrapper">
     <div class="flex flex-col md:flex-row justify-between gap-2">
         <input type="text" class="input input-bordered" placeholder="Pencarian">
-        <button wire:click="$dispatch('createGroup')" class="btn btn-primary">
+        <button wire:click="$dispatch('createUjian')" class="btn btn-primary">
             <x-tabler-circle-plus class="size-5" />
             <span>Buat sesi ujian</span>
         </button>

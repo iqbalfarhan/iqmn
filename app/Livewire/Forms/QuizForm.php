@@ -11,25 +11,15 @@ class QuizForm extends Form
 
     public ?Quiz $quiz;
 
-    #[Rule('required')]
+
     public $material_id = "";
-
-    #[Rule('required')]
+    public $ujian_id = "";
+    public $media = "";
     public $question = "";
-
-    #[Rule('required')]
     public $a = "";
-
-    #[Rule('required')]
     public $b = "";
-
-    #[Rule('required')]
     public $c = "";
-
-    #[Rule('required')]
     public $d = "";
-
-    #[Rule('required')]
     public $answer = "";
 
     public function setQuiz(Quiz $quiz){
@@ -37,10 +27,21 @@ class QuizForm extends Form
     }
 
     public function store(){
-        $this->validate();
+        $this->validate([
+            'question' => 'required',
+            'media' => 'required',
+            'a' => 'required',
+            'b' => 'required',
+            'c' => 'required',
+            'd' => 'required',
+            'answer' => 'required',
+        ]);
         Quiz::create($this->all());
         $this->reset([
+            'material_id',
+            'ujian_id',
             'question',
+            'media',
             'a',
             'b',
             'c',
@@ -50,7 +51,15 @@ class QuizForm extends Form
     }
 
     public function update(){
-        $this->validate();
+        $this->validate([
+            'question' => 'required',
+            'media' => 'required',
+            'a' => 'required',
+            'b' => 'required',
+            'c' => 'required',
+            'd' => 'required',
+            'answer' => 'required',
+        ]);
         $this->quiz->update($this->all());
         $this->reset();
     }

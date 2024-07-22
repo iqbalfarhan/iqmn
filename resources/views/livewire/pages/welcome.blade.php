@@ -87,7 +87,7 @@
 
 
     <div class="border-b-2 border-base-300"></div>
-    <div class="page-wrapper-xl">
+    <div class="page-wrapper-xl" id="review">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Review dari anggota kelas</h1>
             <p class="opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit optio hic qui
