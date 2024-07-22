@@ -43,20 +43,22 @@
         </div>
     @endif
 
-    @if ($group->ujians->count() != 0)
-        <div class="space-y-4">
-            <div class="flex justify-between items-end">
-                <h2 class="text-xl font-bold">Ujian kelas</h2>
+    @can('ujian.user')
+        @if ($group->ujians->count() != 0)
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <h2 class="text-xl font-bold">Ujian kelas</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-2 md:gap-6">
+                    @foreach ($group->ujians as $ujian)
+                        <a href="{{ route('ujian.user', $ujian) }}">
+                            @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
+                        </a>
+                    @endforeach
+                </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-2 md:gap-6">
-                @foreach ($group->ujians as $ujian)
-                    <a href="{{ route('ujian.user', $ujian) }}">
-                        @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
-                    </a>
-                @endforeach
-            </div>
-        </div>
-    @endif
+        @endif
+    @endcan
 
     <div class="space-y-4">
         <div class="flex justify-between">

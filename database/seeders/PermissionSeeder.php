@@ -38,6 +38,7 @@ class PermissionSeeder extends Seeder
             'ujian.edit' => ['pengawas'],
             'ujian.show' => ['pengawas'],
             'ujian.delete' => ['pengawas'],
+            'ujian.start' => ['pengawas'],
         ];
 
         foreach ($datas as $permit => $roles) {
