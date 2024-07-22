@@ -4,7 +4,6 @@ namespace App\Livewire\Ujian;
 
 use App\Models\Exam;
 use App\Models\Ujian;
-use App\Models\User as UserModel;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -12,17 +11,18 @@ class User extends Component
 {
     public Ujian $ujian;
     public ?Exam $exam;
-    public UserModel $user;
+
+    public $user_id;
 
     public function mount(Ujian $ujian){
-        $this->user = UserModel::find(Auth::id());
+        $this->user_id = Auth::id();
         $this->ujian = $ujian;
 
-        $this->exam = $this->ujian->exams->where('user_id', $this->user->id)->first();
+        $this->exam = $this->ujian->exams->where('user_id', $this->user_id)->first();
     }
 
     public function joinUjian(){
-        $user_id = $this->user->id;
+        $user_id = $this->user_id;
         $ujian_id = $this->ujian->id;
         $initialData = Exam::$initialData;
 
@@ -31,6 +31,8 @@ class User extends Component
             'ujian_id' => $ujian_id,
             'data' => $initialData
         ]);
+
+        $this->redirect(route('ujian.user', $this->ujian->id), true);
     }
 
     public function render()
