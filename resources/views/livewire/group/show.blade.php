@@ -13,10 +13,7 @@
                     </div>
                     <div class="flex-1 space-y-4">
                         <h3 class="card-title">{{ $group->name }}</h3>
-                        <p>{{ $group->desc }} | {{ $group->code }} | Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Corporis minima nesciunt provident nemo reiciendis alias dolorem sed,
-                            laborum consequuntur, sunt libero aut ab. Excepturi aliquam totam eos perferendis repellat
-                            asperiores!</p>
+                        <p>{{ $group->desc }} | {{ $group->code }}</p>
                         <p>link join kelas <a class="badge">{{ route('group.join', $group->code) }}</a></p>
                     </div>
 

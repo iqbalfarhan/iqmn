@@ -1,60 +1,20 @@
 <div class="page-wrapper">
-    @if ($exam)
-        <input type="checkbox" id="nilai" class="modal-toggle" wire:model.live="show" />
-        <div class="modal">
-            @php
-                $nilai = round($nilai);
-
-                if ($nilai == 100) {
-                    $pesan = 'Nilai sempurna';
-                    $emoji = '🥳';
-                } elseif ($nilai >= 75 && $nilai <= 99) {
-                    $pesan = 'Kamu hebat';
-                    $emoji = '👍';
-                } elseif ($nilai >= 50 && $nilai <= 74) {
-                    $pesan = 'Nilai cukup baik';
-                    $emoji = '👌';
-                } elseif ($nilai >= 25 && $nilai <= 49) {
-                    $pesan = 'Perlu lebih usaha';
-                    $emoji = '💪';
-                } elseif ($nilai >= 0 && $nilai <= 24) {
-                    $pesan = 'Memerlukan perbaikan signifikan';
-                    $emoji = '❌';
-                } else {
-                    $pesan = 'Nilai tidak valid';
-                    $emoji = '❗';
-                }
-            @endphp
-            <div class="modal-box text-center">
-                <div class="flex flex-col space-y-10">
-                    <h3 class="font-semibold text-3xl">{{ $pesan }}</h3>
-                    <span class="text-gray-500 text-[100pt] py-6">{{ $emoji }}</span>
-                    <div class="flex flex-col">
-                        <span>Nilai kamu :</span>
-                        <span class="text-2xl font-black">{{ round($nilai) }} / 100</span>
-                    </div>
-                </div>
-                <div class="modal-action">
-                    <label for="nilai" class="btn btn-ghost">Close</label>
-                </div>
+    @if ($exam && $exam->selesai == false)
+        <div class="flex justify-between items-center ">
+            <div class="btn btn-ghost normal-case">
+                {{ count($jawaban) }}/{{ count($answers) }} soal telah diisi.
             </div>
+
+            <button class="btn" wire:click="toggleShowDescription">Keterangan ujian</button>
         </div>
-        <div class="card bg-base-200/50">
+        <div class="card card-divider bg-base-200/50">
             <div class="card-body">
                 <div class="space-y-8">
-                    <div class="flex justify-between items-center ">
-                        <div class="btn btn-ghost normal-case">
-                            {{ count($jawaban) }}/{{ count($answers) }} soal telah diisi.
-                        </div>
-
-                        <button class="btn" wire:click="toggleShowDescription">Keterangan ujian</button>
-                    </div>
 
                     @if ($showDescription)
                         <article class="prose">{!! Str::markdown($ujian->description) !!}</article>
                     @endif
 
-                    <div class="divider">Mulai</div>
                     @foreach ($ujian->quizzes as $data)
                         <div class="card card-compact" wire:key="{{ $data->id }}">
                             <div class="card-body">
@@ -116,11 +76,37 @@
                         <div class="divider md:hidden"></div>
                     @endforeach
                 </div>
+            </div>
+            <div class="card-body">
+                <div class="card-actions justify-between">
+                    <button wire:click="simpan" class="btn btn-primary">
+                        <x-tabler-device-floppy class="size-5" />
+                        <span>Simpan</span>
+                    </button>
+                    <button wire:click="selesai" class="btn btn-info">
+                        <x-tabler-check class="size-5" />
+                        <span>Selesai</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @elseif ($exam && $exam->selesai == true)
+        <a href="{{ route('group.show', $ujian->group) }}" class="btn">
+            <x-tabler-chevron-left class="size-5" />
+            <span>Kembali</span>
+        </a>
+        <div class="card bg-base-200 card-divider max-w-lg mx-auto">
+            <div class="card-body">
+                <div class="space-y-6">
+                    <div class="div">
+                        <h1 class="card-title">{{ $ujian->title }}</h1>
+                        <small class="opacity-50">{{ $ujian->group->name }}</small>
+                    </div>
 
-                <div class="divider">Selesai</div>
-
-                <div class="card-actions">
-                    <button wire:click="periksa" class="btn btn-primary">Selesai dan periksa jawaban</button>
+                    <div role="alert" class="alert alert-warning">
+                        <x-tabler-exclamation-circle class="size-6" />
+                        <span>Kamu telah menyelesaikan ujian ini pada : {{ $exam->updated_at->diffForHumans() }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,16 +119,7 @@
                         <small class="opacity-50">{{ $ujian->group->name }}</small>
                     </div>
 
-                    <article class="prose">{{ $ujian->description }}</article>
-
-                    <div class="grid gap-2">
-                        <div class="col-span-full">
-                            <h3 class="card-title">Info peserta</h3>
-                        </div>
-                        <div class="border rounded-xl border-base-300">
-                            @livewire('user.item', ['user' => auth()->user()])
-                        </div>
-                    </div>
+                    <article class="prose">{!! Str::markdown($ujian->description) !!}</article>
                 </div>
             </div>
             <div class="card-body py-5">

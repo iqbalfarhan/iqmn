@@ -9,7 +9,7 @@
             <h3 class="card-title">{{ $ujian->title }}</h3>
             <small class="opacity-50">{{ $ujian->group->name }}</small>
         </div>
-        <article class="prose">{!! Str::markdown($ujian->description) !!}</article>
+        {{-- <article class="prose">{!! Str::markdown($ujian->description) !!}</article> --}}
     </div>
 
     <div class="grid md:grid-cols-3 gap-4">
@@ -19,13 +19,14 @@
         <div class="card bg-base-200">
             <div class="card-body justify-between">
                 <ul class="list list-disc list-inside text-sm">
-                    <li>4 sedang ujian</li>
-                    <li>4 sudah selesai</li>
-                    <li>Total peserta ujian {{ $ujian->group->users->count() }}</li>
+                    <li>{{ $ujian->exams->where('selesai', false)->count() }} sedang ujian</li>
+                    <li>{{ $ujian->exams->where('selesai', true)->count() }} sudah selesai</li>
+                    <li>Total peserta ujian {{ $ujian->exams->count() }}</li>
                 </ul>
 
-                <input type="range" min="0" max="{{ $ujian->group->users->count() }}" value="1"
-                    step="1" class="range range-primary" @disabled(true) />
+                <input type="range" min="0" max="{{ $ujian->exams->count() }}"
+                    value="{{ $ujian->exams->where('selesai', true)->count() }}" step="1"
+                    class="range range-xs range-primary" @disabled(true) />
             </div>
         </div>
         <div @class([
@@ -35,7 +36,7 @@
                 $ujian->start,
         ])>
             <div class="card-body justify-between space-y-6">
-                <input type="checkbox" class="toggle toggle-primary" @checked($ujian->start)
+                <input type="checkbox" class="toggle toggle-sm toggle-primary" @checked($ujian->start)
                     wire:change="dispatch('toggleStart', [{{ $ujian->id }}])" />
 
                 <div class="flex flex-col">
@@ -55,6 +56,7 @@
                     <th>No</th>
                     <th>Peserta</th>
                     <th>Progress</th>
+                    <th class="text-center">Dikerjakan</th>
                     <th class="text-center">Status</th>
                 </thead>
                 <tbody>
@@ -62,6 +64,8 @@
                         @php
                             $user = $exam->user;
                             $totalQuis = $ujian->quizzes->count();
+                            $count = count($exam->data['jawaban']);
+                            $nilai = $exam->data['nilai'];
                         @endphp
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -80,10 +84,15 @@
                             </td>
                             <td>
                                 <input type="range" min="0" max="{{ $totalQuis }}"
-                                    value="{{ fake()->numberBetween(0, 40) }}" step="1"
-                                    class="range range-primary range-xs" @disabled(true) />
+                                    value="{{ $count }}" step="1" class="range range-primary range-xs"
+                                    @disabled(true) />
                             </td>
-                            <td></td>
+                            <th class="text-center font-mono">{{ $count }}/{{ $totalQuis }}</td>
+                            <td>
+                                @if ($exam->selesai)
+                                    Selesai
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

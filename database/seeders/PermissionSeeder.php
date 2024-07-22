@@ -32,6 +32,7 @@ class PermissionSeeder extends Seeder
             'group.delete' => [],
             'group.mine' => ['reader'],
             'group.show' => ['reader'],
+            'ujian.user' => ['reader'],
         ];
 
         foreach ($datas as $permit => $roles) {
