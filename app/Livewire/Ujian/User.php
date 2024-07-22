@@ -13,6 +13,7 @@ class User extends Component
     public ?Exam $exam;
 
     public $user_id;
+    public $showDescription = false;
     public $nilai = 0;
     public $jawaban = [];
     public $answers = [];
@@ -30,6 +31,11 @@ class User extends Component
     public function unsetJawaban($key)
     {
         unset($this->jawaban[$key]);
+    }
+
+    public function toggleShowDescription()
+    {
+        $this->showDescription = !$this->showDescription;
     }
 
     public function joinUjian(){

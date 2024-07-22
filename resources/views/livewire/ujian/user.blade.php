@@ -42,13 +42,18 @@
         <div class="card bg-base-200/50">
             <div class="card-body">
                 <div class="space-y-8">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center ">
                         <div class="btn btn-ghost normal-case">
                             {{ count($jawaban) }}/{{ count($answers) }} soal telah diisi.
                         </div>
 
-                        <button class="btn btn-ghost">Tentang quiz</button>
+                        <button class="btn" wire:click="toggleShowDescription">Keterangan ujian</button>
                     </div>
+
+                    @if ($showDescription)
+                        <article class="prose">{!! Str::markdown($ujian->description) !!}</article>
+                    @endif
+
                     <div class="divider">Mulai</div>
                     @foreach ($ujian->quizzes as $data)
                         <div class="card card-compact" wire:key="{{ $data->id }}">

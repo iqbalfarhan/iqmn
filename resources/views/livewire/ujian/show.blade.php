@@ -9,7 +9,7 @@
             <h3 class="card-title">{{ $ujian->title }}</h3>
             <small class="opacity-50">{{ $ujian->group->name }}</small>
         </div>
-        <p>{{ $ujian->description }}</p>
+        <article class="prose">{!! Str::markdown($ujian->description) !!}</article>
     </div>
 
     <div class="grid md:grid-cols-3 gap-4">

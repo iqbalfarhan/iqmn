@@ -22,7 +22,7 @@
                                 class="btn btn-sm btn-square btn-ghost">
                                 <x-tabler-edit class="w-5 h-5" />
                             </button>
-                            <button wire:click="dispatch('updateQuiz', [{{ $quiz->id }}])"
+                            <button wire:click="dispatch('deleteQuiz', [{{ $quiz->id }}])"
                                 class="btn btn-sm btn-square btn-ghost">
                                 <x-tabler-trash class="w-5 h-5" />
                             </button>
