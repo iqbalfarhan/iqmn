@@ -13,12 +13,23 @@ class User extends Component
     public ?Exam $exam;
 
     public $user_id;
+    public $nilai = 0;
+    public $jawaban = [];
+    public $answers = [];
+    public $bobot;
+    public $no = 1;
+    public $show = false;
 
     public function mount(Ujian $ujian){
         $this->user_id = Auth::id();
         $this->ujian = $ujian;
 
         $this->exam = $this->ujian->exams->where('user_id', $this->user_id)->first();
+    }
+
+    public function unsetJawaban($key)
+    {
+        unset($this->jawaban[$key]);
     }
 
     public function joinUjian(){
@@ -33,6 +44,22 @@ class User extends Component
         ]);
 
         $this->redirect(route('ujian.user', $this->ujian->id), true);
+    }
+
+    public function periksa()
+    {
+        $this->validate([
+            'jawaban.*' => 'required'
+        ]);
+
+        $this->reset('nilai');
+        foreach ($this->jawaban as $key => $value) {
+            if($this->jawaban[$key] == $this->answers[$key]) {
+                $this->nilai += $this->bobot;
+            }
+        }
+
+        $this->show = true;
     }
 
     public function render()
