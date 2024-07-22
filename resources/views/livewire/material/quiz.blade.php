@@ -68,7 +68,11 @@
                                             {{ $no++ }}.</button>
                                     </div>
                                 </div>
-                                <div class="flex flex-col gap-4">
+                                <div class="flex flex-1 flex-col gap-4">
+                                    @if ($data->media)
+                                        <img src="{{ $data->media_url }}" alt=""
+                                            class="rounded-lg w-full max-w-80">
+                                    @endif
                                     <div class="text-xl font-semibold">{{ $data->question }}</div>
                                     <div class="flex flex-col gap-2">
                                         <div class="form-control">

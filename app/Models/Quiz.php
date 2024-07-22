@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Quiz extends Model
 {
@@ -32,5 +33,10 @@ class Quiz extends Model
             'c' => $this->c,
             'd' => $this->d,
         ];
+    }
+
+     public function getMediaUrlAttribute()
+    {
+        return $this->media ? Storage::url($this->media) : url('nocontent.png');
     }
 }

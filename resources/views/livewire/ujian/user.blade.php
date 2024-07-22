@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="modal-action">
-                    <label for="nilai" class="btn">Close!</label>
+                    <label for="nilai" class="btn btn-ghost">Close</label>
                 </div>
             </div>
         </div>

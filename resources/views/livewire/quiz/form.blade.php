@@ -11,11 +11,22 @@
                     <textarea class="textarea textarea-bordered" placeholder="tuliskan pertanyaan disini" wire:model="form.question"></textarea>
                 </div>
 
-                <div class="form-control">
-                    <label for="" class="label">
-                        <span class="label-text">Media</span>
-                    </label>
-                    <input type="file" class="file-input" wire:model="form.media">
+                <div class="flex gap-4 w-full">
+                    <div class="flex-1">
+                        <div class="form-control w-full">
+                            <label for="" class="label">
+                                <span class="label-text">Media</span>
+                            </label>
+                            <input type="file" class="file-input w-full" wire:model="media" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="flex-none">
+                        <div class="avatar">
+                            <div class="w-24 rounded-lg">
+                                <img src="{{ $media ? $media->temporaryUrl() : url('nocontent.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 @foreach (['a', 'b', 'c', 'd'] as $abjad)

@@ -54,6 +54,10 @@ class QuizForm extends Form
             $valid['ujian_id'] = $this->ujian_id;
         }
 
+        if ($this->media){
+            $valid['media'] = $this->media;
+        }
+
         Quiz::create($valid);
         $this->reset([
             'question',
@@ -83,6 +87,11 @@ class QuizForm extends Form
         if ($this->ujian_id){
             $valid['ujian_id'] = $this->ujian_id;
         }
+
+        if ($this->media){
+            $valid['media'] = $this->media;
+        }
+
         $this->quiz->update($valid);
         $this->reset([
             'question',

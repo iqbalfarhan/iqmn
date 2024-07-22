@@ -2,17 +2,21 @@
 
 namespace App\Livewire\Quiz;
 
+use Intervention\Image\Facades\Image;
 use App\Livewire\Forms\QuizForm;
 use App\Models\Quiz;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Form extends Component
 {
+    use WithFileUploads;
+
+    public $media;
     public $show = false;
-
     public QuizForm $form;
-
 
     #[On('createQuiz')]
     public function createQuiz($material_id, $model = "material")
@@ -42,6 +46,13 @@ class Form extends Component
     }
 
     public function simpan(){
+        if ($this->media) {
+            $filename = $this->media->hashName('quiz');
+            $image = Image::make($this->media)->encode('jpg', 100);
+            Storage::put($filename, $image);
+            $this->form->media = $filename;
+        }
+
         if (isset($this->form->quiz)) {
             $this->form->update();
         }

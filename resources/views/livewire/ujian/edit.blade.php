@@ -29,6 +29,10 @@
                         </div>
                     </div>
 
+                    @if ($quiz->media)
+                        <img src="{{ $quiz->media_url }}" alt="" class="rounded-lg w-full max-w-80">
+                    @endif
+
                     <div class="flex flex-col gap-1">
                         @foreach ($quiz->option_lists as $point => $list)
                             <span @class(['', 'text-primary' => $point == $quiz->answer])>{{ $point }}. {{ $list }}</span>
