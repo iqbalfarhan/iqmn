@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('quizzes', function (Blueprint $table) {
-            $table->foreignId('material_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('ujian_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('media')->nullable();
         });
