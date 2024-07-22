@@ -12,8 +12,8 @@ class QuizForm extends Form
     public ?Quiz $quiz;
 
 
-    public $material_id = "";
-    public $ujian_id = "";
+    public $material_id;
+    public $ujian_id;
     public $media = "";
     public $question = "";
     public $a = "";
@@ -27,19 +27,25 @@ class QuizForm extends Form
     }
 
     public function store(){
-        $this->validate([
+        $valid = $this->validate([
             'question' => 'required',
-            'media' => 'required',
             'a' => 'required',
             'b' => 'required',
             'c' => 'required',
             'd' => 'required',
             'answer' => 'required',
         ]);
-        Quiz::create($this->all());
+
+        if ($this->material_id) {
+            $valid['material_id'] = $this->material_id;
+        }
+
+        if ($this->ujian_id){
+            $valid['ujian_id'] = $this->ujian_id;
+        }
+
+        Quiz::create($valid);
         $this->reset([
-            'material_id',
-            'ujian_id',
             'question',
             'media',
             'a',
@@ -51,16 +57,31 @@ class QuizForm extends Form
     }
 
     public function update(){
-        $this->validate([
+        $valid = $this->validate([
             'question' => 'required',
-            'media' => 'required',
             'a' => 'required',
             'b' => 'required',
             'c' => 'required',
             'd' => 'required',
             'answer' => 'required',
         ]);
-        $this->quiz->update($this->all());
-        $this->reset();
+
+        if ($this->material_id) {
+            $valid['material_id'] = $this->material_id;
+        }
+
+        if ($this->ujian_id){
+            $valid['ujian_id'] = $this->ujian_id;
+        }
+        $this->quiz->update($valid);
+        $this->reset([
+            'question',
+            'media',
+            'a',
+            'b',
+            'c',
+            'd',
+            'answer',
+        ]);
     }
 }

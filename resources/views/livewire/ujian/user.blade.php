@@ -10,10 +10,7 @@
                         <small class="opacity-50">{{ $ujian->group->name }}</small>
                     </div>
 
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae cum excepturi sunt odio
-                        soluta
-                        possimus. Alias id adipisci, nisi, maiores commodi quae, sapiente eum atque dolorem ducimus quam
-                        reiciendis blanditiis.</p>
+                    <p></p>
 
                     <div class="grid grid-cols-2 gap-2">
                         <div class="col-span-full">

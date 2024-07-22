@@ -10,6 +10,14 @@
                     </label>
                     <textarea class="textarea textarea-bordered" placeholder="tuliskan pertanyaan disini" wire:model="form.question"></textarea>
                 </div>
+
+                <div class="form-control">
+                    <label for="" class="label">
+                        <span class="label-text">Media</span>
+                    </label>
+                    <input type="file" class="file-input" wire:model="form.media">
+                </div>
+
                 @foreach (['a', 'b', 'c', 'd'] as $abjad)
                     <div class="join">
                         <label class="btn btn-ghost join-item">
@@ -19,9 +27,10 @@
                             placeholder="Pilihan {{ $abjad }}" wire:model="form.{{ $abjad }}">
                     </div>
                 @endforeach
+
             </div>
-            <div class="modal-action">
-                <label for="addQuiz" class="btn">Close!</label>
+            <div class="modal-action justify-between">
+                <label for="addQuiz" class="btn btn-ghost">Close!</label>
                 <button class="btn btn-primary">Submit</button>
             </div>
         </form>

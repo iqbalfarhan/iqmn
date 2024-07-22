@@ -7,8 +7,8 @@
             @endforeach
         </div>
     </div>
-    @if ($ujian && $ujian->quizzes)
-        @livewire('quiz.form', ['material_id' => $ujian->id])
+    @if ($quizzes)
+        @livewire('quiz.form', ['material_id' => $ujian->id, 'model' => 'ujian'])
         <div class="flex justify-between items-center">
             <span>{{ $quizzes->count() }} Pertanyaan</span>
             <label for="addQuiz" class="btn btn-primary">

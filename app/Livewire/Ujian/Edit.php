@@ -10,6 +10,10 @@ class Edit extends Component
 {
     public Ujian $ujian;
 
+    protected $listeners = [
+        'reload' => '$refresh'
+    ];
+
     public $active_tab = 'keterangan';
 
     public function mount(Ujian $ujian){
