@@ -1,89 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    html {
-        font-family: "Montserrat Alternates", sans-serif;
-        @apply font-semibold scrollbar-hide;
-    }
-    thead {
-        @apply border-b-4 border-primary bg-base-200/50;
-    }
+  html {
+    font-family: 'Geologica', sans-serif;
+    @apply scrollbar-hide;
+  }
+  thead {
+    @apply border-b-4 border-primary bg-base-200/50;
+  }
 }
 
 @layer components {
-    .page-wrapper {
-        @apply container w-full max-w-5xl mx-auto p-6 space-y-6;
-    }
+  .page-wrapper {
+    @apply container w-full max-w-5xl mx-auto p-6 space-y-6;
+  }
 
-    .page-wrapper-xl {
-        @apply container w-full max-w-7xl mx-auto p-6 py-20 space-y-20;
-    }
+  .page-wrapper-xl {
+    @apply container w-full max-w-7xl mx-auto p-6 py-20 space-y-20;
+  }
 
-    .table-wrapper {
-        @apply shadow-xl rounded-xl bg-base-100 overflow-x-auto whitespace-nowrap;
-    }
+  .table-wrapper {
+    @apply shadow-xl rounded-xl bg-base-100 overflow-x-auto whitespace-nowrap;
+  }
 
-    .input,
-    .textarea,
-    .select {
-        @apply bg-base-200;
-    }
+  .input,
+  .textarea,
+  .select {
+    @apply bg-base-200;
+  }
 
-    .input-bordered,
-    .textarea-bordered,
-    .select-bordered,
-    .btn-bordered {
-        @apply border-2 border-base-300;
-    }
+  .input-bordered,
+  .textarea-bordered,
+  .select-bordered,
+  .btn-bordered {
+    @apply border-2 border-base-300;
+  }
 
-    .input-error,
-    .textarea-error,
-    .select-error {
-        @apply border-2 border-error;
-    }
+  .input-error,
+  .textarea-error,
+  .select-error {
+    @apply border-2 border-error;
+  }
 
-    .table-filter-wrapper {
-        @apply flex flex-col md:flex-row md:items-center md:justify-between gap-2;
-    }
+  .table-filter-wrapper {
+    @apply flex flex-col md:flex-row md:items-center md:justify-between gap-2;
+  }
 
-    .modal {
-        @apply backdrop-blur-sm;
-    }
+  .modal {
+    @apply backdrop-blur-sm;
+  }
 
-    input[type="checkbox"].toggle:not(:checked) {
-        @apply opacity-50;
-    }
+  input[type='checkbox'].toggle:not(:checked) {
+    @apply opacity-50;
+  }
 
-    .grid .input,
-    .grid .select,
-    .grid .file-input {
-        @apply w-full;
-    }
+  .grid .input,
+  .grid .select,
+  .grid .file-input {
+    @apply w-full;
+  }
 
-    .card-divider {
-        @apply divide-y-2 divide-base-300;
-    }
+  .card-divider {
+    @apply divide-y-2 divide-base-300;
+  }
 
-    .prose pre {
-        @apply bg-base-200 text-base-content;
-    }
-    .prose table {
-        @apply text-sm;
-    }
+  .prose pre {
+    @apply bg-base-200 text-base-content;
+  }
+  .prose table {
+    @apply text-sm;
+  }
 
-    .divider {
-        @apply border-base-300;
-    }
+  .divider {
+    @apply border-base-300;
+  }
 
-    .bg-radial-primary {
-        @apply bg-gradient-radial from-primary/30 via-base-100 to-base-100;
-    }
+  .bg-radial-primary {
+    @apply bg-gradient-radial from-primary/30 via-base-100 to-base-100;
+  }
 
-    .modal-box {
-        @apply scrollbar-hide;
-    }
+  .modal-box {
+    @apply scrollbar-hide;
+  }
 }

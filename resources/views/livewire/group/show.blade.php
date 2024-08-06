@@ -3,21 +3,22 @@
         <h2 class="text-3xl font-bold capitalize">{{ $group->name }}</h2>
         <div class="card card-compact bg-base-200">
             <div class="card-body">
-                <div class="flex flex-col md:flex-row gap-3">
-                    <div>
-                        <div class="avatar">
-                            <div class="w-16 rounded-lg">
-                                <img src="{{ $group->image_url }}" alt="">
+                <div class="flex">
+                    <div class="flex flex-col md:flex-row gap-3 flex-1">
+                        <div>
+                            <div class="avatar">
+                                <div class="w-16 rounded-lg">
+                                    <img src="{{ $group->image_url }}" alt="">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex-1 space-y-4">
-                        <h3 class="card-title">{{ $group->name }}</h3>
-                        <p>{{ $group->desc }} | {{ $group->code }}</p>
-                        <p>link join kelas <a class="badge">{{ route('group.join', $group->code) }}</a></p>
+                        <div class="flex-1 space-y-4">
+                            <h3 class="card-title">{{ $group->name }}</h3>
+                            <p>{{ $group->desc }} | {{ $group->code }}</p>
+                        </div>
                     </div>
 
-                    <div>
+                    <div class="flex flex-none">
                         <div class="dropdown dropdown-end">
                             <div tabindex="0" role="button" class="btn m-1 btn-square">
                                 <x-tabler-dots class="size-5" />
