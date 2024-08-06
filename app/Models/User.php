@@ -36,10 +36,10 @@ class User extends Authenticatable
     public function getImageUrlAttribute()
     {
         if ($this->github_id) {
-            return $this->photo ?? url('nouser.png');
+            return $this->photo ?? "https://dummyjson.com/icon/{$this->id}/100";
         }
         else{
-            return $this->photo ? Storage::url($this->photo) : url('nouser.png');
+            return $this->photo ? Storage::url($this->photo) : "https://dummyjson.com/icon/{$this->id}/100";
         }
     }
 
