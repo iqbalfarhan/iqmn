@@ -1,8 +1,18 @@
 <div class="page-wrapper space-y-10">
-    <a href="{{ route('ujian.index') }}" class="btn">
-        <x-tabler-chevron-left class="size-5" />
-        <span>Kembali</span>
-    </a>
+
+    <div class="flex justify-between gap-4">
+        <div>
+            <a href="{{ route('ujian.index') }}" class="btn">
+                <x-tabler-chevron-left class="size-5" />
+                <span>Kembali</span>
+            </a>
+        </div>
+        <div>
+            <button class="btn btn-square" wire:click="dispatch('reload')">
+                <x-tabler-reload class="size-5" />
+            </button>
+        </div>
+    </div>
 
     <div class="flex flex-col gap-4">
         <div class="flex flex-col">

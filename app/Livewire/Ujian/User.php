@@ -91,15 +91,20 @@ class User extends Component
     }
 
     public function selesai(){
+        $this->simpan();
         $quizCount = $this->ujian->quizzes->count();
         $jawabanCount = count($this->jawaban);
-        if ($quizCount == $jawabanCount) {
-            $this->exam->update([
-                'selesai' => true
-            ]);
-        }
-        else{
-            $this->alert('error', 'Anda belum selesai mengerjakan ujian');
+
+        switch ($quizCount) {
+            case $jawabanCount:
+                $this->exam->update([
+                    'selesai' => true
+                ]);
+                break;
+
+            default:
+                $this->alert('error', 'Anda belum selesai mengerjakan ujian');
+                break;
         }
     }
 

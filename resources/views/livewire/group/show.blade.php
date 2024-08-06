@@ -18,10 +18,34 @@
                     </div>
 
                     <div>
-                        <button class="btn btn-error btn-sm" wire:click="keluargroup">
-                            <x-tabler-logout class="size-5" />
-                            <span>Keluar group</span>
-                        </button>
+                        <div class="dropdown dropdown-end">
+                            <div tabindex="0" role="button" class="btn m-1 btn-square">
+                                <x-tabler-dots class="size-5" />
+                                <span class="sr-only">Menu</span>
+                            </div>
+                            <ul tabindex="0"
+                                class="dropdown-content menu bg-base-300 rounded-box z-[1] w-52 p-2 shadow">
+                                <li>
+                                    <button wire:click="dispatch('showCode', {group: {{ $group->id }}})">
+                                        <x-tabler-upload class="size-5" />
+                                        <span>Tampilkan kode</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button wire:click="dispatch('addToGroup', {group: {{ $group->id }}})">
+                                        <x-tabler-user-plus class="size-5" />
+                                        <span>Add member</span>
+                                    </button>
+                                </li>
+                                <li></li>
+                                <li>
+                                    <button class="text-error" wire:click="keluargroup">
+                                        <x-tabler-logout class="size-5" />
+                                        <span>Keluar group</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,4 +100,5 @@
     </div>
 
     @livewire('group.add-user')
+    @livewire('group.show-code')
 </div>
