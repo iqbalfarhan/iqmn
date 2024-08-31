@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ImsakiyahController;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,6 @@ Route::get("post", function(){
 Route::get("post/{slug}", function($slug) {
     return Post::with('user')->where('slug', $slug)->first();
 });
+
+Route::get("imsakiyah", [ImsakiyahController::class, "index"]);
+Route::get("imsakiyah/{imsakiyah}", [ImsakiyahController::class, "show"]);
