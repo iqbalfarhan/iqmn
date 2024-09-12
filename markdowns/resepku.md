@@ -1,4 +1,4 @@
-**Kebijakan Privasi - Resepku**
+# Kebijakan Privasi - Resepku
 
 Selamat datang di aplikasi Resepku. Privasi dan keamanan data Anda sangat penting bagi kami. Oleh karena itu, kami ingin menjelaskan bagaimana aplikasi ini bekerja terkait dengan data pribadi Anda.
 
