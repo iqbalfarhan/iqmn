@@ -1,4 +1,4 @@
-# Kebijakan Privasi - Resepku
+# Kebijakan Privasi - Buku resep
 
 Selamat datang di aplikasi Resepku. Privasi dan keamanan data Anda sangat penting bagi kami. Oleh karena itu, kami ingin menjelaskan bagaimana aplikasi ini bekerja terkait dengan data pribadi Anda.
 
