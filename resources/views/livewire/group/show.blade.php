@@ -53,52 +53,71 @@
         </div>
     </div>
 
-    @if ($group->materials->count() != 0)
-        <div class="space-y-4">
-            <div class="flex justify-between items-end">
-                <h2 class="text-xl font-bold">Material kelas</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-2 md:gap-6">
-                @foreach ($group->materials as $material)
-                    <a href="{{ route('material.show', $material) }}">
-                        @livewire('material.item', ['material' => $material], key($material->id))
-                    </a>
-                @endforeach
-            </div>
-        </div>
-    @endif
-
-    @can('ujian.user')
-        @if ($group->ujians->count() != 0)
-            <div class="space-y-4">
-                <div class="flex justify-between items-end">
-                    <h2 class="text-xl font-bold">Ujian kelas</h2>
+    <div role="tablist" class="tabs tabs-bordered">
+        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Material"
+            @checked($tabkelas == 'materi') />
+        <div role="tabpanel" class="tab-content py-10">
+            @if ($group->materials->count() != 0)
+                <div class="space-y-4">
+                    <div class="flex justify-between items-end">
+                        <h2 class="text-xl font-bold">Materi belajar</h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-2 md:gap-6">
+                        @foreach ($group->materials as $material)
+                            <a href="{{ route('material.show', $material) }}">
+                                @livewire('material.item', ['material' => $material], key($material->id))
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="grid md:grid-cols-3 gap-2 md:gap-6">
-                    @foreach ($group->ujians as $ujian)
-                        <a href="{{ route('ujian.user', $ujian) }}">
-                            @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
-                        </a>
+            @endif
+        </div>
+
+        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Tugas"
+            @checked($tabkelas == 'tugas') />
+        <div role="tabpanel" class="tab-content py-10">Tab content 2</div>
+
+        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Ujian"
+            @checked($tabkelas == 'ujian') />
+        <div role="tabpanel" class="tab-content py-10">
+            @can('ujian.user')
+                @if ($group->ujians->count() != 0)
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-end">
+                            <h2 class="text-xl font-bold">Ujian kelas</h2>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-2 md:gap-6">
+                            @foreach ($group->ujians as $ujian)
+                                <a href="{{ route('ujian.user', $ujian) }}">
+                                    @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            @endcan
+        </div>
+
+        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Anggota"
+            @checked($tabkelas == 'anggota') />
+        <div role="tabpanel" class="tab-content py-10">
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <h2 class="text-xl font-bold">Anggota kelas</h2>
+                </div>
+                <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
+                    @foreach ($group->users as $user)
+                        <div @class(['avatar', 'online' => $user->id == $group->user_id])>
+                            <div class="w-full rounded-full bg-base-300">
+                                <img src="{{ $user->image_url }}" alt="">
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
-        @endif
-    @endcan
-
-    <div class="space-y-4">
-        <div class="flex justify-between">
-            <h2 class="text-xl font-bold">Anggota kelas</h2>
-        </div>
-        <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
-            @foreach ($group->users as $user)
-                <div @class(['avatar', 'online' => $user->id == $group->user_id])>
-                    <div class="w-full rounded-full bg-base-300">
-                        <img src="{{ $user->image_url }}" alt="">
-                    </div>
-                </div>
-            @endforeach
         </div>
     </div>
+
 
     @livewire('group.add-user')
     @livewire('group.show-code')

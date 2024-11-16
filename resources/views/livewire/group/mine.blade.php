@@ -3,7 +3,7 @@
         <input type="text" class="input input-bordered" placeholder="Pencarian">
         <button class="btn btn-primary" wire:click="$dispatch('searchGroup')">
             <x-tabler-plus class="size-5" />
-            <span>Join group</span>
+            <span>Join kelas</span>
         </button>
     </div>
 
