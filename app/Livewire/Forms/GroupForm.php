@@ -34,6 +34,10 @@ class GroupForm extends Form
             'code' => 'required|unique:groups,code',
         ]);
 
+        if ($this->logo) {
+            $valid['logo'] = $this->logo;
+        }
+
         $group = Group::create($valid);
         $group->users()->attach(auth()->id());
         $this->reset();
@@ -47,6 +51,10 @@ class GroupForm extends Form
             'desc' => 'required',
             'code' => 'required',
         ]);
+
+        if ($this->logo) {
+            $valid['logo'] = $this->logo;
+        }
 
         $this->group->update($valid);
         $this->reset();

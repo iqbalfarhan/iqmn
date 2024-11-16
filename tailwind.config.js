@@ -32,7 +32,7 @@ export default {
           '--tab-border': '1px',
           '--tab-radius': '0.5rem',
           primary: '#00ADB5',
-          neutral: '#00ADB5',
+          //   neutral: '#00ADB5',
           'base-100': '#222831',
           'base-200': '#2e3239',
           'base-300': '#1E2123',

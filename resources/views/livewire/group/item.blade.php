@@ -5,7 +5,7 @@
                 <div class="avatar size-14 placeholder">
                     <div class="w-14 bg-base-100 text-lg rounded-lg">
                         @if ($group->logo)
-                            <img src="{{ $group->logo }}" alt="">
+                            <img src="{{ $group->image_url }}" alt="">
                         @else
                             <span class="capitalize">{{ $group->name[0] }}</span>
                         @endif
@@ -16,8 +16,7 @@
             <div class="flex flex-col h-full flex-1 justify-between">
                 <div class="text-lg line-clamp-1">{{ $group->name }}</div>
                 <div class="text-xs opacity-75 line-clamp-2">
-                    {{ $group->materials->count() }} material
-                    {{ $group->desc }}
+                    {{ Str::limit($group->desc, 60) }}
                 </div>
             </div>
         </div>

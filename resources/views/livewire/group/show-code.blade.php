@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="space-y-6">
-                <div class="text-7xl font-bold bg-base-300 text-center my-4 p-4 rounded-box">{{ $group?->code }}</div>
+                <div class="text-7xl font-bold bg-base-300 text-center my-4 py-10 rounded-box">{{ $group?->code }}</div>
                 <p>Masuk menu kelas saya, klik pada tombol join kelas dan masukkan kode di atas untuk bergabung kengan
                     kelas {{ $group?->name }}.</p>
             </div>

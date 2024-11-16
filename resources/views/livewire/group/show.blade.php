@@ -1,26 +1,16 @@
 <div class="page-wrapper space-y-10">
-    <div class="space-y-4">
-        <h2 class="text-3xl font-bold capitalize">{{ $group->name }}</h2>
-        <div class="card card-compact bg-base-200">
-            <div class="card-body">
-                <div class="flex">
-                    <div class="flex flex-col md:flex-row gap-3 flex-1">
-                        <div>
-                            <div class="avatar">
-                                <div class="w-16 rounded-lg">
-                                    <img src="{{ $group->image_url }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 space-y-4">
-                            <h3 class="card-title">{{ $group->name }}</h3>
-                            <p>{{ $group->desc }} | {{ $group->code }}</p>
-                        </div>
-                    </div>
 
-                    <div class="flex flex-none">
+    <div class="space-y-4">
+        <div class="card card-compact h-72 image-full">
+            <figure class="">
+                <img src="{{ $group->image_url }}" alt="Shoes" class="bg-cover" />
+            </figure>
+            <div class="card-body">
+                <div class="flex flex-1 flex-col justify-between">
+                    <div class="flex justify-between">
+                        <div></div>
                         <div class="dropdown dropdown-end">
-                            <div tabindex="0" role="button" class="btn m-1 btn-square">
+                            <div tabindex="0" role="button" class="btn m-1 btn-square btn-ghost">
                                 <x-tabler-dots class="size-5" />
                                 <span class="sr-only">Menu</span>
                             </div>
@@ -47,6 +37,10 @@
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    <div class="flex flex-col gap-2 p-4">
+                        <h3 class="text-3xl font-semibold">{{ $group->name }}</h3>
+                        <p class="opacity-50 text-sm">{{ $group->desc }}</p>
                     </div>
                 </div>
             </div>
