@@ -6,7 +6,7 @@
         <table class="table">
             <thead>
                 <th>No</th>
-                <th>Name</th>
+                <th class="w-full">Name</th>
                 <th>Github</th>
                 <th>Role</th>
                 <th class="text-center">Action</th>
@@ -18,7 +18,7 @@
                         <td class="whitespace-nowrap">
                             <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
-                                    <div class="w-8 rounded aspect-video">
+                                    <div class="w-8 rounded-full aspect-video">
                                         <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>

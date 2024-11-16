@@ -1,4 +1,4 @@
-<div class="navbar border-b-2 border-base-300">
+<div class="navbar border-b-2 border-base-300 py-4">
     <div class="flex-1 md:flex-none">
         <a href="{{ route('welcome') }}" class="btn btn-ghost text-2xl font-black text-primary" wire:navigate>
             {{ config('app.name') }}
@@ -33,26 +33,27 @@
         </ul>
     </div>
     <div class="flex-none">
-        <ul class="menu menu-horizontal">
-            <li class="md:hidden">
-                <a href="{{ route('article.index') }}" wire:navigate class="gap-1">
-                    <x-tabler-book class="size-4" />
-                    <span>Artikel</span>
-                </a>
-            </li>
+        <ul class="menu menu-horizontal items-center gap-3">
             @auth
                 <li><a href="{{ route('home') }}" wire:navigate>Home</a></li>
             @endauth
             @guest
+                <li>
+                    <button wire:click="dispatch('selectTheme')" class="btn btn-outline btn-square btn-primary">
+                        <x-tabler-palette class="size-5" />
+                    </button>
+                </li>
                 @if (Route::has('login'))
                     <li>
-                        <a href="{{ route('login') }}" class="gap-1" wire:navigate>
-                            <x-tabler-login class="size-4" />
-                            <span>Login</span>
+                        <a href="{{ route('login') }}" class="btn btn-primary gap-1" wire:navigate>
+                            <x-tabler-login class="size-5" />
+                            <span>Masuk {{ config('app.name') }}</span>
                         </a>
                     </li>
                 @endif
             @endguest
         </ul>
     </div>
+
+    @livewire('partial.select-theme')
 </div>

@@ -17,7 +17,7 @@
 
     <div class="w-full max-w-lg mx-auto space-y-4">
         <h3 class="text-lg">Layout settings:</h3>
-        <ul class="menu bg-base-200 rounded-xl">
+        <ul class="menu rounded-box bg-base-200">
             <li>
                 <label class="justify-between">
                     <span>Stacked sidebar</span>
@@ -26,17 +26,24 @@
             </li>
             <li></li>
             <li>
-                <label class="justify-between">
-                    <span>Enable dark mode</span>
-                    <input type="checkbox" class="toggle" wire:model.live="theme">
-                </label>
+                <div class="justify-between">
+                    <span>Change theme</span>
+                    <button class="btn btn-xs" wire:click="dispatch('selectTheme')">
+                        {{ Str::ucfirst($theme) }}
+                        <div class="flex">
+                            <div class="size-3 rounded-full bg-primary"></div>
+                            <div class="size-3 rounded-full bg-secondary"></div>
+                            <div class="size-3 rounded-full bg-neutral"></div>
+                        </div>
+                    </button>
+                </div>
             </li>
         </ul>
     </div>
 
     <div class="w-full max-w-lg mx-auto space-y-4">
         <h3 class="text-lg">Account settings:</h3>
-        <ul class="menu bg-base-200 rounded-xl">
+        <ul class="menu rounded-box bg-base-200">
             <li>
                 <div class="justify-between">
                     <span>Github</span>
@@ -51,7 +58,7 @@
 
     <div class="w-full max-w-lg mx-auto space-y-4">
         <h3 class="text-lg">Danger zone:</h3>
-        <ul class="menu bg-base-200 rounded-xl">
+        <ul class="menu rounded-box bg-base-200">
             <li>
                 <div class="justify-between">
                     <span>Ganti password</span>
@@ -79,5 +86,6 @@
     </div>
 
     @livewire('user.profile')
+    @livewire('partial.select-theme')
 
 </div>

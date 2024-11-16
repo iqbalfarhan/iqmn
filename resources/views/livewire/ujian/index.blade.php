@@ -13,7 +13,7 @@
             <thead>
                 <th>No</th>
                 <th>Kelas</th>
-                <th>Title</th>
+                <th class="w-full">Title</th>
                 <th>Start</th>
                 <th class="text-center">Action</th>
             </thead>

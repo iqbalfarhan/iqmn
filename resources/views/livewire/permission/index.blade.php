@@ -17,7 +17,7 @@
         <table class="table">
             <thead>
                 <th>No</th>
-                <th>Permissions</th>
+                <th class="w-full">Permissions</th>
                 @foreach ($roles as $role)
                     <th class="text-center">{{ $role->name }}</th>
                 @endforeach

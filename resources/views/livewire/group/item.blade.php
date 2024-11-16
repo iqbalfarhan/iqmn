@@ -1,4 +1,4 @@
-<div class="card card-compact bg-base-200 shadow">
+<div class="card card-compact bg-base-200">
     <div class="card-body">
         <div class="flex gap-3 items-center">
             <div class="flex-none">

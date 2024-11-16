@@ -10,7 +10,7 @@
         <table class="table">
             <thead>
                 <th>No</th>
-                <th>Judul</th>
+                <th class="w-full">Judul</th>
                 <th class="text-center">Show</th>
                 <th class="text-center">Actions</th>
             </thead>
@@ -18,18 +18,16 @@
                 @foreach ($datas as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>
-                            <div class="flex items-start gap-3">
-                                <div>
-                                    <div class="avatar">
-                                        <div class="w-8 rounded">
-                                            <img src="{{ $data->image_url }}" alt="">
-                                        </div>
+                        <td class="whitespace-nowrap">
+                            <div class="flex gap-3 items-center text-left">
+                                <div class="avatar">
+                                    <div class="w-8 rounded-full aspect-video">
+                                        <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>
                                 <div class="flex flex-col">
-                                    <div class="line-clamp-1">{{ Str::limit($data->title, 40) }}</div>
-                                    <div class="text-xs opacity-50">{{ $data->user->name }}</div>
+                                    <span class="font-bold">{{ Str::limit($data->title, 40) }}</span>
+                                    <span class="text-xs opacity-50">{{ $data->user->name }}</span>
                                 </div>
                             </div>
                         </td>

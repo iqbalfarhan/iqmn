@@ -8,9 +8,9 @@
     </div>
     <div class="table-wrapper">
         <table class="table">
-            <thead class="border-b-4 border-primary">
+            <thead>
                 <th>No</th>
-                <th>Title</th>
+                <th class="w-full">Title</th>
                 <th>Pinned</th>
                 <th>Chat</th>
                 <th>Quiz</th>
@@ -24,7 +24,7 @@
                         <td class="whitespace-nowrap">
                             <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
-                                    <div class="w-8 rounded aspect-video">
+                                    <div class="w-8 rounded-full aspect-video">
                                         <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>

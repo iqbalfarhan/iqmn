@@ -13,7 +13,7 @@
             <thead>
                 <th>No</th>
                 <th>Kode</th>
-                <th>Nama kelas</th>
+                <th class="w-full">Nama kelas</th>
                 <th>Materi</th>
                 <th>Anggota</th>
                 <th class="text-center">Actions</th>
@@ -26,7 +26,7 @@
                         <td class="whitespace-nowrap">
                             <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
-                                    <div class="w-8 rounded aspect-video">
+                                    <div class="w-8 rounded-full aspect-video">
                                         <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>

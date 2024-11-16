@@ -1,6 +1,6 @@
-<ul class="menu space-y-6 p-4 w-80 min-h-full bg-base-100 border-r-2 border-base-300">
+<ul class="menu space-y-6 p-4 w-80 min-h-full bg-base-100 md:bg-base-200/40 border-base-300 border-r-2 border-dashed">
     <li>
-        <a class="btn btn-ghost normal-case font-black text-primary text-2xl" href="{{ route('home') }}"
+        <a class="btn btn-ghost normal-case font-black text-primary text-3xl" href="{{ route('home') }}"
             wire:navigate>{{ config('app.name') }}</a>
     </li>
     <li>
@@ -66,15 +66,6 @@
                         </a>
                     </li>
                 @endcan
-                @can('user.index')
-                    <li>
-                        <a href="{{ route('user.index') }}" @class(['active' => Route::is(['user.index', 'user.show'])]) wire:navigate>
-                            <x-tabler-users class="w-5 h-5" />
-                            <span>Management User</span>
-                        </a>
-                    </li>
-                @endcan
-
                 @can('group.index')
                     <li>
                         <a href="{{ route('group.index') }}" @class(['active' => Route::is(['group.index', 'group.show'])]) wire:navigate>
@@ -83,7 +74,6 @@
                         </a>
                     </li>
                 @endcan
-
                 @can('ujian.index')
                     <li>
                         <a href="{{ route('ujian.index') }}" @class([
@@ -94,17 +84,19 @@
                         </a>
                     </li>
                 @endcan
-            </ul>
-        </li>
-    @endcan
-    @can('administrator.menu')
-        <li>
-            <h2 class="menu-title">Administrator</h2>
-            <ul>
+                <li></li>
+                @can('user.index')
+                    <li>
+                        <a href="{{ route('user.index') }}" @class(['active' => Route::is(['user.index', 'user.show'])]) wire:navigate>
+                            <x-tabler-users class="w-5 h-5" />
+                            <span>Management User</span>
+                        </a>
+                    </li>
+                @endcan
                 @can('permission.index')
                     <li>
                         <a href="{{ route('permission.index') }}" @class(['active' => Route::is('permission.index')]) wire:navigate>
-                            <x-tabler-user-shield class="w-5 h-5" />
+                            <x-tabler-asterisk class="w-5 h-5" />
                             <span>Role & permissions</span>
                         </a>
                     </li>

@@ -3,7 +3,7 @@
     <div class="space-y-4">
         <div class="card card-compact h-72 image-full">
             <figure class="">
-                <img src="{{ $group->image_url }}" alt="Shoes" class="bg-cover" />
+                <img src="{{ $group->image_url }}" alt="Shoes" class="bg-cover w-full" />
             </figure>
             <div class="card-body">
                 <div class="flex flex-1 flex-col justify-between">
@@ -15,7 +15,7 @@
                                 <span class="sr-only">Menu</span>
                             </div>
                             <ul tabindex="0"
-                                class="dropdown-content menu bg-base-300 rounded-box z-[1] w-52 p-2 shadow">
+                                class="dropdown-content menu text-base-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                 <li>
                                     <button wire:click="dispatch('showCode', {group: {{ $group->id }}})">
                                         <x-tabler-upload class="size-5" />

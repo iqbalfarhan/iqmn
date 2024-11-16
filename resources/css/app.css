@@ -10,7 +10,7 @@
     @apply scrollbar-hide;
   }
   thead {
-    @apply border-b-4 border-primary bg-base-200/50;
+    @apply border-b-2 bg-base-200/50 border-base-200;
   }
 }
 
@@ -24,7 +24,7 @@
   }
 
   .table-wrapper {
-    @apply shadow-xl rounded-xl bg-base-100 overflow-x-auto whitespace-nowrap;
+    @apply border border-base-200 rounded-box bg-base-100 overflow-x-auto whitespace-nowrap;
   }
 
   .input,
@@ -37,13 +37,13 @@
   .textarea-bordered,
   .select-bordered,
   .btn-bordered {
-    @apply border-2 border-base-300;
+    @apply border border-base-200;
   }
 
   .input-error,
   .textarea-error,
   .select-error {
-    @apply border-2 border-error;
+    @apply border border-error;
   }
 
   .table-filter-wrapper {
@@ -65,7 +65,7 @@
   }
 
   .card-divider {
-    @apply divide-y-2 divide-base-300;
+    @apply divide-y-2 divide-base-200;
   }
 
   .prose pre {
@@ -76,7 +76,7 @@
   }
 
   .divider {
-    @apply border-base-300;
+    @apply border-base-200;
   }
 
   .bg-radial-primary {

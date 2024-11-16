@@ -20,15 +20,8 @@ class Profile extends Component
     public function mount()
     {
         $this->user = User::find(auth()->id());
-        $this->theme = session('theme') == "light" ? false : true;
+        $this->theme = session('theme');
         $this->sidebar = session('sidebar', 'lg:drawer-open') == "lg:drawer-open" ? true : false;
-    }
-
-    public function updatedTheme($theme)
-    {
-        $theme = $this->theme == true ? 'dark' : 'light';
-        Session::put('theme', $theme);
-        return redirect('/profile');
     }
 
     public function updatedSidebar($sidebar)

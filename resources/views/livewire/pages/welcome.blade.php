@@ -1,11 +1,11 @@
 <div class="">
     <div class="page-wrapper-xl">
-        <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 md:gap-0 bg-radial-primary">
+        <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 md:gap-0">
             <div class="flex-1 hidden md:flex justify-center items-center">
-                <img src="{{ url(session('theme') == 'light' ? 'illustration5.svg' : 'illustration3.svg') }}"
-                    alt="" class="max-w-full mb-20">
+                {{-- <img src="{{ url('illustration5.svg') }}" alt="" class="max-w-full mb-20"> --}}
+                @livewire('partial.illustration')
             </div>
-            <div class="flex-1 flex flex-col space-y-16 md:space-y-10 text-center md:text-left">
+            <div class="flex-1 flex flex-col space-y-16 md:space-y-10 text-center md:text-left bg-radial-primary">
                 <h1 class="font-bold text-6xl">Yuk, Belajar Lebih banyak</h1>
                 <p class="text-lg">IQMN adalah alat bantu belajar Lorem ipsum dolor sit amet consectetur, adipisicing
                     elit. Aspernatur eos tempore in adipisci! Rerum, voluptatum.</p>
@@ -23,7 +23,6 @@
         </div>
     </div>
 
-    <div class="border-b-2 border-base-300"></div>
     <div class="page-wrapper-xl">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Status pencapaian</h1>
@@ -42,7 +41,6 @@
         </div>
     </div>
 
-    <div class="border-b-2 border-base-300"></div>
     <div class="page-wrapper-xl">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Artikel terbaru</h1>
@@ -86,7 +84,6 @@
     </div>
 
 
-    <div class="border-b-2 border-base-300"></div>
     <div class="page-wrapper-xl" id="review">
         <div class="text-center space-y-2 max-w-2xl mx-auto">
             <h1 class="text-4xl font-extrabold text-center">Review dari anggota kelas</h1>
@@ -117,7 +114,6 @@
 
     </div>
 
-    <div class="border-b-2 border-base-300"></div>
     @livewire('partial.footer')
 
 </div>
