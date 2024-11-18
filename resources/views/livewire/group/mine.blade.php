@@ -19,7 +19,7 @@
 
     @if ($datas)
         <div class="space-y-2">
-            <div class="grid md:grid-cols-3 gap-2">
+            <div class="grid md:grid-cols-3 gap-4">
                 @forelse ($datas as $data)
                     <a href="{{ route('group.show', $data) }}" wire:navigate>
                         @livewire('group.item', ['group' => $data, 'showToggleJoin' => false], key($data->id))
