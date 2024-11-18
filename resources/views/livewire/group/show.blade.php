@@ -66,15 +66,15 @@
     </div>
 
     <ul class="menu menu-horizontal bg-base-200 rounded-box flex-nowrap overflow-x-auto w-full">
-        <li><button wire:click="set('tabkelas', 'materi')" @class(['active' => $tabkelas === 'materi'])>Material</button></li>
-        <li><button wire:click="set('tabkelas', 'tugas')" @class(['active' => $tabkelas === 'tugas'])>Tugas</button></li>
-        <li><button wire:click="set('tabkelas', 'ujian')" @class(['active' => $tabkelas === 'ujian'])>Ujian</button></li>
-        <li><button wire:click="set('tabkelas', 'anggota')" @class(['active' => $tabkelas === 'anggota'])>Anggota</button></li>
-        <li><button wire:click="set('tabkelas', 'nilai')" @class(['active' => $tabkelas === 'nilai'])>Nilai</button></li>
+        <li><button wire:click="set('tabkelas', 'materi')" @class(['active' => $tabkelas == 'materi'])>Material</button></li>
+        <li><button wire:click="set('tabkelas', 'tugas')" @class(['active' => $tabkelas == 'tugas'])>Tugas</button></li>
+        <li><button wire:click="set('tabkelas', 'ujian')" @class(['active' => $tabkelas == 'ujian'])>Ujian</button></li>
+        <li><button wire:click="set('tabkelas', 'anggota')" @class(['active' => $tabkelas == 'anggota'])>Anggota</button></li>
+        <li><button wire:click="set('tabkelas', 'nilai')" @class(['active' => $tabkelas == 'nilai'])>Nilai</button></li>
     </ul>
 
     <div>
-        @if ($tabkelas === 'materi')
+        @if ($tabkelas == 'materi')
             <div class="space-y-4">
                 <div class="flex justify-between items-end">
                     <h2 class="text-xl font-bold">Materi belajar</h2>
@@ -91,14 +91,14 @@
                     @endforelse
                 </div>
             </div>
-        @elseif ($tabkelas === 'tugas')
+        @elseif ($tabkelas == 'tugas')
             <div class="space-y-4">
                 <div class="flex justify-between items-end">
                     <h2 class="text-xl font-bold">Tugas dan Formatif</h2>
                 </div>
                 @livewire('partial.nocontent')
             </div>
-        @elseif ($tabkelas === 'ujian')
+        @elseif ($tabkelas == 'ujian')
             @can('ujian.user')
                 <div class="space-y-4">
                     <div class="flex justify-between items-end">
@@ -117,7 +117,7 @@
                     </div>
                 </div>
             @endcan
-        @elseif ($tabkelas === 'anggota')
+        @elseif ($tabkelas == 'anggota')
             <div class="space-y-4">
                 <div class="flex justify-between">
                     <h2 class="text-xl font-bold">Anggota kelas</h2>
@@ -132,7 +132,7 @@
                     @endforeach
                 </div>
             </div>
-        @elseif ($tabkelas === 'nilai')
+        @elseif ($tabkelas == 'nilai')
             <div class="space-y-4">
                 <div class="flex justify-between items-end">
                     <h2 class="text-xl font-bold">Nilai kelas</h2>
