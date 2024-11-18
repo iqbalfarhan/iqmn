@@ -5,8 +5,8 @@
     <div class="card-body">
         <div class="flex flex-col h-full">
             <div class="flex-1">
-                <div class="avatar size-14 placeholder">
-                    <div class="w-14 bg-primary text-lg rounded-box">
+                <div class="avatar size-10 placeholder">
+                    <div class="w-10 bg-primary text-lg rounded-box">
                         <span class="capitalize font-bold text-base-content">{{ $group->name[0] }}</span>
                     </div>
                 </div>
