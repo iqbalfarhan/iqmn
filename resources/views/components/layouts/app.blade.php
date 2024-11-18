@@ -38,7 +38,7 @@
                 <div class="bg-base-100 min-h-screen flex justify-center items-center">
                     <div class="flex flex-1 h-screen">
                         <div
-                            class="hidden lg:flex flex-1 bg-base-200/40 items-center justify-center flex-col border-4 border-dashed">
+                            class="hidden lg:flex flex-1 bg-base-200/40 items-center justify-center flex-col border-r-4 border-dashed border-base-300">
                             <div class="w-96 space-y-10">
                                 <a href="{{ route('welcome') }}" class="btn btn-primary btn-outline" wire:navigate>
                                     <x-tabler-chevron-left class="size-5" />
