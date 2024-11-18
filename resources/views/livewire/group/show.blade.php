@@ -1,11 +1,11 @@
 <div class="page-wrapper space-y-6">
 
     <div class="space-y-4">
-        <div class="card card-compact min-h-72 md:h-72 image-full">
+        <div class="card card-compact min-h-72 md:h-72 image-full z-0">
             <figure class="">
                 <img src="{{ $group->image_url }}" alt="Shoes" class="bg-cover w-full" />
             </figure>
-            <div class="card-body">
+            <div class="card-body z-0">
                 <div class="flex flex-1 flex-col justify-between">
                     <div class="flex justify-between">
                         <div></div>
