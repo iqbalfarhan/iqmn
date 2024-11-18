@@ -7,7 +7,7 @@
             <div class="flex-1">
                 <div class="avatar size-10 placeholder">
                     <div class="w-10 bg-primary text-lg rounded-box">
-                        <span class="capitalize font-bold text-base-content">{{ $group->name[0] }}</span>
+                        <span class="capitalize font-bold text-primary-content">{{ $group->name[0] }}</span>
                     </div>
                 </div>
             </div>
