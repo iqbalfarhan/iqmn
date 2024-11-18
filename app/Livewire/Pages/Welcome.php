@@ -13,9 +13,9 @@ class Welcome extends Component
     public function render()
     {
         $status = [
-            'member' => User::role('reader')->count(),
+            'member' => User::role('pelajar')->count(),
             'kelas' => Group::count(),
-            'pengajar' => User::role('author')->count(),
+            'pengajar' => User::role('pengajar')->count(),
             'materi' => Material::count(),
             'article' => Post::count(),
         ];
