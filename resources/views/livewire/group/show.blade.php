@@ -71,6 +71,10 @@
         <li><button wire:click="set('tabkelas', 'ujian')" @class(['active' => $tabkelas == 'ujian'])>Ujian</button></li>
         <li><button wire:click="set('tabkelas', 'anggota')" @class(['active' => $tabkelas == 'anggota'])>Anggota</button></li>
         <li><button wire:click="set('tabkelas', 'nilai')" @class(['active' => $tabkelas == 'nilai'])>Nilai</button></li>
+        <li></li>
+        <li wire:loading>
+            <span class="loading loading-dots loading-xs">loading</span>
+        </li>
     </ul>
 
     <div>
