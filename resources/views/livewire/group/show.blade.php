@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div role="tablist" class="tabs tabs-bordered overflow-x-scroll">
+    <div role="tablist" class="tabs tabs-bordered overflow-x-auto">
         <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Materi"
             @checked($tabkelas == 'materi') />
         <div role="tabpanel" class="tab-content py-10">
