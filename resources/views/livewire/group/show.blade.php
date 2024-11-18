@@ -1,4 +1,4 @@
-<div class="page-wrapper space-y-10">
+<div class="page-wrapper space-y-6">
 
     <div class="space-y-4">
         <div class="card card-compact min-h-72 md:h-72 image-full">
@@ -65,61 +65,59 @@
         </div>
     </div>
 
-    <div role="tablist" class="tabs tabs-bordered overflow-x-auto">
-        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Materi"
-            @checked($tabkelas == 'materi') />
-        <div role="tabpanel" class="tab-content py-10">
-            @if ($group->materials->count() != 0)
-                <div class="space-y-4">
-                    <div class="flex justify-between items-end">
-                        <h2 class="text-xl font-bold">Materi belajar</h2>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-2 md:gap-6">
-                        @foreach ($group->materials as $material)
-                            <a href="{{ route('material.show', $material) }}">
-                                @livewire('material.item', ['material' => $material], key($material->id))
-                            </a>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
-        </div>
+    <ul class="menu menu-horizontal bg-base-200 rounded-box flex-nowrap overflow-x-auto w-full">
+        <li><button wire:click="set('tabkelas', 'materi')" @class(['active' => $tabkelas === 'materi'])>Material</button></li>
+        <li><button wire:click="set('tabkelas', 'tugas')" @class(['active' => $tabkelas === 'tugas'])>Tugas</button></li>
+        <li><button wire:click="set('tabkelas', 'ujian')" @class(['active' => $tabkelas === 'ujian'])>Ujian</button></li>
+        <li><button wire:click="set('tabkelas', 'anggota')" @class(['active' => $tabkelas === 'anggota'])>Anggota</button></li>
+        <li><button wire:click="set('tabkelas', 'nilai')" @class(['active' => $tabkelas === 'nilai'])>Nilai</button></li>
+    </ul>
 
-        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Tugas"
-            @checked($tabkelas == 'tugas') />
-        <div role="tabpanel" class="tab-content py-10">
+    <div>
+        @if ($tabkelas === 'materi')
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <h2 class="text-xl font-bold">Materi belajar</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-2 md:gap-6">
+                    @forelse ($group->materials as $material)
+                        <a href="{{ route('material.show', $material) }}">
+                            @livewire('material.item', ['material' => $material], key($material->id))
+                        </a>
+                    @empty
+                        <div class="col-span-full">
+                            @livewire('partial.nocontent')
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+        @elseif ($tabkelas === 'tugas')
             <div class="space-y-4">
                 <div class="flex justify-between items-end">
                     <h2 class="text-xl font-bold">Tugas dan Formatif</h2>
                 </div>
-                <p>fitur ini masih dalam pengembangan</p>
+                @livewire('partial.nocontent')
             </div>
-        </div>
-
-        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Ujian"
-            @checked($tabkelas == 'ujian') />
-        <div role="tabpanel" class="tab-content py-10">
+        @elseif ($tabkelas === 'ujian')
             @can('ujian.user')
-                @if ($group->ujians->count() != 0)
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-end">
-                            <h2 class="text-xl font-bold">Ujian kelas</h2>
-                        </div>
-                        <div class="grid md:grid-cols-3 gap-2 md:gap-6">
-                            @foreach ($group->ujians as $ujian)
-                                <a href="{{ route('ujian.user', $ujian) }}">
-                                    @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
-                                </a>
-                            @endforeach
-                        </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-end">
+                        <h2 class="text-xl font-bold">Ujian kelas</h2>
                     </div>
-                @endif
+                    <div class="grid md:grid-cols-3 gap-2 md:gap-6">
+                        @forelse ($group->ujians as $ujian)
+                            <a href="{{ route('ujian.user', $ujian) }}">
+                                @livewire('ujian.item', ['ujian' => $ujian], key($ujian->id))
+                            </a>
+                        @empty
+                            <div class="col-span-full">
+                                @livewire('partial.nocontent')
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
             @endcan
-        </div>
-
-        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Anggota"
-            @checked($tabkelas == 'anggota') />
-        <div role="tabpanel" class="tab-content py-10">
+        @elseif ($tabkelas === 'anggota')
             <div class="space-y-4">
                 <div class="flex justify-between">
                     <h2 class="text-xl font-bold">Anggota kelas</h2>
@@ -134,20 +132,15 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-
-        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Nilai"
-            @checked($tabkelas == 'nilai') />
-        <div role="tabpanel" class="tab-content py-10">
+        @elseif ($tabkelas === 'nilai')
             <div class="space-y-4">
                 <div class="flex justify-between items-end">
                     <h2 class="text-xl font-bold">Nilai kelas</h2>
                 </div>
-                <p>fitur ini masih dalam pengembangan</p>
+                @livewire('partial.nocontent')
             </div>
-        </div>
+        @endif
     </div>
-
 
     @livewire('group.add-user')
     @livewire('group.show-code')
