@@ -34,7 +34,7 @@ class Register extends Component
         $valid == Arr::pull($valid, 'code');
 
         $user = User::create($valid);
-        $user->assignRole('reader');
+        $user->assignRole('pelajar');
 
         if (Auth::loginUsingId($user->id)) {
             return redirect()->route('home');

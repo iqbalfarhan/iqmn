@@ -15,8 +15,8 @@ class RoleSeeder extends Seeder
     {
         $datas = [
             'superadmin',
-            'author',
-            'reader',
+            'pelajar',
+            'pengajar',
             'pengawas',
         ];
 
