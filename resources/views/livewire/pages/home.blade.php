@@ -39,7 +39,7 @@
         <div class="page-wrapper">
             <div class="space-y-4">
                 <h1 class="text-xl">Kelasku <small>({{ $user->groups->count() }} kelas)</small></h1>
-                <div class="grid grid-cols-3 gap-6">
+                <div class="grid grid-cols-3 gap-4">
                     @foreach ($user->groups as $group)
                         <a href="{{ route('group.show', $group) }}" wire:navigate>
                             @livewire('group.item', ['group' => $group, 'showToggleJoin' => false], key($group->id))
