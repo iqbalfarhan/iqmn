@@ -21,7 +21,7 @@
                         <td class="whitespace-nowrap">
                             <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
-                                    <div class="w-8 rounded-full aspect-video">
+                                    <div class="w-8 rounded-box aspect-video">
                                         <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>

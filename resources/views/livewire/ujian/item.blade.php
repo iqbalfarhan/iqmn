@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="flex gap-3">
             <div class="avatar placeholder size-16">
-                <div class="size-16 rounded-lg bg-base-100">
+                <div class="size-16 rounded-box bg-base-100">
                     <span>
                         <x-tabler-file-pencil class="size-6" />
                     </span>

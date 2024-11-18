@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="flex gap-3">
             <div class="avatar size-16">
-                <div class="size-16 rounded-lg">
+                <div class="size-16 rounded-box">
                     <img src="{{ $material->image_url }}" alt="">
                 </div>
             </div>

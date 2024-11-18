@@ -24,8 +24,11 @@
                         <td>{{ $data->group->name }}</td>
                         <td>{{ Str::limit($data->title, 40) }}</td>
                         <td>
-                            <input type="checkbox" class="toggle toggle-sm toggle-primary" @checked($data->start)
-                                wire:change="dispatch('toggleStart', [{{ $data->id }}])" />
+                            <div class="flex justify-center">
+                                <input type="checkbox" class="toggle toggle-sm toggle-primary"
+                                    @checked($data->start)
+                                    wire:change="dispatch('toggleStart', [{{ $data->id }}])" />
+                            </div>
                         </td>
                         <td>
                             <div class="flex gap-1 self-center justify-center">

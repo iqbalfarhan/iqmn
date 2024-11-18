@@ -2,7 +2,7 @@
 
     @livewire('partial.logo')
 
-    <div class="card w-96 bg-base-100">
+    <div class="card w-96 bg-base-100 shadow">
         <form class="card-body" wire:submit="login">
             <h2 class="card-title">Selamat datang</h2>
 
@@ -45,11 +45,11 @@
                 </button>
             </div>
 
-            <div class="flex flex-col gap-1">
-                <div class="divider text-xs opacity-50">Cara lain</div>
-                <a href="{{ route('auth.redirect') }}" class="btn btn-block normal-case" type="button">
+            <div class="flex flex-col gap-2">
+                <div class="divider text-xs opacity-50">Login dengan cara lain :</div>
+                <a href="{{ route('auth.redirect') }}" class="btn btn-primary normal-case" type="button">
                     <x-tabler-brand-github class="w-5 h-5" />
-                    <span>Login dengan github</span>
+                    <span>Sign in with Github</span>
                 </a>
             </div>
 

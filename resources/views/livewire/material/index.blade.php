@@ -24,7 +24,7 @@
                         <td class="whitespace-nowrap">
                             <div class="flex gap-3 items-center text-left">
                                 <div class="avatar">
-                                    <div class="w-8 rounded-full aspect-video">
+                                    <div class="w-8 rounded-box aspect-video">
                                         <img src="{{ $data->image_url }}" />
                                     </div>
                                 </div>
@@ -44,8 +44,11 @@
                             <div class="badge">{{ $data->quizzes->count() }}</div>
                         </td>
                         <td>
-                            <input type="checkbox" class="toggle toggle-sm toggle-primary" @checked($data->show)
-                                wire:change="toggleShowMaterial({{ $data->id }})" />
+                            <div class="flex justify-center">
+                                <input type="checkbox" class="toggle toggle-sm toggle-primary"
+                                    @checked($data->show)
+                                    wire:change="toggleShowMaterial({{ $data->id }})" />
+                            </div>
                         </td>
                         <td>
                             <div class="flex gap-1 self-center justify-center">

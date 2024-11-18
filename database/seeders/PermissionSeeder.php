@@ -22,14 +22,17 @@ class PermissionSeeder extends Seeder
             'material.cari' => ['reader'],
             'material.show' => [],
             'material.quiz' => [],
+
             'user.index' => [],
             'user.create' => [],
             'user.edit' => [],
             'user.delete' => [],
+
             'group.index' => [],
             'group.create' => [],
             'group.edit' => [],
             'group.delete' => [],
+            'group.join' => ['reader'],
             'group.mine' => ['reader'],
             'group.show' => ['reader'],
 

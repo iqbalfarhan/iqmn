@@ -56,6 +56,14 @@ class Form extends Component
         $this->dispatch('reload');
     }
 
+    #[On('deleteGroupRedirect')]
+    public function deleteGroupRedirect(Group $group, $to)
+    {
+        $group->users()->detach();
+        $group->delete();
+        $this->redirect($to, true);
+    }
+
     #[On('editGroup')]
     public function editGroup(Group $group)
     {

@@ -1,7 +1,7 @@
 <div class="page-wrapper space-y-10">
 
     <div class="space-y-4">
-        <div class="card card-compact h-72 image-full">
+        <div class="card card-compact min-h-72 md:h-72 image-full">
             <figure class="">
                 <img src="{{ $group->image_url }}" alt="Shoes" class="bg-cover w-full" />
             </figure>
@@ -16,9 +16,17 @@
                             </div>
                             <ul tabindex="0"
                                 class="dropdown-content menu text-base-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                @can('group.edit')
+                                    <li>
+                                        <button wire:click="dispatch('editGroup', {group: {{ $group->id }}})">
+                                            <x-tabler-pencil class="size-5" />
+                                            <span>Edit Kelas</span>
+                                        </button>
+                                    </li>
+                                @endcan
                                 <li>
                                     <button wire:click="dispatch('showCode', {group: {{ $group->id }}})">
-                                        <x-tabler-upload class="size-5" />
+                                        <x-tabler-grid-scan class="size-5" />
                                         <span>Tampilkan kode</span>
                                     </button>
                                 </li>
@@ -29,6 +37,16 @@
                                     </button>
                                 </li>
                                 <li></li>
+                                @can('group.error')
+                                    <li>
+                                        <button
+                                            wire:click="dispatch('deleteGroupRedirect', {group: {{ $group->id }}, to:'{{ route('group.mine') }}'})"
+                                            class="text-error">
+                                            <x-tabler-trash class="size-5" />
+                                            <span>Hapus Kelas</span>
+                                        </button>
+                                    </li>
+                                @endcan
                                 <li>
                                     <button class="text-error" wire:click="keluargroup">
                                         <x-tabler-logout class="size-5" />
@@ -47,8 +65,8 @@
         </div>
     </div>
 
-    <div role="tablist" class="tabs tabs-bordered">
-        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Material"
+    <div role="tablist" class="tabs tabs-bordered overflow-x-scroll">
+        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Materi"
             @checked($tabkelas == 'materi') />
         <div role="tabpanel" class="tab-content py-10">
             @if ($group->materials->count() != 0)
@@ -69,7 +87,14 @@
 
         <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Tugas"
             @checked($tabkelas == 'tugas') />
-        <div role="tabpanel" class="tab-content py-10">Tab content 2</div>
+        <div role="tabpanel" class="tab-content py-10">
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <h2 class="text-xl font-bold">Tugas dan Formatif</h2>
+                </div>
+                <p>fitur ini masih dalam pengembangan</p>
+            </div>
+        </div>
 
         <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Ujian"
             @checked($tabkelas == 'ujian') />
@@ -110,9 +135,21 @@
                 </div>
             </div>
         </div>
+
+        <input type="radio" name="tabkelas" role="tab" class="tab" aria-label="Nilai"
+            @checked($tabkelas == 'nilai') />
+        <div role="tabpanel" class="tab-content py-10">
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <h2 class="text-xl font-bold">Nilai kelas</h2>
+                </div>
+                <p>fitur ini masih dalam pengembangan</p>
+            </div>
+        </div>
     </div>
 
 
     @livewire('group.add-user')
     @livewire('group.show-code')
+    @livewire('group.form')
 </div>

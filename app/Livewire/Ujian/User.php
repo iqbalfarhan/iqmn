@@ -29,7 +29,7 @@ class User extends Component
         $this->ujian = $ujian;
 
         $this->exam = $this->ujian->exams->where('user_id', $this->user_id)->first();
-        $this->bobot = 100 / $ujian->quizzes->count();
+        $this->bobot = $ujian->quizzes->count() ? 100 / $ujian->quizzes->count() : 0;
         $this->answers = $ujian->quizzes->pluck('answer', 'id')->toArray();
 
         if ($this->exam) {

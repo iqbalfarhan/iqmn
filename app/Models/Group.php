@@ -40,6 +40,6 @@ class Group extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->logo ? Storage::url($this->logo) : url('nouser.png');
+        return $this->logo ? Storage::url($this->logo) : url('nothumbnail.png');
     }
 }

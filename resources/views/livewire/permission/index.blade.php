@@ -30,9 +30,11 @@
                         <td>{{ $permit->name }}</td>
                         @foreach ($roles as $role)
                             <td class="text-center">
-                                <input type="checkbox" class="toggle toggle-sm toggle-primary"
-                                    {{ $permit->hasRole($role->name) ? 'checked' : '' }}
-                                    wire:change.prevent="assignRole({{ $permit->id }}, '{{ $role->name }}')" />
+                                <div class="flex justify-center">
+                                    <input type="checkbox" class="toggle toggle-sm toggle-primary"
+                                        {{ $permit->hasRole($role->name) ? 'checked' : '' }}
+                                        wire:change.prevent="assignRole({{ $permit->id }}, '{{ $role->name }}')" />
+                                </div>
                             </td>
                         @endforeach
                         <td>
