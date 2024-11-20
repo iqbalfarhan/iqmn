@@ -129,8 +129,10 @@
         @elseif ($tabkelas == 'ujian')
             @can('ujian.user')
                 <div class="space-y-4">
-                    <div class="flex justify-between items-end">
-                        <h2 class="text-xl font-bold">Ujian kelas</h2>
+                    <div class="navbar">
+                        <div class="navbar-start">
+                            <h2 class="text-xl font-bold">Ujian kelas</h2>
+                        </div>
                     </div>
                     <div class="grid md:grid-cols-3 gap-2 md:gap-6">
                         @forelse ($group->ujians as $ujian)
@@ -147,8 +149,10 @@
             @endcan
         @elseif ($tabkelas == 'anggota')
             <div class="space-y-4">
-                <div class="flex justify-between">
-                    <h2 class="text-xl font-bold">Anggota kelas</h2>
+                <div class="navbar">
+                    <div class="navbar-start">
+                        <h2 class="text-xl font-bold">Anggota kelas</h2>
+                    </div>
                 </div>
                 <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
                     @forelse ($group->users as $user)
@@ -164,8 +168,10 @@
             </div>
         @elseif ($tabkelas == 'nilai')
             <div class="space-y-4">
-                <div class="flex justify-between items-end">
-                    <h2 class="text-xl font-bold">Nilai kelas</h2>
+                <div class="navbar">
+                    <div class="navbar-start">
+                        <h2 class="text-xl font-bold">Nilai kelas</h2>
+                    </div>
                 </div>
                 @livewire('partial.nocontent')
             </div>
