@@ -73,20 +73,26 @@
         <li><button wire:click="set('tabkelas', 'nilai')" @class(['active' => $tabkelas == 'nilai'])>Nilai</button></li>
         <div class="flex-1"></div>
         <li wire:loading>
-            <span class="loading loading-xs"></span>
+            <span>
+                <x-tabler-refresh class="size-5 animate-spin" />
+            </span>
         </li>
     </ul>
 
     <div>
         @if ($tabkelas == 'materi')
             <div class="space-y-4">
-                <div class="flex justify-between items-center">
-                    <h2 class="card-title">Materi belajar</h2>
-                    <a href="{{ route('material.create', ['group_id' => $group->id]) }}" class="btn btn-primary"
-                        wire:navigate>
-                        <x-tabler-plus class="size-5" />
-                        <span>Tambah material</span>
-                    </a>
+                <div class="navbar">
+                    <div class="navbar-start">
+                        <h2 class="card-title">Materi belajar</h2>
+                    </div>
+                    <div class="navbar-end">
+                        <a href="{{ route('material.create', ['group_id' => $group->id]) }}" class="btn btn-primary"
+                            wire:navigate>
+                            <x-tabler-plus class="size-5" />
+                            <span>Tambah material</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-2 md:gap-6">
                     @forelse ($group->materials as $material)
@@ -102,10 +108,19 @@
             </div>
         @elseif ($tabkelas == 'tugas')
             <div class="space-y-4">
-                <div class="flex justify-between items-end">
-                    <h2 class="text-xl font-bold">Tugas dan Formatif</h2>
+                <div class="navbar">
+                    <div class="navbar-start">
+                        <h2 class="card-title">Tugas kelas</h2>
+                    </div>
+                    <div class="navbar-end">
+                        <button class="btn btn-primary"
+                            wire:click="dispatch('createTugas', {group_id : {{ $group->id }}})">
+                            <x-tabler-plus class="size-5" />
+                            <span>Tambah tugas</span>
+                        </button>
+                    </div>
                 </div>
-                @livewire('partial.nocontent')
+                @livewire('group.tugas.index', ['group' => $group])
             </div>
         @elseif ($tabkelas == 'ujian')
             @can('ujian.user')
@@ -132,13 +147,15 @@
                     <h2 class="text-xl font-bold">Anggota kelas</h2>
                 </div>
                 <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
-                    @foreach ($group->users as $user)
+                    @forelse ($group->users as $user)
                         <div @class(['avatar', 'online' => $user->id == $group->user_id])>
                             <div class="w-full rounded-full bg-base-300">
                                 <img src="{{ $user->image_url }}" alt="">
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        @livewire('partial.nocontent')
+                    @endforelse
                 </div>
             </div>
         @elseif ($tabkelas == 'nilai')
