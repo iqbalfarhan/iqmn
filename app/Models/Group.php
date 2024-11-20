@@ -42,4 +42,9 @@ class Group extends Model
     {
         return $this->logo ? Storage::url($this->logo) : url('nothumbnail.png');
     }
+
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
 }

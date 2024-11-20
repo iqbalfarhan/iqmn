@@ -71,17 +71,22 @@
         <li><button wire:click="set('tabkelas', 'ujian')" @class(['active' => $tabkelas == 'ujian'])>Ujian</button></li>
         <li><button wire:click="set('tabkelas', 'anggota')" @class(['active' => $tabkelas == 'anggota'])>Anggota</button></li>
         <li><button wire:click="set('tabkelas', 'nilai')" @class(['active' => $tabkelas == 'nilai'])>Nilai</button></li>
-        <li></li>
+        <div class="flex-1"></div>
         <li wire:loading>
-            <span class="loading loading-dots loading-xs">loading</span>
+            <span class="loading loading-xs"></span>
         </li>
     </ul>
 
     <div>
         @if ($tabkelas == 'materi')
             <div class="space-y-4">
-                <div class="flex justify-between items-end">
-                    <h2 class="text-xl font-bold">Materi belajar</h2>
+                <div class="flex justify-between items-center">
+                    <h2 class="card-title">Materi belajar</h2>
+                    <a href="{{ route('material.create', ['group_id' => $group->id]) }}" class="btn btn-primary"
+                        wire:navigate>
+                        <x-tabler-plus class="size-5" />
+                        <span>Tambah material</span>
+                    </a>
                 </div>
                 <div class="grid md:grid-cols-3 gap-2 md:gap-6">
                     @forelse ($group->materials as $material)

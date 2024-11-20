@@ -6,6 +6,7 @@ use App\Models\Material;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -20,6 +21,8 @@ class Form extends Component
     public $url;
     public $thumbnail;
     public $tags;
+
+    #[Url(keep: true)]
     public $group_id;
 
     protected $listeners = ['reload' => '$refresh'];
@@ -29,6 +32,13 @@ class Form extends Component
         "quizzes",
     ];
     public $active_tab = "keterangan";
+
+    protected function queryString()
+    {
+        return [
+            'group_id'
+        ];
+    }
 
     public function simpan()
     {
