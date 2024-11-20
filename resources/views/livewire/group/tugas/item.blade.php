@@ -4,7 +4,7 @@
             @if ($tugas->attachment)
                 <div class="avatar">
                     <div class="w-12 rounded-box bg-base-100">
-                        <img src="https://robohash.org/iqbal" alt="">
+                        <img src="{{ $tugas->image ?? '' }}" alt="">
                     </div>
                 </div>
             @endif

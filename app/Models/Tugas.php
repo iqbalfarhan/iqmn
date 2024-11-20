@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Tugas extends Model
 {
@@ -28,5 +29,10 @@ class Tugas extends Model
     protected function jawabans()
     {
         return $this->hasMany(Jawaban::class);
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return $this->photo ? Storage::url($this->attachment) : "https://dummyjson.com/icon/{$this->id}/100";
     }
 }
