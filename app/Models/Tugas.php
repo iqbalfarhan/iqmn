@@ -33,6 +33,6 @@ class Tugas extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->photo ? Storage::url($this->attachment) : "https://dummyjson.com/icon/{$this->id}/100";
+        return $this->attachment ? Storage::url($this->attachment) : "https://dummyjson.com/icon/{$this->id}/100";
     }
 }
