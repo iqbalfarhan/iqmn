@@ -87,11 +87,13 @@
                         <h2 class="card-title">Materi belajar</h2>
                     </div>
                     <div class="navbar-end">
-                        <a href="{{ route('material.create', ['group_id' => $group->id]) }}" class="btn btn-primary"
-                            wire:navigate>
-                            <x-tabler-plus class="size-5" />
-                            <span>Tambah material</span>
-                        </a>
+                        @can('material.create')
+                            <a href="{{ route('material.create', ['group_id' => $group->id]) }}" class="btn btn-primary"
+                                wire:navigate>
+                                <x-tabler-plus class="size-5" />
+                                <span>Tambah material</span>
+                            </a>
+                        @endcan
                     </div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-2 md:gap-6">
@@ -113,11 +115,13 @@
                         <h2 class="card-title">Tugas kelas</h2>
                     </div>
                     <div class="navbar-end">
-                        <button class="btn btn-primary"
-                            wire:click="dispatch('createTugas', {group_id : {{ $group->id }}})">
-                            <x-tabler-plus class="size-5" />
-                            <span>Tambah tugas</span>
-                        </button>
+                        @can('tugas.create')
+                            <button class="btn btn-primary"
+                                wire:click="dispatch('createTugas', {group_id : {{ $group->id }}})">
+                                <x-tabler-plus class="size-5" />
+                                <span>Tambah tugas</span>
+                            </button>
+                        @endcan
                     </div>
                 </div>
                 @livewire('group.tugas.index', ['group' => $group])
