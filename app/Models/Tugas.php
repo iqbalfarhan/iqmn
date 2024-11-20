@@ -14,6 +14,11 @@ class Tugas extends Model
         'title',
         'body',
         'attachment',
+        'duedate'
+    ];
+
+    protected $casts = [
+        'duedate' => 'datetime'
     ];
 
     protected function group(){
