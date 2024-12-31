@@ -18,6 +18,8 @@ class Group extends Model
         'code',
     ];
 
+    public $appends = ['image_url'];
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');

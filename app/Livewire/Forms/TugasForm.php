@@ -24,7 +24,7 @@ class TugasForm extends Form
         $this->title = $tugas->title;
         $this->body = $tugas->body;
         $this->attachment = $tugas->attachment;
-        $this->duedate = $tugas->duedate;
+        $this->duedate = $tugas->duedate->format('Y-m-d');
     }
 
     public function store()

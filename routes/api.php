@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ImsakiyahController;
+use App\Http\Controllers\API\KelasController;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +19,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', [AuthController::class, 'me']);
+
+    Route::prefix('/kelas')->group(function(){
+        Route::get('/', [KelasController::class, 'index']);
+        Route::get('/{group}', [KelasController::class, 'show']);
+        Route::get('/{group}/materials', [KelasController::class, 'materials']);
+    });
 });
+
+Route::post(uri: '/login', action: [AuthController::class, 'login']);
+Route::post(uri: '/register', action: [AuthController::class, 'register']);
 
 Route::get("post", function(){
     return Post::with('user')->where('show', true)->get();
@@ -27,6 +39,3 @@ Route::get("post", function(){
 Route::get("post/{slug}", function($slug) {
     return Post::with('user')->where('slug', $slug)->first();
 });
-
-Route::get("imsakiyah", [ImsakiyahController::class, "index"]);
-Route::get("imsakiyah/{imsakiyah}", [ImsakiyahController::class, "show"]);

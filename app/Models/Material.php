@@ -20,6 +20,8 @@ class Material extends Model
         'group_id'
     ];
 
+    public $appends = ['image_url'];
+
     protected $casts = [
         'tags' => 'array',
     ];

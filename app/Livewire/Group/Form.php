@@ -23,6 +23,8 @@ class Form extends Component
             $this->form->logo = $this->photo->store('group');
         }
 
+        $this->form->user_id = auth()->id();
+
         if (isset($this->form->group)) {
             $this->form->update();
         }

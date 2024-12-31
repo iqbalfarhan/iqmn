@@ -4,6 +4,7 @@ namespace App\Livewire\Group\Tugas;
 
 use App\Livewire\Forms\TugasForm;
 use App\Models\Group;
+use App\Models\Tugas;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -26,13 +27,27 @@ class Actions extends Component
         $this->show = true;
     }
 
+    #[On('editTugas')]
+    public function editTugas(Tugas $tugas)
+    {
+        $this->form->setTugas($tugas);
+        $this->show = true;
+    }
+
+    #[On('deleteTugas')]
+    public function deleteTugas(Tugas $tugas)
+    {
+        $tugas->delete();
+        $this->dispatch('reload');
+    }
+
     public function simpan()
     {
         if ($this->photo) {
             $this->form->attachment = $this->photo->store('tugas');
         }
 
-        if (isset($this->form->group)) {
+        if (isset($this->form->tugas)) {
             $this->form->update();
         }
         else{

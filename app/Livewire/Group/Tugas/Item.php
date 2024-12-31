@@ -8,6 +8,7 @@ use Livewire\Component;
 class Item extends Component
 {
     public Tugas $tugas;
+    protected $listeners = ['reload' => '$refresh'];
 
     public function mount(Tugas $tugas)
     {

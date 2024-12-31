@@ -31,7 +31,7 @@ class Tugas extends Model
         return $this->hasMany(Jawaban::class);
     }
 
-    public function getImageUrlAttribute()
+    public function getImageAttribute()
     {
         return $this->attachment ? Storage::url($this->attachment) : "https://dummyjson.com/icon/{$this->id}/100";
     }

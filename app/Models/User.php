@@ -33,6 +33,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public $appends = ['image_url'];
+
     public function getImageUrlAttribute()
     {
         if ($this->github_id) {

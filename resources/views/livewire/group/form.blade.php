@@ -11,7 +11,11 @@
                     <div class="flex justify-center items-center">
                         <label class="avatar">
                             <div class="w-full rounded-box !aspect-video">
-                                <img src="{{ $photo ? $photo->temporaryUrl() : url('nouser.png') }}" alt="">
+                                @if ($photo)
+                                    <img src="{{ $photo->temporaryUrl() }}" alt="">
+                                @else
+                                    <img src="{{ $form->group?->image_url ?? url('nouser.png') }}" alt="">
+                                @endif
                             </div>
                             <input type="file" class="hidden" wire:model.live="photo" id="pickPhoto" />
                         </label>

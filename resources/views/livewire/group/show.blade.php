@@ -155,6 +155,11 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
+                    pengajar
+
+                    @json($group->user)
+                </div>
+                <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
                     @forelse ($group->users as $user)
                         <div @class(['avatar', 'online' => $user->id == $group->user_id])>
                             <div class="w-full rounded-full bg-base-300">
