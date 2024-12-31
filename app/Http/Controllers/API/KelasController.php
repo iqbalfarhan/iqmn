@@ -22,7 +22,7 @@ class KelasController extends Controller
         return response()->json([
             "code" => 200,
             'message' => 'Successfully get kelas data',
-            'data' => $group->with('materials', 'users')->first(),
+            'data' => Group::with('materials', 'users')->find($group->id),
         ]);
     }
 
