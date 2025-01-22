@@ -20,6 +20,8 @@ class KelasResource extends JsonResource
             'image' => $this->image_url,
             'desc' => $this->desc,
             'code' => $this->code,
+            'material' => MaterialResource::collection($this->materials),
+            'members' => UserResource::collection($this->users),
         ];
     }
 }

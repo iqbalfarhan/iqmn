@@ -19,18 +19,12 @@ class KelasController extends Controller
     }
 
     public function show(Group $group) {
-        return response()->json([
-            "code" => 200,
-            'message' => 'Successfully get kelas data',
-            'data' => Group::with('materials', 'users')->find($group->id),
-        ]);
+        $data = Group::with('materials', 'users')->find($group->id);
+        return response()->json(new KelasResource($data));
     }
 
     public function materials(Group $group){
-        return response()->json([
-            "code" => 200,
-            'message' => 'Successfully get materi data',
-            'data' => MaterialResource::collection($group->materials),
-        ]);
+        $data = MaterialResource::collection($group->materials);
+        return response()->json(MaterialResource::collection($data));
     }
 }

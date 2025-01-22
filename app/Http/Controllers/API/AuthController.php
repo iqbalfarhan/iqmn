@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,7 @@ class AuthController extends Controller
 
             return response()->json([
                 'token' => $token,
-                'user' => $user,
+                'user' => new UserResource($user),
             ], 200);
         }
 
@@ -53,11 +54,7 @@ class AuthController extends Controller
     }
 
     public function me(Request $request) {
-        $data = User::with('groups')->find($request->user()->id);
-        return response()->json([
-            "code" => 200,
-            "message" => "Successfully get user data",
-            "data" => $data,
-        ]);
+        $data = $request->user();
+        return response()->json(new UserResource($data));
     }
 }
