@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/user', [AuthController::class, 'me']);
+    Route::delete('/logout', [AuthController::class, 'logout']);
 
     Route::prefix('/kelas')->group(function(){
         Route::get('/', [KelasController::class, 'index']);
