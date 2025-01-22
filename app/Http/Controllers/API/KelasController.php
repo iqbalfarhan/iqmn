@@ -11,11 +11,8 @@ use Illuminate\Http\Request;
 class KelasController extends Controller
 {
     public function index(Request $request) {
-        return response()->json([
-            "code" => 200,
-            'message' => 'Successfully get kelas data',
-            'data' => KelasResource::collection($request->user()->groups()->get()),
-        ]);
+        $data = $request->user()->groups()->get();
+        return response()->json(KelasResource::collection($data));
     }
 
     public function show(Group $group) {
@@ -24,7 +21,7 @@ class KelasController extends Controller
     }
 
     public function materials(Group $group){
-        $data = MaterialResource::collection($group->materials);
+        $data = $group->materials;
         return response()->json(MaterialResource::collection($data));
     }
 }
