@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\ImsakiyahController;
 use App\Http\Controllers\API\KelasController;
+use App\Http\Controllers\API\MaterialController;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/user', [AuthController::class, 'me']);
     Route::delete('/logout', [AuthController::class, 'logout']);
+
+    Route::prefix('/material')->group(function(){
+        Route::get('/', [MaterialController::class, 'index']);
+        Route::get('/{material}', [MaterialController::class, 'show']);
+    });
 
     Route::prefix('/kelas')->group(function(){
         Route::get('/', [KelasController::class, 'index']);
