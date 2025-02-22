@@ -40,7 +40,7 @@
             @foreach ($users as $id => $name)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $name }} {{ $id }}</td>
+                    <td>{{ $name }}</td>
                     @foreach (['tugas', 'quiz', 'uts', 'uas'] as $label)
                         @php
                             $nilai = $datas->where('label', $label)->where('user_id', $id)->first();

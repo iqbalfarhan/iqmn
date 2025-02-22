@@ -20,9 +20,11 @@ class Index extends Component
     public function render()
     {
         $authorized = Auth::user()->can('nilai.edit');
+        $users = $this->group->users->load('roles')->filter(fn($user) => $user->roles->contains('name', 'pelajar'));
+
         return view('livewire.group.nilai.index', [
             'datas' => $this->group->nilais,
-            'users' => $authorized ? $this->group->users->pluck('name', 'id') : $this->group->users->pluck('name', 'id')->filter(fn($item, $key) => $key == Auth::id()),
+            'users' => $authorized ? $users->pluck('name', 'id') : $users->pluck('name', 'id')->filter(fn($item, $key) => $key == Auth::id()),
         ]);
     }
 }
