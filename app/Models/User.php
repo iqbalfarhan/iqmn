@@ -38,10 +38,10 @@ class User extends Authenticatable
     public function getImageUrlAttribute()
     {
         if ($this->github_id) {
-            return $this->photo ?? "https://dummyjson.com/icon/{$this->id}/100";
+            return $this->photo ?? "https://api.dicebear.com/9.x/dylan/png?seed={$this->id}";
         }
         else{
-            return $this->photo ? Storage::url($this->photo) : "https://dummyjson.com/icon/{$this->id}/100";
+            return $this->photo ? Storage::url($this->photo) : "https://api.dicebear.com/9.x/dylan/png?seed={$this->id}";
         }
     }
 
