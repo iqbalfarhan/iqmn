@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -37,11 +38,16 @@ class User extends Authenticatable
 
     public function getImageUrlAttribute()
     {
-        if ($this->github_id) {
-            return $this->photo ?? "https://api.dicebear.com/9.x/dylan/png?seed={$this->id}";
+        if ($this->photo) {
+            if (Str::startsWith($this->photo, 'http')) {
+                return $this->photo;
+            }
+            else{
+                return Storage::url($this->photo);
+            }
         }
         else{
-            return $this->photo ? Storage::url($this->photo) : "https://api.dicebear.com/9.x/dylan/png?seed={$this->id}";
+            return "https://api.dicebear.com/9.x/dylan/png?seed={$this->id}";
         }
     }
 
