@@ -49,4 +49,9 @@ class Group extends Model
     {
         return $this->hasMany(Tugas::class);
     }
+
+    public function nilais()
+    {
+        return $this->hasMany(Nilai::class);
+    }
 }

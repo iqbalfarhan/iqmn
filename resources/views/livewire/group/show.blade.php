@@ -178,7 +178,7 @@
                         <h2 class="text-xl font-bold">Nilai kelas</h2>
                     </div>
                 </div>
-                @livewire('partial.nocontent')
+                @livewire('group.nilai.index', ['group' => $group])
             </div>
         @endif
     </div>

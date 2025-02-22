@@ -9,7 +9,7 @@ use Livewire\Component;
 class Show extends Component
 {
     public Group $group;
-    public $tabkelas = "materi";
+    public $tabkelas = "nilai";
 
     protected $listeners = ['reload' => '$refresh'];
 
