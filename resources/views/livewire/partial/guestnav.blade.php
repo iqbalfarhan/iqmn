@@ -13,7 +13,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('article.index') }}" wire:navigate class="gap-1">
+<!--                 <a href="{{ route('article.index') }}" wire:navigate class="gap-1"> -->
+                <a href="https://article.iqmn.my.id/" wire:navigate class="gap-1">
                     <x-tabler-book class="size-4" />
                     <span>Artikel</span>
                 </a>
