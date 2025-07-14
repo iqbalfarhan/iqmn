@@ -21,7 +21,7 @@ use Laravel\Socialite\Facades\Socialite;
 Route::middleware('guest')->group(function () {
     Route::get('/', App\Livewire\Pages\Welcome::class)->name('welcome');
     // Route::get('/article', App\Livewire\Article\Index::class)->name('article.index');
-    Route::get('article', function(){
+    Route::get('/bacaan', function(){
         return redirect("https://article.iqmn.my.id/");
     })->name('article.index');
 
